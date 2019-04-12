@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmls:th="http://thymeleaf.org"
+	xmls:layout="http://www.ultraq.net/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Formulário para Consulta de Sala</h1>
+	<form method="post" action="consultarSala">
+		Nome: <input type="text" name="nome"/>
+		Curso: <input type="text" name="curso"/>
+		<input type="submit" value="Consultar"/>
+	</form>
+	
+	<p>
+	Olá <span th:text="${nomeAluno}"></span> sua sala para realização da prova será a <span th:text="${sala}"></span>
+	</p>
+</body>
+</html>
