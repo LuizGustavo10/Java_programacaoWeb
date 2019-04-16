@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmls:th="http://thymeleaf.org"
+	xmls:layout="http://www.ultraq.net/thymeleaf/layout">
+<head>
+<!--Trabalhar com bootstrap  -->
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title>Página de Consulta</title>
+</head>
+<body>
+	<div class="container">
+  		<h1>Página da consulta</h1>
+	<form method="post" action="executarConsulta">
+	
+		<!--    <div class="form-group">
+    	<label for="exampleFormControlSelect1">Escolha o curso</label>
+  		 <select class="form-control" id="curso">
+    	 		<option>Selecione uma opção</option>
+    	 		<option>Técnico em informática</option>
+     	 		<option>técnico em alimentos</option>
+     	 		<option>técnico em agropecuária</option>
+    		</select>
+  		</div>-->
+		
+		nome: <input type="text" name="nome"/><br>
+		<input type="radio" name="curso" value="Técnico em informática"/>técnico em informática<br>
+		<input type="radio" name="curso" value="técnico em alimentos">técnico em alimentos<br>
+		<input type="radio" name="curso" value="técnico em agropecuária">técnico em agropecuária<br>
+		<input type="submit" value="Enviar" class="btn btn-primary"/>
+	
+	</form>
+		<p>
+		</br>
+	Olá <span th:text="${nomeAluno}"></span> sua sala para realização da prova será a <span th:text="${sala}"></span>
+	</p>
+	</div>
+
+	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
