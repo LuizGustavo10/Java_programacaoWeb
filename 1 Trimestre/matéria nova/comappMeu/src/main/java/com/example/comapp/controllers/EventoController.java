@@ -24,7 +24,7 @@ public class EventoController {
 	@RequestMapping(value = "/cadastrarEvento", method = RequestMethod.GET)
 	public String eventos() {	
 		
-		return "evento/formEvento";
+		return "tabela";
 	}
 	
 	
@@ -35,9 +35,9 @@ public class EventoController {
 		return "redirect:/cadastrarEvento";
 	}
 	
-	@RequestMapping(value="/listaEventos")
+	@RequestMapping(value="/listaEventos")//aqui é /listaEventos
 	public ModelAndView listaEventos() {
-		ModelAndView mv = new ModelAndView("evento/listaEventos");
+		ModelAndView mv = new ModelAndView("tabela");
 		List<Evento> eventos = eventoRepository.findAll();
 		mv.addObject("eventos", eventos);
 		return mv;

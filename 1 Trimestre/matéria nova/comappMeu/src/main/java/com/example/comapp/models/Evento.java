@@ -19,6 +19,13 @@ public class Evento implements Serializable{
 		private String cpf;
 		private int numVoo;
 		private String tipoVoo;//nacional ou internacional
+		private int peso;
+		public int getPeso() {
+			return peso;
+		}
+		public void setPeso(int peso) {
+			this.peso = peso;
+		}
 		private int altura;
 		private int largura;
 		private int comprimento;

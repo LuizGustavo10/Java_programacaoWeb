@@ -11,12 +11,12 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
 public class DataConfiguration {
-
+	//sempre criar novo banco
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/evento?useTimezone=true&serverTimezone=America/Sao_Paulo");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/viagens?useTimezone=true&serverTimezone=America/Sao_Paulo");
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
 		return dataSource;

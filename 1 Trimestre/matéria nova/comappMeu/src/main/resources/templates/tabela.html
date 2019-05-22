@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<a href="listaEventos">t</a>
+<h1>Lista de Eventos</h1>
+
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>cpf</th>
+				<th>numVoo</th>
+				<th>peso</th>
+				<th>altura</th>
+				<th>largura</th>
+				<th>comprimento</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="evento : ${eventos}">
+
+				<td><span th:text="${evento.nome}"></span></td>
+				<td><span th:text="${evento.cpf}"></span></td>
+				<td><span th:text="${evento.numVoo}"></span></td>
+				<td><span th:text="${evento.peso}"></span></td>
+				<td><span th:text="${evento.altura}"></span></td>
+				<td><span th:text="${evento.largura}"></span></td>
+				<td><span th:text="${evento.comprimento}"></span></td>
+				
+				
+
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
