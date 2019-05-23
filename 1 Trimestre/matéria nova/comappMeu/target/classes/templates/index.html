@@ -10,14 +10,30 @@
 		Nome:   </br> <input type="text" name="nome"> </br>
 		CPF:    </br> <input type="text" name="cpf"> </br>
 		número do Vôo: </br> <input type="text" name="numVoo"> </br>
-
-		peso:   </br> <input type="text" name="peso"> </br>
 		</br>MALA: </br>
-		altura:   </br> <input type="number" name="altura"> </br>
-		largura:   </br> <input type="number" name="largura"> </br>
-		comprimento:   </br> <input type="number" name="comprimento"> </br>
+		peso:   </br> <input type="text" name="peso" step="0.010" id="decimal"> </br>
+		altura:   </br> <input type="number" name="altura" step="0.010" id="decimal"> </br>
+		largura:   </br> <input type="number" name="largura" step="0.010" id="decimal"> </br>
+		comprimento:   </br> <input type="number" name="comprimento" step="0.010" id="decimal"> </br>
 		</br>
-		<button type="submit">Enviar</button>
+		<button type="submit" onclick="verificarMala()">Enviar</button>
 	</form>
+	
+	
+	<script>
+	    document.getElementById("decimal").addEventListener("change", function(){
+	        this.value = parseFloat(this.value).toFixed(2);
+	      });
+		function verificarMala(){
+			alert("ok");//arrumar tudo isso
+			document.getElementByName(peso) = peso;
+			if(peso > 10){
+				alert("Errado");
+			}
+			
+		}
+		
+		
+	</script>
 </body>
 </html>

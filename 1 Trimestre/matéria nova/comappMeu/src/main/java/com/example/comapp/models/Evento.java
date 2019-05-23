@@ -19,17 +19,10 @@ public class Evento implements Serializable{
 		private String cpf;
 		private int numVoo;
 		private String tipoVoo;//nacional ou internacional
-		private int peso;
-		public int getPeso() {
-			return peso;
-		}
-		public void setPeso(int peso) {
-			this.peso = peso;
-		}
-		private int altura;
-		private int largura;
-		private int comprimento;
-		
+		private double peso;
+		private double altura;
+		private double largura;
+		private double comprimento;
 		public Long getId() {
 			return id;
 		}
@@ -60,25 +53,33 @@ public class Evento implements Serializable{
 		public void setTipoVoo(String tipoVoo) {
 			this.tipoVoo = tipoVoo;
 		}
-		public int getAltura() {
+		public double getPeso() {
+			return peso;
+		}
+		public void setPeso(double peso) {
+			this.peso = peso;
+		}
+		public double getAltura() {
 			return altura;
 		}
-		public void setAltura(int altura) {
+		public void setAltura(double altura) {
 			this.altura = altura;
 		}
-		public int getLargura() {
+		public double getLargura() {
 			return largura;
 		}
-		public void setLargura(int largura) {
+		public void setLargura(double largura) {
 			this.largura = largura;
 		}
-		public int getComprimento() {
+		public double getComprimento() {
 			return comprimento;
 		}
-		public void setComprimento(int comprimento) {
+		public void setComprimento(double comprimento) {
 			this.comprimento = comprimento;
 		}
 		public static long getSerialversionuid() {
 			return serialVersionUID;
 		}
+		
+		
 }

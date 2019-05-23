@@ -26,6 +26,15 @@ public class EventoController {
 		
 		return "tabela";
 	}
+//	@RequestMapping(value = "/verificarMala", method = RequestMethod.POST)
+//	public ModelAndView somar() {
+//		ModelAndView mv = new ModelAndView("tabela");
+//		
+//		String situacaoRetorno = "Aprovado";
+//	
+//		mv.addObject("situacao", situacaoRetorno);
+//		return mv;
+//	}
 	
 	
 	@RequestMapping(value = "/cadastrarEvento", method = RequestMethod.POST)
