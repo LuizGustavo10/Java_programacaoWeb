@@ -10,6 +10,10 @@
 		Nome:   </br> <input type="text" name="nome"> </br>
 		CPF:    </br> <input type="text" name="cpf"> </br>
 		número do Vôo: </br> <input type="text" name="numVoo"> </br>
+		tipo Voo: </br></br>
+		 <input type="radio" name="tipoVoo" value="nacional"> Nacional
+		 <input type="radio" name="tipoVoo" value="internacional"> Internacional</br>
+		
 		</br>MALA: </br>
 		peso:   </br> <input type="text" name="peso" step="0.010" id="decimal"> </br>
 		altura:   </br> <input type="number" name="altura" step="0.010" id="decimal"> </br>
@@ -25,10 +29,26 @@
 	        this.value = parseFloat(this.value).toFixed(2);
 	      });
 		function verificarMala(){
-			alert("ok");//arrumar tudo isso
-			document.getElementByName(peso) = peso;
-			if(peso > 10){
-				alert("Errado");
+			//alert("ok");//arrumar tudo isso
+			var peso = document.getElementsByName("peso");
+			peso = peso[0].value;
+			
+			var altura = document.getElementsByName("altura");
+			altura = altura[0].value;
+			
+			var largura = document.getElementsByName("largura");
+			largura = largura[0].value;
+			
+			var comprimento = document.getElementsByName("comprimento");
+			comprimento = comprimento[0].value;
+			
+	
+			
+			
+			if(peso > 10 || altura > 55 || largura > 35 || comprimento > 25){
+				
+				alert("Mala terá que ser despachada! \n voos domésticos: USD R$35 / R$140 \n voos internacionais: USD 70 / R$ 280");
+						
 			}
 			
 		}
