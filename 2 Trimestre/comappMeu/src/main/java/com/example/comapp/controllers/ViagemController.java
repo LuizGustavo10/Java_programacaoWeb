@@ -1,12 +1,15 @@
 package com.example.comapp.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -52,7 +55,7 @@ public class ViagemController {
 		
 	
 	
-	@RequestMapping(value="/listaClientes")//aqui é /listaClientes
+	@GetMapping("/listaClientes")//aqui é /listaClientes
 	public ModelAndView listaClientes() {
 		ModelAndView mv = new ModelAndView("tabela");
 		List<Cliente> clientes = ClienteRepository.findAll();
@@ -60,14 +63,30 @@ public class ViagemController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/detalhesCliente/{codigo}", method=RequestMethod.GET)
-	public ModelAndView detalhesCliente(@PathVariable("codigo") Long id) {
-		Optional<Cliente> Cliente = ClienteRepository.findById(id);
-		ModelAndView mv = new ModelAndView("Cliente/detalhesCliente");
-		Cliente e=Cliente.get();
-		mv.addObject("Cliente", e);
-		return mv;
-	}
+	
+//	@GetMapping("editarCliente/{id}")
+//	public ModelAndView edit(@PathVariable("id") Long id) {
+//		
+//		Optional<Cliente> cliente = ClienteRepository.findById(id);
+//		Cliente e = cliente.get();
+//		
+//		return add(e);
+//	}
+//
+//	GetMa
+
+	
+	
+	
+	
+//	@RequestMapping(value="/detalhesCliente/{codigo}", method=RequestMethod.GET)
+//	public ModelAndView detalhesCliente(@PathVariable("codigo") Long id) {
+//		Optional<Cliente> Cliente = ClienteRepository.findById(id);
+//		ModelAndView mv = new ModelAndView("Cliente/detalhesCliente");
+//		Cliente e=Cliente.get();
+//		mv.addObject("Cliente", e);
+//		return mv;
+//	}
 	
 
 }
