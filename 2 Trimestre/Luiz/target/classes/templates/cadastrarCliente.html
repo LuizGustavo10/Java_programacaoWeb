@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmls:th="http://thymeleaf.org" xmls:layout="http://www.ultraq.net/thymeleaf/layout">
+<head>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>Cadastro de clientes</title>
+</head>
+<body>
+
+<form th:object="${cliente}" th:action="@{/salvarCliente}" method="POST">
+
+
+	nome: <input type="text" name="nome" th:field="*{nome}">
+	rg:  <input type="text"  name="rg" th:field="*{rg}">
+	cpf: <input type="text"  name="cpf"  th:field="*{cpf}">
+
+	<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+</form>
+
+</body>
+</html>
