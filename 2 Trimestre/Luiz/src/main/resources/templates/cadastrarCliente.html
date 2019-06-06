@@ -11,11 +11,12 @@
 
 <form th:object="${cliente}" th:action="@{/salvarCliente}" method="POST">
 
-
-	nome: <input type="text" name="nome" th:field="*{nome}">
-	rg:  <input type="text"  name="rg" th:field="*{rg}">
-	cpf: <input type="text"  name="cpf"  th:field="*{cpf}">
-
+	<h1>Cadastrar Cliente</h1>
+	</br>id: <input type="text" id="id" th:field="*{id}" readOnly="readonly"/></br>
+	<br/>nome: <input type="text" name="nome" th:field="*{nome}"><br/>
+	<br/>rg:  <input type="text"  name="rg" th:field="*{rg}"><br/>
+	<br/>cpf: <input type="text"  name="cpf"  th:field="*{cpf}"><br/>
+	<br/>
 	<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
 </form>
 

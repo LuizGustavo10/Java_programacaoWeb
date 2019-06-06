@@ -24,7 +24,7 @@ public class ClienteController {
 		@GetMapping("/cliente")
 		public ModelAndView findAll() {
 			
-			ModelAndView mv = new ModelAndView("/cadastrarCliente");
+			ModelAndView mv = new ModelAndView("/clienteTabela");
 			mv.addObject("clientes", repository.findAll());
 			
 			return mv;
@@ -63,5 +63,5 @@ public class ClienteController {
 			repository.save(cliente);
 			
 			return findAll();
-	}
+		}
 	}

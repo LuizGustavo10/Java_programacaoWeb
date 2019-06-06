@@ -1,4 +1,4 @@
-<!--  <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmls:th="http://thymeleaf.org" 
 xmls:layout="http://www.ultraq.net/thymeleaf/layout">
 <head>
@@ -16,26 +16,23 @@ xmls:layout="http://www.ultraq.net/thymeleaf/layout">
 					<thead>
 						<tr>
 						
-							<th>Tema da palestra</th>
-							<th>Palestrante</th>		
-							<th>Local</th>
-							<th>Hora</th>
-							<th>Data</th>					
+							<th>nome: </th>
+							<th>rg: </th>		
+							<th>cpf: </th>				
 							
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="palestra : ${palestras}">
+						<tr th:each="cliente : ${clientes}">
 							
-							<td th:text="${palestra.nome}"></td>
-							<td th:text="${palestra.palestrante}"></td>
-							<td th:text="${palestra.local}"></td>
-							<td th:text="${palestra.hora}"></td>	
-							<td th:text="${palestra.data}"></td>						
+							<td th:text="${cliente.nome}"></td>
+							<td th:text="${cliente.rg}"></td>
+							<td th:text="${cliente.cpf}"></td>
+											
 							<td>
 								<div class="btn-group pull-right">
-							   		<a class="btn btn-sm btn-primary" th:href="@{/editarPalestra/{id}(id=${palestra.id})}" >Editar</a>
-							   		<a class="delete btn btn-sm btn-danger" th:href="@{/removerPalestra/{id}(id=${palestra.id})}">Excluir</a>
+							   		<a class="btn btn-sm btn-primary" th:href="@{/editarCliente/{id}(id=${cliente.id})}" >Editar</a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/removerCliente/{id}(id=${cliente.id})}">Excluir</a>
 							   </div>
 							</td>
 						</tr>
@@ -44,7 +41,7 @@ xmls:layout="http://www.ultraq.net/thymeleaf/layout">
 			</div>
 		</div>
 		<div class="panel-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/addPalestra}" >Adicionar</a>
+			<a class="btn btn-sm btn-success" th:href="@{/addCliente}" >Adicionar</a>
 		</div>
 	</div>
 </body>

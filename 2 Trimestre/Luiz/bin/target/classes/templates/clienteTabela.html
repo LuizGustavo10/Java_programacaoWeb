@@ -1,0 +1,51 @@
+<!--  <!DOCTYPE html>
+<html xmls:th="http://thymeleaf.org" 
+xmls:layout="http://www.ultraq.net/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Palestras</strong>
+		</div>
+		<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-sm table-striped table-hover table-bordered">
+					<thead>
+						<tr>
+						
+							<th>Tema da palestra</th>
+							<th>Palestrante</th>		
+							<th>Local</th>
+							<th>Hora</th>
+							<th>Data</th>					
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="palestra : ${palestras}">
+							
+							<td th:text="${palestra.nome}"></td>
+							<td th:text="${palestra.palestrante}"></td>
+							<td th:text="${palestra.local}"></td>
+							<td th:text="${palestra.hora}"></td>	
+							<td th:text="${palestra.data}"></td>						
+							<td>
+								<div class="btn-group pull-right">
+							   		<a class="btn btn-sm btn-primary" th:href="@{/editarPalestra/{id}(id=${palestra.id})}" >Editar</a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/removerPalestra/{id}(id=${palestra.id})}">Excluir</a>
+							   </div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<a class="btn btn-sm btn-success" th:href="@{/addPalestra}" >Adicionar</a>
+		</div>
+	</div>
+</body>
+</html>-->
