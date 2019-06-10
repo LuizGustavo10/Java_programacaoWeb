@@ -1,3 +1,4 @@
+
 package com.cliente.Luiz.controllers;
 
 import java.util.Optional;
@@ -58,9 +59,11 @@ public class ClienteController {
 		}
 		
 		@PostMapping("/salvarCliente")
-		public ModelAndView save(@Valid Cliente cliente, BindingResult resultado) {
-			
-			repository.save(cliente);
+		public ModelAndView save(@Valid Cliente cliente, BindingResult result) {
+			if (result.hasErrors()) {
+				return add(cliente);
+			}
+			repository.saveAndFlush(cliente);
 			
 			return findAll();
 		}

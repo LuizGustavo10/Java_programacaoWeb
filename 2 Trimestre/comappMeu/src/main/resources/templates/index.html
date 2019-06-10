@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Formulário</title>
+
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	
+
+
+</head>
+
+
+<body>
+
+<div class="container-contact100" >
+		<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+
+		<div class="wrap-contact100">
+			<div class="contact100-form-title" style="background-image: url(images/bg-01.jpg);">
+				<span class="contact100-form-title-1">
+					Cadastre-se
+				</span>
+
+				<span class="contact100-form-title-2">
+					Preencha com seu dados
+				</span>
+			</div>
+			<div class="fluid" align="center">
+			  <form th:object="${cliente}" th:action="@{/salvarCliente}" method="POST" style="background-color: #e2e2e2">
+					id:   </br> <input type="text" th:field="*{id}" readOnly="readonly"> </br>
+					Nome:   </br> <input type="text" name="nome"  placeholder="Insira o Nome"> </br>
+					CPF:    </br> <input type="text" name="cpf" placeholder="Insira o Cpf"> </br>
+					número do Vôo: </br> <input type="text" name="numVoo" placeholder="Insira o número do voo"> </br>
+					tipo Voo: </br></br>
+					 <input type="radio" name="tipoVoo" value="nacional"> Nacional
+					 <input type="radio" name="tipoVoo" value="internacional"> Internacional</br>
+					
+					</br>MALA: </br>
+					peso:   </br> <input type="number" name="peso" step="0.010" id="decimal" placeholder="Insira o Peso da mala"> </br>
+					altura:   </br> <input type="number" name="altura" step="0.010" id="decimal" placeholder="Insira o Altura da mala"> </br>
+					largura:   </br> <input type="number" name="largura" step="0.010" id="decimal" placeholder="Insira o Largura da mala"> </br>
+					comprimento:   </br> <input type="number" name="comprimento" step="0.010" id="decimal" placeholder="Insira o Comprimento da mala"> </br>
+					</br>
+					<button type="submit" onclick="verificarMala()"class="btn btn-primary">Enviar</button>
+					<br><br>
+					</form>
+					
+					
+					
+					</div>
+				</div>
+			</div>
+			
+			
+		
+		
+		
+		<script>
+		    document.getElementById("decimal").addEventListener("change", function(){
+		        this.value = parseFloat(this.value).toFixed(2);
+		      });
+			function verificarMala(){
+				//alert("ok");//arrumar tudo isso
+				var peso = document.getElementsByName("peso");
+				peso = peso[0].value;
+				
+				var altura = document.getElementsByName("altura");
+				altura = altura[0].value;
+				
+				var largura = document.getElementsByName("largura");
+				largura = largura[0].value;
+				
+				var comprimento = document.getElementsByName("comprimento");
+				comprimento = comprimento[0].value;
+				
+		
+				
+				
+				if(peso > 10 || altura > 55 || largura > 35 || comprimento > 25){
+					
+					alert("Mala terá que ser despachada! \n voos domésticos: USD R$35 / R$140 \n voos internacionais: USD 70 / R$ 280");
+							
+				}
+				
+			}
+			
+			
+		</script>
+	
+	
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="js/map-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	
+	</body>
+
+	
+</body>
+</html>

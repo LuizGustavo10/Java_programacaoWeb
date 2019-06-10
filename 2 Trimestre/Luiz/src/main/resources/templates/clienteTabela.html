@@ -3,46 +3,41 @@
 xmls:layout="http://www.ultraq.net/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <title></title>
 </head>
 <body>
-<div class="panel panel-default">
-		<div class="panel-heading">
-			<strong>Palestras</strong>
-		</div>
-		<div class="panel-body">
-			<div class="table-responsive">
-				<table class="table table-sm table-striped table-hover table-bordered">
-					<thead>
-						<tr>
-						
-							<th>nome: </th>
-							<th>rg: </th>		
-							<th>cpf: </th>				
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	 		<th scope="col">nome: </th>
+			<th scope="col">rg: </th>		
+			<th scope="col">cpf: </th>		
+	    </tr>
+	  </thead>
+	  <tbody>
+		<tr th:each="cliente : ${clientes}">
 							
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="cliente : ${clientes}">
-							
-							<td th:text="${cliente.nome}"></td>
-							<td th:text="${cliente.rg}"></td>
-							<td th:text="${cliente.cpf}"></td>
-											
-							<td>
-								<div class="btn-group pull-right">
-							   		<a class="btn btn-sm btn-primary" th:href="@{/editarCliente/{id}(id=${cliente.id})}" >Editar</a>
-							   		<a class="delete btn btn-sm btn-danger" th:href="@{/removerCliente/{id}(id=${cliente.id})}">Excluir</a>
-							   </div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
+				<td th:text="${cliente.nome}"></td>
+				<td th:text="${cliente.rg}"></td>
+				<td th:text="${cliente.cpf}"></td>
+												
+				<td>
+					<div class="btn-group pull-right">
+						<a class="btn btn-sm btn-primary" th:href="@{/editarCliente/{id}(id=${cliente.id})}" >Editar</a>
+						<a class="delete btn btn-sm btn-danger" th:href="@{/removerCliente/{id}(id=${cliente.id})}">Excluir</a>
+					  </div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
 		<div class="panel-footer">
 			<a class="btn btn-sm btn-success" th:href="@{/addCliente}" >Adicionar</a>
 		</div>
 	</div>
 </body>
-</html>-->
+</html>

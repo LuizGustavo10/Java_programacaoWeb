@@ -25,32 +25,71 @@ public class ViagemController {
 	@Autowired
 	private ClienteRepository ClienteRepository;
 
-	@RequestMapping(value = "/cadastrarCliente", method = RequestMethod.GET)
-	public String Clientes() {	
-		
-		return "tabela";
+	@GetMapping("/clientes")
+	public ModelAndView findAll() {
+		ModelAndView mv = new ModelAndView("tabela");
+		mv.addObject("clientes", ClienteRepository.findAll());
+		return mv;
 	}
 
 
-	@RequestMapping(value = "/cadastrarCliente", method = RequestMethod.POST)
-	public String form(Cliente cli) {
+//	@RequestMapping(value = "/cadastrarCliente", method = RequestMethod.POST)
+//	public String form(Cliente cli) {
+//		if(cli.getPeso() > 10 || cli.getAltura() > 55 || cli.getLargura() > 35 || cli.getComprimento() > 25){
+//			String tipo = cli.getTipoVoo();
+////			alert("Mala terá que ser despachada! \n voos domésticos: USD R$35 / R$140 \n voos internacionais: USD 70 / R$ 280");
+//			if (tipo.equals("nacional")) {
+//				cli.setValorAdicional("R$35 / R$ 140");
+//			}else {
+//				cli.setValorAdicional("R$70 / R$ 280");
+//			}
+//			System.out.println("blz");
+//					
+//		}
+//		
+//		ClienteRepository.save(cli);
+//		
+//		return "redirect:/listaClientes";
+//		
+//	}
+	@GetMapping("/cadastrarCliente")
+	public ModelAndView cadastrarCliente(Cliente cliente) {
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("cliente", cliente);
+		return mv;
+	}
+	@GetMapping("/editarCliente/{id}")
+	public ModelAndView editar(@PathVariable("id") Long id) {
+		Optional<Cliente> cliente = ClienteRepository.findById(id);
+		Cliente e = cliente.get();
+		return cadastrarCliente(e);
+	}
+	@GetMapping("/removerCliente/{id}")
+	public ModelAndView delete(@PathVariable("id")Long id) {
+		Optional<Cliente> cliente = ClienteRepository.findById(id);
+		Cliente e = cliente.get();
+		ClienteRepository.delete(e);
+		return findAll();
+	}
+	
+	
+	@PostMapping("/salvarCliente")
+	public ModelAndView salvarCliente(@Valid Cliente cli, BindingResult result) { //BindingResult result, colocar para verificar erro
+		
 		if(cli.getPeso() > 10 || cli.getAltura() > 55 || cli.getLargura() > 35 || cli.getComprimento() > 25){
-			String tipo = cli.getTipoVoo();
-//			alert("Mala terá que ser despachada! \n voos domésticos: USD R$35 / R$140 \n voos internacionais: USD 70 / R$ 280");
-			if (tipo.equals("nacional")) {
-				cli.setValorAdicional("R$35 / R$ 140");
-			}else {
-				cli.setValorAdicional("R$70 / R$ 280");
-			}
-			System.out.println("blz");
-					
+		String tipo = cli.getTipoVoo();
+//		alert("Mala terá que ser despachada! \n voos domésticos: USD R$35 / R$140 \n voos internacionais: USD 70 / R$ 280");
+		if (tipo.equals("nacional")) {
+			cli.setValorAdicional("R$35 / R$ 140");
+		}else {
+			cli.setValorAdicional("R$70 / R$ 280");
 		}
+		}
+
+		ClienteRepository.saveAndFlush(cli);
+		return findAll();
 		
-		ClienteRepository.save(cli);
-		
-		return "redirect:/listaClientes";
-		
-	}
+		}
 
 		
 	
@@ -62,31 +101,6 @@ public class ViagemController {
 		mv.addObject("clientes", clientes);
 		return mv;
 	}
-	
-	
-//	@GetMapping("editarCliente/{id}")
-//	public ModelAndView edit(@PathVariable("id") Long id) {
-//		
-//		Optional<Cliente> cliente = ClienteRepository.findById(id);
-//		Cliente e = cliente.get();
-//		
-//		return add(e);
-//	}
-//
-//	GetMa
-
-	
-	
-	
-	
-//	@RequestMapping(value="/detalhesCliente/{codigo}", method=RequestMethod.GET)
-//	public ModelAndView detalhesCliente(@PathVariable("codigo") Long id) {
-//		Optional<Cliente> Cliente = ClienteRepository.findById(id);
-//		ModelAndView mv = new ModelAndView("Cliente/detalhesCliente");
-//		Cliente e=Cliente.get();
-//		mv.addObject("Cliente", e);
-//		return mv;
-//	}
 	
 
 }

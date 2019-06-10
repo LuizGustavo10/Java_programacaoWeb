@@ -6,19 +6,105 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
 <title>Cadastro de clientes</title>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
 
-<form th:object="${cliente}" th:action="@{/salvarCliente}" method="POST">
+<div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+				<form th:object="${cliente}" th:action="@{/salvarCliente}" method="POST" class="contact3-form validate-form">
+				
+					<span class="contact3-form-title">
+						CADASTRAR CLIENTE
+						<div align="center">
+							<img src="https://i1.wp.com/servicos.compesa.com.br/wp-content/uploads/2017/08/04-novo-cliente.png?fit=284%2C284&ssl=1" width="150" height="150">
+						</div>
+					</span>
 
-	<h1>Cadastrar Cliente</h1>
-	</br>id: <input type="text" id="id" th:field="*{id}" readOnly="readonly"/></br>
-	<br/>nome: <input type="text" name="nome" th:field="*{nome}"><br/>
-	<br/>rg:  <input type="text"  name="rg" th:field="*{rg}"><br/>
-	<br/>cpf: <input type="text"  name="cpf"  th:field="*{cpf}"><br/>
-	<br/>
-	<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-</form>
+	
+					<form th:object="${cliente}" th:action="@{/salvarCliente}" method="POST">
+						
+						<div align="center">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>
+						</div> 
+					
+						<div class="wrap-input3 validate-input">
+							<input type="text" class="input3" id="id" th:field="*{id}" readOnly="readonly"/>
+							<span class="focus-input3"></span>
+						</div>
+						
+						<div class="wrap-input3 validate-input" data-validate="Nome é preciso" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+							<input type="text" class="input3" th:field="*{nome}" placeholder="Seu nome">
+							<span class="focus-input3"></span>
+						</div>
+						
+						<div class="wrap-input3 validate-input" data-validate="RG é preciso">
+							<input type="text" class="input3"  th:field="*{rg}" placeholder="Seu RG">
+							<span class="focus-input3"></span>
+						</div>
+						
+						<div class="wrap-input3 validate-input" data-validate="RG é preciso">
+							<input type="text" class="input3" th:field="*{cpf}" placeholder="Seu CPF">
+							<span class="focus-input3"></span>
+						</div>
+						
+				
+
+						<div class="container-contact3-form-btn">
+							<button class="contact3-form-btn">
+								Enviar
+							</button>
+						</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
 
 </body>
 </html>

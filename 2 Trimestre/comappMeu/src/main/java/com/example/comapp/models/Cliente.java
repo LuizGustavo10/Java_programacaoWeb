@@ -2,10 +2,12 @@ package com.example.comapp.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 import java.io.Serializable;
 
@@ -13,7 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-@Entity
+@Entity(name = "cliente")
 public class Cliente implements Serializable{
 	
 	
@@ -22,14 +24,32 @@ public class Cliente implements Serializable{
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Long id;
+		
+
 		private String nome;
+		
+		
 		private String cpf;
+		
+		
 		private int numVoo;
+		
+		
 		private String tipoVoo;//nacional ou internacional
+		
+		
 		private double peso;
+		
+		
 		private double altura;
+		
+		
 		private double largura;
+		
+		//@Column(nullable = false, length = 50)
 		private double comprimento;
+		
+	
 		private String valorAdicional;
 		public Long getId() {
 			return id;
