@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Posts</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Lista de Passageiros</strong>
+		</div>
+		<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-sm table-striped table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Numero Passaporte</th>	
+							<th>nome para contato</th>
+							<th>telefone para contato</th>											
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="pas : ${passageiros}">
+							<td th:text="${pas.id}"></td>
+							<td th:text="${pas.nacionalidade}"></td>	
+							<td th:text="${pas.nomeParaContato}"></td>
+							<td th:text="${pas.telefoneParaContato}"></td>
+																		
+							<td>
+								<div class="btn-group pull-right">
+							   		<a class="btn btn-sm btn-primary" th:href="@{/editarPassageiro/{id}(id=${pas.id})}" >Editar</a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/removerPassageiro/{id}(id=${pas.id})}">Excluir</a>
+							   </div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<a class="btn btn-sm btn-success" th:href="@{/adicionarPassageiro/}" >Adicionar</a>
+		</div>
+	</div>
+</body>
+</html>
