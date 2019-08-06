@@ -14,7 +14,22 @@
 			<strong>Lista de Cidades</strong>
 		</div>
 		<div class="panel-body">
+			
+			
+			
 			<div class="table-responsive">
+				<form th:action="@{/buscarReserva}" method="POST" id="buscarPorDestino">
+				<label class="col-md-2 control-label">Pesquisar Destino</label>
+				<div class="col-md-8">
+				<input name="destino" class="form-control input-md" type="text" id="destino">
+				</div>
+				<div class="col-md-2">
+					<button type="submit"
+					class="form-control input-md btn btn-primary" value="Buscar"
+					id="btnBuscar">Buscar</button>
+				</div>
+		
+			</form>
 				<table class="table table-sm table-striped table-hover table-bordered">
 					<thead>
 						<tr>
@@ -39,7 +54,8 @@
 							<td th:text="${res.horaSaida}"></td>
 							<td th:text="${res.empresa}"></td>	
 							<td th:text="${res.valorReserva}"></td>
-							<td th:text="${res.observacao}"></td>	
+							<td th:text="${res.observacao}"></td>
+								
 							<td></td>										
 							<td>
 								<div class="btn-group pull-right">

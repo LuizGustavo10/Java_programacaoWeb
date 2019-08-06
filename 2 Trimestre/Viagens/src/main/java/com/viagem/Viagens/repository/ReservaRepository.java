@@ -11,6 +11,7 @@ public interface ReservaRepository  extends JpaRepository <Reserva, Long>{
 	
 	List<Reserva> findByDestino(String destino);
 	
-	@Query("select e from Reserva e where e.destino like %?1%")
+	@Query("select e from reserva e where e.destino like %?1%")
 	List<Reserva> buscarPorDestino(String destino);
+	
 }

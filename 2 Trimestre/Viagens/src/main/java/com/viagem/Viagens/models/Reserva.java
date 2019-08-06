@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 import com.viagem.Viagens.models.Passageiro;
 
-@Entity
+@Entity(name="reserva")
 public class Reserva {
 	private static final long serialVersionUID = 1L;
 	

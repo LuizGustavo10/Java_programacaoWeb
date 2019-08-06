@@ -41,26 +41,22 @@ public class ReservaController {
 		
 		ModelAndView mv = new ModelAndView("/cadastrarReserva");
 
-
-		
 		mv.addObject("reserva", reserva);
 		
 		List <Passageiro> passageirosLista = passageiroRepository.findAll();
 		mv.addObject("passageiros", passageirosLista);
 		
-
-		
 		return mv;
 	}
 	
-//	@GetMapping("/buscarPorDestino")
-//	public ModelAndView buscarPorNome() {
-//		
-//		ModelAndView mv = new ModelAndView("/listaReserva");
-//		mv.addObject("reservas", repository.findByDestino());
-//		
-//		return mv;
-//	}
+	@PostMapping("/buscarReserva")
+	public ModelAndView buscarPorDestino(String destino) {
+		
+		ModelAndView mv = new ModelAndView("listaReserva");
+		mv.addObject("reservas", repository.findByDestino(destino));
+	
+		return mv;
+	}
 	
 	@GetMapping("/editarReserva/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
