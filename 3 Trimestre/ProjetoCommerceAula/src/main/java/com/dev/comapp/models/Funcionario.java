@@ -28,6 +28,8 @@ public class Funcionario implements Serializable {
 	private String cpf;
 	@ManyToOne
 	private Cidade cidade;
+	@ManyToOne
+	private CupomDesconto cupomDesconto;
 
 	public Long getId() {
 		return id;
@@ -69,6 +71,18 @@ public class Funcionario implements Serializable {
 		this.cidade = cidade;
 	}
 
+	public CupomDesconto getCupomDesconto() {
+		return cupomDesconto;
+	}
+
+	public void setCupomDesconto(CupomDesconto cupomDesconto) {
+		this.cupomDesconto = cupomDesconto;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 
 
 	

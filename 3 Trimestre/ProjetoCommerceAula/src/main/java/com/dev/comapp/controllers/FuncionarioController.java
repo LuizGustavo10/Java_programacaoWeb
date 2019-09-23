@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.comapp.models.Cidade;
+import com.dev.comapp.models.CupomDesconto;
 import com.dev.comapp.models.Estado;
 import com.dev.comapp.models.Funcionario;
 import com.dev.comapp.repository.FuncionarioRepository;
 import com.dev.comapp.repository.CidadeRepository;
+import com.dev.comapp.repository.CupomDescontoRepository;
 
 
 
@@ -29,6 +31,9 @@ public class FuncionarioController {
 	
 	@Autowired
 	private CidadeRepository cidadeRepository;
+	
+	@Autowired
+	private CupomDescontoRepository cupomDescontoRepository;
 	
 	@GetMapping("/funcionarios")
 	public ModelAndView buscarTodos() {
@@ -62,6 +67,8 @@ public class FuncionarioController {
 		mv.addObject("funcionario", categoria);
 		List<Cidade> listaCidade = cidadeRepository.findAll();
 		mv.addObject("cidades",listaCidade);
+		List<CupomDesconto> listaCuponsDesconto = cupomDescontoRepository.findAll();
+		mv.addObject("cuponsDesconto", listaCuponsDesconto);
 		
 		return mv;
 	}

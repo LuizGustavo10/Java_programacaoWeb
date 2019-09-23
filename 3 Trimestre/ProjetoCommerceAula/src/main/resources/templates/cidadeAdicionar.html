@@ -1,44 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
-
+<title>PhoenixCommerce 1.0</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" th:href="@{/fonts/material-icon/css/material-design-iconic-font.min.css}">
+<!--colocarnoCodigoAntigo-->
+<link rel="stylesheet" th:href="@{/css/style.css}">
 <!-- Custom fonts for this template-->
-<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
-	rel="stylesheet" type="text/css">
+<link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-
 <!-- Custom styles for this template-->
 <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-
-<title>Phoenix Commerce</title>
-
-<!-- Custom fonts for this template-->
-<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
-
-<!-- Custom styles for this template-->
-<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -47,14 +28,10 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<ul
-			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-			id="accordionSidebar">
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
-			<a
-				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="index.html">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i></i> <img with="60" height="60" src="img/phoenix.png" alt="">
 				</div>
@@ -67,49 +44,52 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link"
-				href="index.html"> <i class="fas fa-fw fa-tachometer-alt"></i> <span>Principal</span></a>
-			</li>
+			
+			
+			
+				 <!-- Nav Item - Pages Collapse Menu CADASTRAR-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Cadastrar</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">fazer um novo cadastro:</h6>
 
-			<!-- Divider -->
-			<hr class="sidebar-divider">
-
-			<!-- Heading -->
-			<div class="sidebar-heading">Operações</div>
-
-			<!-- Nav Item - Pages Collapse Menu CADASTRAR-->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapseTwo"
-				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Cadastrar</span>
-			</a>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">fazer um novo cadastro:</h6>
-
-						<a class="collapse-item" href="adicionarEstado">Estado</a> <a
-							class="collapse-item" href="adicionarCidade">Cidade</a> <a
-							class="collapse-item" href="adicionarFuncionario">Funcionário</a>
-					</div>
-				</div></li>
+            <a class="collapse-item" href="adicionarEstado">Estado</a>
+            <a class="collapse-item" href="adicionarCidade">Cidade</a>
+            <a class="collapse-item" href="adicionarFuncionario">Funcionário</a>
+            <a class="collapse-item" href="adicionarCupomDes">Cupom de desconto</a>
+            <a class="collapse-item" href="adicionarPermFunc">Permissões Funcionario</a>
+            <a class="collapse-item" href="adicionarPapeis">Papeis</a>
+            
+            
+          </div>
+        </div>
+      </li>
 
 
-			<!-- Nav Item - Utilities Collapse Menu LISTAR-->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapseUtilities"
-				aria-expanded="true" aria-controls="collapseUtilities"> <i
-					class="fas fa-fw fa-wrench"></i> <span>Listar</span>
-			</a>
-				<div id="collapseUtilities" class="collapse"
-					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">Custom Utilities:</h6>
-						<a class="collapse-item" href="estados">Estado</a> <a
-							class="collapse-item" href="cidades">Cidade</a> <a
-							class="collapse-item" href="funcionarios">Funcionário</a>
-					</div>
-				</div></li>
+      <!-- Nav Item - Utilities Collapse Menu LISTAR-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Listar</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Listagem de Cadastros:</h6>
+            <a class="collapse-item" href="estados">Estado</a>
+            <a class="collapse-item" href="cidades">Cidade</a>
+            <a class="collapse-item" href="funcionarios">Funcionário</a> 
+            <a class="collapse-item" href="cuponsDes">Cupom de desconto</a>
+            <a class="collapse-item" href="permissoesFuncionarios">Permissões Funcionário</a>
+            <a class="collapse-item" href="papeis">Papéis</a>
+            
+            
+          </div>
+        </div>
+      </li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -362,199 +342,144 @@
 				</nav>
 				<!-- End of Topbar -->
 
-				<!-- Begin Page Content -->
+				<!-- Begin Page Content------------------------------------------------------------------------------->
 				<div class="container-fluid">
-					<body class="bg-gradient-primary">
 
-
-						<!--cadastros de Estado-->
+					<div class="main">
 
 						<div class="container">
-							<!-- Outer Row -->
-							<div class="row justify-content-center">
+							<div class="signup-content">
+								<h2 class="form-title">Cadastro de Cidade</h2>
 
-								<div class="col-xl-10 col-lg-12 col-md-9">
-
-									<div class="card o-hidden border-0 shadow-lg my-5">
-										<div class="card-body p-0">
-											<!-- Nested Row within Card Body -->
-											<div class="row">
-
-												<div class="col-lg-12">
-													<div class="p-5">
-														<div class="text-center">
-															<h1 class="h4 text-gray-900 mb-4">Cadastrar Cidade:</h1>
-														</div>
-
-
-														<form class="user" th:object="${cidade}"
-															th:action="@{/salvarCidade}" method="POST"
-															style="margin: 10px">
-															<div class="form-group">
-																<fieldset>
-
-																	<div class="alert alert-danger"
-																		th:if="${#fields.hasAnyErrors()}">
-																		<div
-																			th:each="detailedError : ${#fields.detailedErrors()}">
-																			<span th:text="${detailedError.message}"></span>
-
-																		</div>
-																	</div>
-																	<div class="form-group">
-
-																		<input type="text"
-																			class="form-control form-control-user" id="id"
-																			th:field="*{id}" readOnly="readonly" />
-
-																	</div>
-																	<div class="form-group">
-
-																		<label>Nome</label> <input type="text"
-																			class="form-control form-control-user"
-																			th:field="*{nome}" autofocus="autofocus"
-																			placeholder="Informe o nome da cidade" maxlength="50" />
-
-																	</div>
-
-																	<div class="form-group">
-
-																		<label>Estado</label> <select th:field="*{estado}"
-																			class="form-control form-control-user">
-																			<option th:each="est: ${estados}"
-																				th:value="${est.id}" th:text="${est.nome}"></option>
-																		</select>
-																	</div>
-															</div>
-
-															</fieldset>
+								<form class="signup-form" th:object="${cidade}"
+								  th:action="@{/salvarCidade}" method="POST"
+								  style="margin: 10px">
+								  
+								    <fieldset>
+								
+								      <div class="form-input">
+												<div class="" th:if="${#fields.hasAnyErrors()}">
+													<div th:each="detailedError : ${#fields.detailedErrors()}">
+														<span th:text="${detailedError.message}"></span>
 													</div>
-
-													<button type="submit"
-														class="btn btn-primary btn-user btn-block">Cadastrar</button>
-													<hr>
-													<a th:href="@{/}" class="btn btn-google btn-user btn-block">
-														<i class="fab fa-google fa-fw"></i> Sair
-													</a>
-													<hr>
 												</div>
-												</form>
-
-
-
-
-												<hr>
-
 											</div>
-										</div>
+								      <div class="form-group">
+								
+								        <input type="text"
+								          class="form-input" id="id"
+								          th:field="*{id}" readOnly="readonly" />
+								
+								      </div>
+								      <div class="form-group">
+								
+								        <label>Nome</label> <input type="text"
+								          class="form-input"
+								          th:field="*{nome}" autofocus="autofocus"
+								          placeholder="Informe o nome da cidade" maxlength="50" />
+								
+								      </div>
+								
+								      <div class="form-group">
+								
+								        <label>Estado</label> <select th:field="*{estado}"
+								          class="form-input">
+								          <option th:each="est: ${estados}"
+								            th:value="${est.id}" th:text="${est.nome}"></option>
+								        </select>
+								      </div>
+								  </div>
+								
+								  </fieldset>
+
+
+									
+
+									<div class="form-group">
+										<input type="submit" name="submit" id="submit"
+											class="form-submit" value="Salvar" />
+											
+										<button type="button" th:href="@{/}" class="form-cancel"
+											id="submit">Cancelar</button>
 									</div>
-								</div>
+
+								</form>
+
 							</div>
-
 						</div>
+
+					</div>
+					<!-- /.container-fluid -->
+
 				</div>
+				<!-- End of Main Content -->
+
+				<!-- Footer -->
+				<footer class="sticky-footer bg-white">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Copyright &copy; Your Website 2019</span>
+						</div>
+					</div>
+				</footer>
+				<!-- End of Footer -->
 
 			</div>
-
-
-
-
-
-
-
-
-
-
-
-
+			<!-- End of Content Wrapper -->
 
 		</div>
-	</div>
-	</div>
+		<!-- End of Page Wrapper -->
 
-	<!-- Content Row -->
-	<div class="row">
-		<!-- Content Column -->
-		<div class="col-lg-6 mb-4"></div>
-	</div>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fas fa-angle-up"></i>
+		</a>
 
-	</div>
-	<!-- /.container-fluid -->
-
-	</div>
-	<!-- End of Main Content -->
-
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-		<div class="container my-auto">
-			<div class="copyright text-center my-auto">
-				<span>Copyright &copy; Your Website 2019</span>
-			</div>
-		</div>
-	</footer>
-	<!-- End of Footer -->
-
-	</div>
-	<!-- End of Content Wrapper -->
-
-	</div>
-	<!-- End of Page Wrapper -->
-
-	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded" href="#page-top"> <i
-		class="fas fa-angle-up"></i>
-	</a>
-
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
+		<!-- Logout Modal-->
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Ready to
+							Leave?</h5>
+						<button class="close" type="button" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">Select "Logout" below if you are
+						ready to end your current session.</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button"
+							data-dismiss="modal">Cancel</button>
+						<a class="btn btn-primary" href="login.html">Logout</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Bootstrap core JavaScript-->
-	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<!-- Bootstrap core JavaScript-->
+		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+		<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
-	<!-- Core plugin JavaScript-->
-	<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+		<!-- Core plugin JavaScript-->
+		<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
-	<!-- Custom scripts for all pages-->
-	<script th:src="@{/js/sb-admin-2.min.js}"></script>
+		<!-- Custom scripts for all pages-->
+		<script th:src="@{/js/sb-admin-2.min.js}"></script>
 
-	<!-- Page level plugins -->
-	<script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+		<!-- Page level plugins -->
+		<script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
 
-	<!-- Page level custom scripts -->
-	<script th:src="@{/js/demo/chart-area-demo.js}"></script>
-	<script th:src="@{/js/demo/chart-pie-demo.js}"></script>
+		<!-- Page level custom scripts -->
+		<script th:src="@{/js/demo/chart-area-demo.js}"></script>
+		<script th:src="@{/js/demo/chart-pie-demo.js}"></script>
 
-	<!-- Bootstrap core JavaScript-->
-	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
-	<!-- Core plugin JavaScript-->
-	<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
-
-	<!-- Custom scripts for all pages-->
-	<script th:src="@{/js/sb-admin-2.min.js}"></script>
-
+		<!-- JS colocar mais isso no codigo antigo-->
+		<script src="@{/vendor/jquery/jquery.min.js}"></script>
+		<script src="@{/js/main.js}"></script>
 </body>
 
 </html>
