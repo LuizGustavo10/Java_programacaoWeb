@@ -58,7 +58,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">fazer um novo cadastro:</h6>
 
-            <a class="collapse-item" href="adicionarEstado">Estado</a>
+            <a class="collapse-item" href="adicionarPapel">Papel</a>
             <a class="collapse-item" href="adicionarCidade">Cidade</a>
             <a class="collapse-item" href="adicionarFuncionario">Funcionário</a>
             <a class="collapse-item" href="adicionarCupomDes">Cupom de desconto</a>
@@ -80,7 +80,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Listagem de Cadastros:</h6>
-            <a class="collapse-item" href="estados">Estado</a>
+            <a class="collapse-item" href="papels">Papel</a>
             <a class="collapse-item" href="cidades">Cidade</a>
             <a class="collapse-item" href="funcionarios">Funcionário</a> 
             <a class="collapse-item" href="cuponsDes">Cupom de desconto</a>
@@ -350,72 +350,57 @@
 
 								<div class="container">
 
-									<div class="c">
-										<div class="">
+									<div class="card o-hidden border-0 shadow-lg my-5">
+										<div class="card-body p-0">
 											<!-- Nested Row within Card Body -->
 											<div class="row">
 
-												<div class="">
+												<div class="container">
 													<div class="">
-
-
-
-
-
-														<div class="">
-															<div class="panel-heading">
-																<strong>Lista de Funcionarios</strong>
+														
+	
+															<div class="">
+																<strong>Lista de Papéis</strong>
 															</div>
-															<div class="p">
-																<!--  <form method="get" action="buscarFuncionarioNome">
-																<input type="text" name="nome"><br/>
-																<input type="submit" value="Pesquisar">
-															</form>-->
-
+															<div class="">
 																<div class="table-responsive">
 																	<table
 																		class="table table-sm table-striped table-hover table-bordered">
 																		<thead>
 																			<tr>
 																				<th>ID</th>
-																				<th>Nome</th>
-																				<th>Endereço</th>
-																				<th>Cpf</th>
-																				<th>cidade</th>
-																				<th>Cupom de Desconto</th>
-
-																				<th>opções</th>
+																				<th>Cargo</th>
+																				<th></th>
 																			</tr>
 																		</thead>
 																		<tbody>
-																			<tr th:each="funcionario : ${funcionarios}">
-																				<td th:text="${funcionario.id}"></td>
-																				<td th:text="${funcionario.nome}"></td>
-																				<td th:text="${funcionario.endereco}"></td>
-																				<td th:text="${funcionario.cpf}"></td>
-																				<td th:text="${funcionario.cidade.nome}"></td>
-																				<td th:text="${funcionario.cupomDesconto.nome}"></td>
+																			<tr th:each="papel : ${papeis}">
+																				<td th:text="${papel.id}"></td>
+																				<td th:text="${papel.cargo}"></td>
 																				
 																				<td>
 																					<div class="btn-group pull-right">
 																						<a class="btn btn-sm btn-primary"
-																							th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}">Editar</a>
+																							th:href="@{/editarPapel/{id}(id=${papel.id})}">Editar</a>
 																						<a class="delete btn btn-sm btn-danger"
-																							th:href="@{/removerFuncionario/{id}(id=${funcionario.id})}">Excluir</a>
+																							th:href="@{/removerPapel/{id}(id=${papel.id})}">Excluir</a>
 																					</div>
 																				</td>
 																			</tr>
 																		</tbody>
 																	</table>
-																	<span th:text="${funcionarios.size()}"> </span> <span
-																		th:text="${quantidadeFuncionarios}"> </span>
 																</div>
 															</div>
 															<div class="panel-footer">
-																<a class="btn btn-sm btn-success"
-																	th:href="@{/adicionarFuncionario/}">Adicionar</a>
+																<a class="btn btn btn-success"
+																	th:href="@{/adicionarPapeis/}">Adicionar</a>
+
+																<a class="btn btn-danger"
+																	th:href="@{/}">sair</a>
+
+
 															</div>
-														</div>
+													
 
 
 
@@ -434,7 +419,14 @@
 								</div>
 
 							</div>
-						</div>
+					
+					
+					
+					
+					
+					
+					
+					
 					
 					
 					<!-- /.container-fluid -->
