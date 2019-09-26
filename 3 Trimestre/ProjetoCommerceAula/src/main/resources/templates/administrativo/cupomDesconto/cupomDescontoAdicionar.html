@@ -44,9 +44,9 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-
-
-
+			
+			
+			
 				 <!-- Nav Item - Pages Collapse Menu CADASTRAR-->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -57,14 +57,14 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">fazer um novo cadastro:</h6>
 
-            <a class="collapse-item" href="adicionarEstado">Estado</a>
-            <a class="collapse-item" href="adicionarCidade">Cidade</a>
-            <a class="collapse-item" href="adicionarFuncionario">Funcionário</a>
-            <a class="collapse-item" href="adicionarCupomDes">Cupom de desconto</a>
-            <a class="collapse-item" href="adicionarPermFunc">Permissões Funcionario</a>
-            <a class="collapse-item" href="adicionarPapeis">Papeis</a>
-
-
+            <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
+            <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
+            <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
+            <a class="collapse-item" href="administrativo/cumpomDesconto/adicionarCupomDes">Cupom de desconto</a>
+            <a class="collapse-item" href="administrativo/permissaoFuncionario/adicionarPermFunc">Permissões Funcionario</a>
+            <a class="collapse-item" href="administrativo/papel/adicionarPapeis">Papeis</a>
+            
+            
           </div>
         </div>
       </li>
@@ -79,14 +79,14 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Listagem de Cadastros:</h6>
-            <a class="collapse-item" href="estados">Estado</a>
-            <a class="collapse-item" href="cidades">Cidade</a>
-            <a class="collapse-item" href="funcionarios">Funcionário</a>
-            <a class="collapse-item" href="cuponsDes">Cupom de desconto</a>
-            <a class="collapse-item" href="permissoesFuncionarios">Permissões Funcionário</a>
-            <a class="collapse-item" href="papeis">Papéis</a>
-
-
+            <a class="collapse-item" href="administrativo/estado/estados">Estado</a>
+            <a class="collapse-item" href="administrativo/cidade/cidades">Cidade</a>
+            <a class="collapse-item" href="administrativo/funcionario/funcionarios">Funcionário</a> 
+            <a class="collapse-item" href="administrativo/cupomDesconto/cuponsDes">Cupom de desconto</a>
+            <a class="collapse-item" href="administrativo/permissaoFuncionario/permissoesFuncionarios">Permissões Funcionário</a>
+            <a class="collapse-item" href="administrativo/papel/papeis">Papéis</a> Funcionário</a>
+            
+            
           </div>
         </div>
       </li>
@@ -349,61 +349,68 @@
 
 						<div class="container">
 							<div class="signup-content">
-								<h2 class="form-title">Cadastro de Cidade</h2>
+								<h2 class="form-title">Cadastro de Cupom de Desconto</h2>
 
-								<form class="signup-form" th:object="${cidade}"
-								  th:action="@{/salvarCidade}" method="POST"
-								  style="margin: 10px">
+								<form class="signup-form" th:object="${cupomDesconto}"
+									th:action="@{/salvarCupomDes}" method="POST"
+									style="margin: 10px">
+									
+										<fieldset>
 
-								    <fieldset>
 
-								      <div class="form-input">
-												<div class="" th:if="${#fields.hasAnyErrors()}">
+											<div class="form-group">
+												<div class="form-input" th:if="${#fields.hasAnyErrors()}">
 													<div th:each="detailedError : ${#fields.detailedErrors()}">
 														<span th:text="${detailedError.message}"></span>
 													</div>
 												</div>
 											</div>
-								      <div class="form-group">
-
-								        <input type="text"
-								          class="form-input" id="id"
-								          th:field="*{id}" readOnly="readonly" />
-
-								      </div>
-								      <div class="form-group">
-
-								        <label>Nome</label> <input type="text"
-								          class="form-input"
-								          th:field="*{nome}" autofocus="autofocus"
-								          placeholder="Informe o nome da cidade" maxlength="50" />
-
-								      </div>
-
-								      <div class="form-group">
-
-								        <label>Estado</label> <select th:field="*{estado}"
-								          class="form-input">
-								          <option th:each="est: ${estados}"
-								            th:value="${est.id}" th:text="${est.nome}"></option>
-								        </select>
-								      </div>
-								  </div>
-
-								  </fieldset>
 
 
+											<div class="form-group">
+
+												<input type="text" class="form-input" id="id"
+													th:field="*{id}" readOnly="readonly" />
+
+											</div>
+
+											<div class="form-group"
+												th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+												<label>Nome do Cupom</label> <input type="text"
+													class="form-input" th:field="*{nome}" autofocus="autofocus"
+													placeholder="Informe o nome do Cupom" maxlength="50" />
+											</div>
+
+											<div class="form-group"
+												th:classappend="${#fields.hasErrors('porcentagem')}? 'has-error'">
+												<label>Porcentagem do Desconto</label> <input type="number"
+													class="form-input" th:field="*{porcentagem}"
+													autofocus="autofocus"
+													placeholder="Informe a porcentagem de desconto"
+													maxlength="50" />
+											</div>
+											
+											<div class="form-group">
+                  									<label>Funcionário</label> 
+                  									<select th:field="*{funcionario}" class="form-input">
+                  										<option th:each="fun: ${funcionarios}"
+                  											th:value="${fun.id}" th:text="${fun.nome}"></option>
+                  									</select>
+
+                  								</div>
 
 
-									<div class="form-group">
-										<input type="submit" name="submit" id="submit"
-											class="form-submit" value="Salvar" />
+										</fieldset>
 
-										<a th:href="@{/}">
-										<button type="button" class="form-cancel"
-											id="submit">Cancelar</button></a>
-									</div>
 
+
+										<div class="form-group">
+											<input type="submit" name="submit" id="submit"
+												class="form-submit" value="Salvar" />
+
+											<a th:href="@{/administrativo}"><button type="button"  class="form-cancel"
+												id="submit">Cancelar</button></a>
+										</div>
 								</form>
 
 							</div>
@@ -479,8 +486,8 @@
 
 
 		<!-- JS colocar mais isso no codigo antigo-->
-		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-		<script th:src="@{/js/main.js}"></script>
+		<script src="@{/vendor/jquery/jquery.min.js}"></script>
+		<script src="@{/js/main.js}"></script>
 </body>
 
 </html>

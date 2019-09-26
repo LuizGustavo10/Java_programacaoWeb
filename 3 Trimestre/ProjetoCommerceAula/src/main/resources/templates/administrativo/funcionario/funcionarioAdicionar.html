@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
 <title>PhoenixCommerce 1.0</title>
@@ -58,12 +57,12 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">fazer um novo cadastro:</h6>
 
-            <a class="collapse-item" href="adicionarEstado">Estado</a>
-            <a class="collapse-item" href="adicionarCidade">Cidade</a>
-            <a class="collapse-item" href="adicionarFuncionario">Funcionário</a>
-            <a class="collapse-item" href="adicionarCupomDes">Cupom de desconto</a>
-            <a class="collapse-item" href="adicionarPermFunc">Permissões Funcionario</a>
-            <a class="collapse-item" href="adicionarPapeis">Papeis</a>
+            <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
+            <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
+            <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
+            <a class="collapse-item" href="administrativo/cumpomDesconto/adicionarCupomDes">Cupom de desconto</a>
+            <a class="collapse-item" href="administrativo/permissaoFuncionario/adicionarPermFunc">Permissões Funcionario</a>
+            <a class="collapse-item" href="administrativo/papel/adicionarPapeis">Papeis</a>
             
             
           </div>
@@ -80,12 +79,12 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Listagem de Cadastros:</h6>
-            <a class="collapse-item" href="estados">Estado</a>
-            <a class="collapse-item" href="cidades">Cidade</a>
-            <a class="collapse-item" href="funcionarios">Funcionário</a> 
-            <a class="collapse-item" href="cuponsDes">Cupom de desconto</a>
-            <a class="collapse-item" href="permissoesFuncionarios">Permissões Funcionário</a>
-            <a class="collapse-item" href="papeis">Papéis</a>
+            <a class="collapse-item" href="administrativo/estado/estados">Estado</a>
+            <a class="collapse-item" href="administrativo/cidade/cidades">Cidade</a>
+            <a class="collapse-item" href="administrativo/funcionario/funcionarios">Funcionário</a> 
+            <a class="collapse-item" href="administrativo/cupomDesconto/cuponsDes">Cupom de desconto</a>
+            <a class="collapse-item" href="administrativo/permissaoFuncionario/permissoesFuncionarios">Permissões Funcionário</a>
+            <a class="collapse-item" href="administrativo/papel/papeis">Papéis</a> Funcionário</a>
             
             
           </div>
@@ -346,86 +345,87 @@
 				<!-- Begin Page Content------------------------------------------------------------------------------->
 				<div class="container-fluid">
 
-					          <div class="row justify-content-center">
+					<div class="main">
 
-								<div class="container">
+						<div class="container">
+							<div class="signup-content">
+								<h2 class="form-title">Cadastro de Funcionario</h2>
 
-									<div class="card o-hidden border-0 shadow-lg my-5">
-										<div class="card-body p-0">
-											<!-- Nested Row within Card Body -->
-											<div class="row">
-
-												<div class="col-lg-12">
-													<div class="p-5">
+								<form class="signup-form" th:object="${funcionario}" th:action="@{/salvarFuncionario}" method="POST" style="margin: 10px">
+                  						
+                  		 					<fieldset>
 
 
+                  								<div class="form-group">
+                  									<div class="form-input" th:if="${#fields.hasAnyErrors()}">
+                  										<div th:each="detailedError : ${#fields.detailedErrors()}">
+                    											<span th:text="${detailedError.message}"></span>
+                  										</div>
+                  									</div>
+                  								</div>
+
+
+                  								<div class="form-group">
+
+                  								        <input type="text" class="form-input" id="id" th:field="*{id}" readOnly="readonly"/>
+
+                  								 </div>
+
+                  									<div class="form-group" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+                  									    <label>Nome</label>
+                  									    <input type="text" class="form-input" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome do funcionario" maxlength="50"/>
+                  									</div>
 
 
 
-														<div class="panel panel-default">
-															<div class="panel-heading">
-																<strong>Lista de Cidades</strong>
-															</div>
-															<div class="panel-body">
-																<div class="table-responsive">
-																	<table
-																		class="table table-sm table-striped table-hover table-bordered">
-																		<thead>
-																			<tr>
-																				<th>ID</th>
-																				<th>Nome</th>
-																				<th>Estado</th>
-																				<th></th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<tr th:each="cidade : ${cidades}">
-																				<td th:text="${cidade.id}"></td>
-																				<td th:text="${cidade.nome}"></td>
-																				<td th:text="${cidade.estado}"></td>
-																				<td>
-																					<div class="btn-group pull-right">
-																						<a class="btn btn-sm btn-primary"
-																							th:href="@{/editarCidade/{id}(id=${cidade.id})}">Editar</a>
-																						<a class="delete btn btn-sm btn-danger"
-																							th:href="@{/removerCidade/{id}(id=${cidade.id})}">Excluir</a>
-																					</div>
-																				</td>
-																			</tr>
-																		</tbody>
-																	</table>
-																</div>
-															</div>
-															<div class="panel-footer">
-																<a class="btn btn btn-success"
-																	th:href="@{/adicionarCidade/}">Adicionar</a>
-
-
-																<a class="btn btn-danger" th:href="@{/}">sair</a>
-
-
-														</div>
-													</div>
+                  									<div class="form-group" th:classappend="${#fields.hasErrors('endereco')}? 'has-error'">
+                  									    <label>Endereço</label>
+                  									    <input type="text" class="form-input" th:field="*{endereco}" autofocus="autofocus" placeholder="Informe seu endereço" maxlength="50"/>
+                  									</div>
 
 
 
 
+                  									<div class="form-group" th:classappend="${#fields.hasErrors('cpf')}? 'has-error'">
+                  									    <label>CPF</label>
+                  									    <input type="text" class="form-input" th:field="*{cpf}" autofocus="autofocus" placeholder="Informe o CPF do funcionario"/>
+                  									</div>
 
 
 
-													<hr>
+                  								<div class="form-group">
 
-												</div>
-											</div>
-										</div>
+                  										<label>Cidade</label> <select th:field="*{cidade}"
+                  											class="form-input">
+                  											<option th:each="est: ${cidades}"
+                  												th:value="${est.id}" th:text="${est.nome}"></option>
+                  										</select>
+
+                  								</div>
+                  								
+
+                  								
+
+
+                                </fieldset>
+
+
+									
+
+									<div class="form-group">
+										<input type="submit" name="submit" id="submit"
+											class="form-submit" value="Salvar" />
+											
+										<a th:href="@{/administrativo}"><button type="button"  class="form-cancel"
+											id="submit">Cancelar</button></a>
 									</div>
-								</div>
+
+								</form>
 
 							</div>
-
 						</div>
-					
-					
+
+					</div>
 					<!-- /.container-fluid -->
 
 				</div>
