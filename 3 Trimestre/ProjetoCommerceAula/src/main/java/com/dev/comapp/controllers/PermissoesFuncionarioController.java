@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dev.comapp.models.Cidade;
+
 import com.dev.comapp.models.CupomDesconto;
-import com.dev.comapp.models.Estado;
+import com.dev.comapp.models.Funcionario;
+import com.dev.comapp.models.Papel;
 import com.dev.comapp.models.PermissoesFuncionario;
-import com.dev.comapp.models.PermissoesPermissoesFuncionario;
 import com.dev.comapp.repository.PermissoesFuncionarioRepository;
 import com.dev.comapp.repository.PapelRepository;
-import com.dev.comapp.repository.CidadeRepository;
 import com.dev.comapp.repository.CupomDescontoRepository;
 import com.dev.comapp.repository.FuncionarioRepository;
 
@@ -64,16 +63,18 @@ public class PermissoesFuncionarioController {
 	
 	
 	
-	@GetMapping("/adicionarPermissoesFuncionario")
-	public ModelAndView add(PermissoesFuncionario categoria) {
+	@GetMapping("/adicionarPermFunc")
+	public ModelAndView add(PermissoesFuncionario permissoesFuncionario) {
 		
 		
-		ModelAndView mv = new ModelAndView("/permissoesFuncionarioAdd");
-		mv.addObject("permissoesFuncionario", categoria);
-		List<Cidade> listaCidade = cidadeRepository.findAll();
-		mv.addObject("cidades",listaCidade);
-		List<CupomDesconto> listaCuponsDesconto = cupomDescontoRepository.findAll();
-		mv.addObject("cuponsDesconto", listaCuponsDesconto);
+		ModelAndView mv = new ModelAndView("/permissoesFuncionarioAdicionar");
+		mv.addObject("permissoesFuncionario", permissoesFuncionario);
+	
+		List<Funcionario> listaFuncionario = funcionarioRepository.findAll();
+		mv.addObject("funcionarios",listaFuncionario);
+		
+		List<Papel> listaPapeis = papelRepository.findAll();
+		mv.addObject("papeis", listaPapeis);
 		
 		return mv;
 	}
@@ -81,8 +82,8 @@ public class PermissoesFuncionarioController {
 	@GetMapping("/editarPermissoesFuncionario/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
 		
-		Optional<PermissoesFuncionario> categoria = repository.findById(id);
-		PermissoesFuncionario e = categoria.get();	
+		Optional<PermissoesFuncionario> permissoesFuncionario = repository.findById(id);
+		PermissoesFuncionario e = permissoesFuncionario.get();	
 		
 		return add(e);
 	}
@@ -90,8 +91,8 @@ public class PermissoesFuncionarioController {
 	@GetMapping("/removerPermissoesFuncionario/{id}")
 	public ModelAndView delete(@PathVariable("id") Long id) {
 		
-		Optional<PermissoesFuncionario> categoria = repository.findById(id);
-		PermissoesFuncionario e = categoria.get();
+		Optional<PermissoesFuncionario> permissoesFuncionario = repository.findById(id);
+		PermissoesFuncionario e = permissoesFuncionario.get();
 		repository.delete(e);	
 		
 		return buscarTodos();
@@ -103,7 +104,6 @@ public class PermissoesFuncionarioController {
 //		if(result.hasErrors()  || !permissoesFuncionario.getCpf().equals(11)) {
 //			return add(permissoesFuncionario);
 //		}
-		
 		repository.saveAndFlush(permissoesFuncionario);
 		
 		return buscarTodos();

@@ -346,98 +346,77 @@
 				<!-- Begin Page Content------------------------------------------------------------------------------->
 				<div class="container-fluid">
 
-					          <div class="row justify-content-center">
+					<div class="row justify-content-center">
 
-								<div class="container">
+						<div class="container">
 
-									<div class="c">
-										<div class="">
-											<!-- Nested Row within Card Body -->
-											<div class="row">
-
-												<div class="">
-													<div class="">
-
-
-
-
-
-														<div class="">
-															<div class="panel-heading">
-																<strong>Lista de Funcionarios</strong>
-															</div>
-															<div class="p">
-																<!--  <form method="get" action="buscarFuncionarioNome">
+							<div class="container">
+								<div class="panel-heading">
+									<strong>Lista de Funcionarios</strong>
+								</div>
+								<div class="p">
+									<!--  <form method="get" action="buscarFuncionarioNome">
 																<input type="text" name="nome"><br/>
 																<input type="submit" value="Pesquisar">
 															</form>-->
 
-																<div class="table-responsive">
-																	<table
-																		class="table table-sm table-striped table-hover table-bordered">
-																		<thead>
-																			<tr>
-																				<th>ID</th>
-																				<th>Nome</th>
-																				<th>Endereço</th>
-																				<th>Cpf</th>
-																				<th>cidade</th>
-																				<th>Cupom de Desconto</th>
+									<div class="table-responsive">
+										<table
+											class="table table-sm table-striped table-hover table-bordered">
+											<thead>
+												<tr>
+													<th>ID</th>
+													<th>Nome</th>
+													<th>Endereço</th>
+													<th>Cpf</th>
+													<th>cidade</th>
 
-																				<th>opções</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<tr th:each="funcionario : ${funcionarios}">
-																				<td th:text="${funcionario.id}"></td>
-																				<td th:text="${funcionario.nome}"></td>
-																				<td th:text="${funcionario.endereco}"></td>
-																				<td th:text="${funcionario.cpf}"></td>
-																				<td th:text="${funcionario.cidade.nome}"></td>
-																				<td th:text="${funcionario.cupomDesconto.nome}"></td>
-																				
-																				<td>
-																					<div class="btn-group pull-right">
-																						<a class="btn btn-sm btn-primary"
-																							th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}">Editar</a>
-																						<a class="delete btn btn-sm btn-danger"
-																							th:href="@{/removerFuncionario/{id}(id=${funcionario.id})}">Excluir</a>
-																					</div>
-																				</td>
-																			</tr>
-																		</tbody>
-																	</table>
-																	<span th:text="${funcionarios.size()}"> </span> <span
-																		th:text="${quantidadeFuncionarios}"> </span>
-																</div>
-															</div>
-															<div class="panel-footer">
-																<a class="btn btn-sm btn-success"
-																	th:href="@{/adicionarFuncionario/}">Adicionar</a>
-															</div>
+
+													<th>opções</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="funcionario : ${funcionarios}">
+													<td th:text="${funcionario.id}"></td>
+													<td th:text="${funcionario.nome}"></td>
+													<td th:text="${funcionario.endereco}"></td>
+													<td th:text="${funcionario.cpf}"></td>
+													<td th:text="${funcionario.cidade.nome}"></td>
+
+
+													<td>
+														<div class="btn-group pull-right">
+															<a class="btn btn-sm btn-primary"
+																th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}">Editar</a>
+															<a class="delete btn btn-sm btn-danger"
+																th:href="@{/removerFuncionario/{id}(id=${funcionario.id})}">Excluir</a>
 														</div>
-
-
-
-
-
-
-
-														<hr>
-
-													</div>
-												</div>
-											</div>
-										</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<span th:text="${funcionarios.size()}"> </span> <span
+											th:text="${quantidadeFuncionarios}"> </span>
 									</div>
-
 								</div>
-
+								<div class="panel-footer">
+									<a class="btn btn-sm btn-success"
+										th:href="@{/adicionarFuncionario/}">Adicionar</a>
+								</div>
 							</div>
+
+
+							<hr>
+
+
+
 						</div>
-					
-					
-					<!-- /.container-fluid -->
+
+					</div>
+				</div>
+
+
+				<!-- /.container-fluid -->
 
 				</div>
 				<!-- End of Main Content -->

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class CupomDesconto implements Serializable{
@@ -17,6 +18,9 @@ public class CupomDesconto implements Serializable{
 	private Long id;	
 	private String nome;
 	private Long porcentagem;
+	@ManyToOne
+	private Funcionario funcionario;
+
 			
 			
 	public Long getId() {
@@ -36,6 +40,13 @@ public class CupomDesconto implements Serializable{
 	}
 	public void setPorcentagem(Long porcentagem) {
 		this.porcentagem = porcentagem;
+	}
+	
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 	public static long getSerialversionuid() {
 		return SerialVersionUID;

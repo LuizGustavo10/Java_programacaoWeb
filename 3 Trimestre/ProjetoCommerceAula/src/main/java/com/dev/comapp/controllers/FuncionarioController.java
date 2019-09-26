@@ -63,12 +63,12 @@ public class FuncionarioController {
 	public ModelAndView add(Funcionario categoria) {
 		
 		
-		ModelAndView mv = new ModelAndView("/funcionarioAdd");
+		ModelAndView mv = new ModelAndView("/funcionarioAdicionar");
 		mv.addObject("funcionario", categoria);
 		List<Cidade> listaCidade = cidadeRepository.findAll();
 		mv.addObject("cidades",listaCidade);
-		List<CupomDesconto> listaCuponsDesconto = cupomDescontoRepository.findAll();
-		mv.addObject("cuponsDesconto", listaCuponsDesconto);
+		
+
 		
 		return mv;
 	}

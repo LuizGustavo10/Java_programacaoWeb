@@ -370,7 +370,8 @@
 																			<tr>
 																				<th>ID</th>
 																				<th>Cargo</th>
-																				<th></th>
+																				
+																				<th>Opções</th>
 																			</tr>
 																		</thead>
 																		<tbody>
@@ -378,12 +379,13 @@
 																				<td th:text="${papel.id}"></td>
 																				<td th:text="${papel.cargo}"></td>
 																				
+																				
 																				<td>
 																					<div class="btn-group pull-right">
 																						<a class="btn btn-sm btn-primary"
-																							th:href="@{/editarPapel/{id}(id=${papel.id})}">Editar</a>
+																							th:href="@{/editarPapeis/{id}(id=${papel.id})}">Editar</a>
 																						<a class="delete btn btn-sm btn-danger"
-																							th:href="@{/removerPapel/{id}(id=${papel.id})}">Excluir</a>
+																							th:href="@{/removerPapeis/{id}(id=${papel.id})}">Excluir</a>
 																					</div>
 																				</td>
 																			</tr>

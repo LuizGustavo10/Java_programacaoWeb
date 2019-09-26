@@ -1,5 +1,6 @@
 package com.dev.comapp.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -13,12 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.comapp.models.CupomDesconto;
+import com.dev.comapp.models.Funcionario;
 import com.dev.comapp.repository.CupomDescontoRepository;
+import com.dev.comapp.repository.FuncionarioRepository;
 
 @Controller
 public class CupomDescontoController {
 	@Autowired
 	private CupomDescontoRepository repository;
+	@Autowired
+	private FuncionarioRepository funcionarioRepository;
 	
 	@GetMapping("/cuponsDes")
 	public ModelAndView buscarTodos() {
@@ -31,6 +36,9 @@ public class CupomDescontoController {
 	public ModelAndView add(CupomDesconto cupomDesconto) {
 		ModelAndView mv = new ModelAndView("/cupomDescontoAdicionar");
 		mv.addObject("cupomDesconto", cupomDesconto);
+		
+		List<Funcionario> listaFuncionarios = funcionarioRepository.findAll();
+		mv.addObject("funcionarios", listaFuncionarios);
 		return mv;
 	}
 	

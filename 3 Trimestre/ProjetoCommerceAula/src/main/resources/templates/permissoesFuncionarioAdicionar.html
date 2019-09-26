@@ -44,9 +44,9 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			
-			
-			
+
+
+
 				 <!-- Nav Item - Pages Collapse Menu CADASTRAR-->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -63,8 +63,8 @@
             <a class="collapse-item" href="adicionarCupomDes">Cupom de desconto</a>
             <a class="collapse-item" href="adicionarPermFunc">Permissões Funcionario</a>
             <a class="collapse-item" href="adicionarPapeis">Papeis</a>
-            
-            
+
+
           </div>
         </div>
       </li>
@@ -81,12 +81,12 @@
             <h6 class="collapse-header">Listagem de Cadastros:</h6>
             <a class="collapse-item" href="estados">Estado</a>
             <a class="collapse-item" href="cidades">Cidade</a>
-            <a class="collapse-item" href="funcionarios">Funcionário</a> 
+            <a class="collapse-item" href="funcionarios">Funcionário</a>
             <a class="collapse-item" href="cuponsDes">Cupom de desconto</a>
             <a class="collapse-item" href="permissoesFuncionarios">Permissões Funcionário</a>
             <a class="collapse-item" href="papeis">Papéis</a>
-            
-            
+
+
           </div>
         </div>
       </li>
@@ -349,82 +349,60 @@
 
 						<div class="container">
 							<div class="signup-content">
-								<h2 class="form-title">Cadastro de Funcionario</h2>
+								<h2 class="form-title">Cadastro de Permissão Funionário</h2>
 
-								<form class="signup-form" th:object="${funcionario}" th:action="@{/salvarFuncionario}" method="POST" style="margin: 10px">
-                  						
-                  		 					<fieldset>
+								<form class="signup-form" th:object="${permissoesFuncionario}"
+								  th:action="@{/salvarPermissoesFuncionario}" method="POST"
+								  style="margin: 10px">
 
+								    <fieldset>
 
-                  								<div class="form-group">
-                  									<div class="form-input" th:if="${#fields.hasAnyErrors()}">
-                  										<div th:each="detailedError : ${#fields.detailedErrors()}">
-                    											<span th:text="${detailedError.message}"></span>
-                  										</div>
-                  									</div>
-                  								</div>
+								      <div class="form-input">
+												<div class="" th:if="${#fields.hasAnyErrors()}">
+													<div th:each="detailedError : ${#fields.detailedErrors()}">
+														<span th:text="${detailedError.message}"></span>
+													</div>
+												</div>
+											</div>
+											
+								      <div class="form-group">
+								        <input type="text"
+								          class="form-input" id="id"
+								          th:field="*{id}" readOnly="readonly" />
+								      </div>
+			
 
+								      <div class="form-group">
+								        <label>Funcionario</label> <select th:field="*{funcionario}"
+								          class="form-input">
+								          <option th:each="fun: ${funcionarios}"
+								            th:value="${fun.id}" th:text="${fun.nome}"></option>
+								        </select>
+								      </div>
+								      
+								      <div class="form-group">
 
-                  								<div class="form-group">
+								        <label>Papel</label> <select th:field="*{papel}"
+								          class="form-input">
+								          <option th:each="pap: ${papeis}"
+								            th:value="${pap.id}" th:text="${pap.cargo}"></option>
+								        </select>
+								      </div>
+								      
+								  </div>
 
-                  								        <input type="text" class="form-input" id="id" th:field="*{id}" readOnly="readonly"/>
-
-                  								 </div>
-
-                  									<div class="form-group" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
-                  									    <label>Nome</label>
-                  									    <input type="text" class="form-input" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome do funcionario" maxlength="50"/>
-                  									</div>
-
-
-
-                  									<div class="form-group" th:classappend="${#fields.hasErrors('endereco')}? 'has-error'">
-                  									    <label>Endereço</label>
-                  									    <input type="text" class="form-input" th:field="*{endereco}" autofocus="autofocus" placeholder="Informe seu endereço" maxlength="50"/>
-                  									</div>
-
-
-
-
-                  									<div class="form-group" th:classappend="${#fields.hasErrors('cpf')}? 'has-error'">
-                  									    <label>CPF</label>
-                  									    <input type="text" class="form-input" th:field="*{cpf}" autofocus="autofocus" placeholder="Informe o CPF do funcionario"/>
-                  									</div>
-
-
-
-                  								<div class="form-group">
-
-                  										<label>Cidade</label> <select th:field="*{cidade}"
-                  											class="form-input">
-                  											<option th:each="est: ${cidades}"
-                  												th:value="${est.id}" th:text="${est.nome}"></option>
-                  										</select>
-
-                  								</div>
-                  								
-                  								<div class="form-group">
-                  										<label>Cupom de Desconto</label> <select th:field="*{cupomDesconto}"
-                  											class="form-input">
-                  											<option th:each="cup: ${cuponsDesconto}"
-                  												th:value="${cup.id}" th:text="${cup.nome}"></option>
-                  										</select>
-
-                  								</div>
-                  								
+								  </fieldset>
 
 
-                                </fieldset>
 
-
-									
 
 									<div class="form-group">
 										<input type="submit" name="submit" id="submit"
 											class="form-submit" value="Salvar" />
-											
-										<button type="button" th:href="@{/}" class="form-cancel"
-											id="submit">Cancelar</button>
+
+										<a th:href="@{/}">
+										<button type="button" class="form-cancel"
+											id="submit">Cancelar</button></a>
 									</div>
 
 								</form>
@@ -502,8 +480,8 @@
 
 
 		<!-- JS colocar mais isso no codigo antigo-->
-		<script src="@{/vendor/jquery/jquery.min.js}"></script>
-		<script src="@{/js/main.js}"></script>
+		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
 </body>
 
 </html>

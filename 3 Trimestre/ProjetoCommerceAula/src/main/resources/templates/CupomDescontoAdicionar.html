@@ -349,7 +349,7 @@
 
 						<div class="container">
 							<div class="signup-content">
-								<h2 class="form-title">Cadastro de Cidade</h2>
+								<h2 class="form-title">Cadastro de Cupom de Desconto</h2>
 
 								<form class="signup-form" th:object="${cupomDesconto}"
 									th:action="@{/salvarCupomDes}" method="POST"
@@ -389,6 +389,15 @@
 													placeholder="Informe a porcentagem de desconto"
 													maxlength="50" />
 											</div>
+											
+											<div class="form-group">
+                  									<label>Funcionário</label> 
+                  									<select th:field="*{funcionario}" class="form-input">
+                  										<option th:each="fun: ${funcionarios}"
+                  											th:value="${fun.id}" th:text="${fun.nome}"></option>
+                  									</select>
+
+                  								</div>
 
 
 										</fieldset>
@@ -399,8 +408,8 @@
 											<input type="submit" name="submit" id="submit"
 												class="form-submit" value="Salvar" />
 
-											<button type="button" th:href="@{/}" class="form-cancel"
-												id="submit">Cancelar</button>
+											<a th:href="@{/}"><button type="button"  class="form-cancel"
+												id="submit">Cancelar</button></a>
 										</div>
 								</form>
 
