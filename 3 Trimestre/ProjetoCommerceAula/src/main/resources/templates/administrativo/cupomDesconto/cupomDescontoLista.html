@@ -61,7 +61,7 @@
             <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
             <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
-            <a class="collapse-item" href="administrativo/cumpomDesconto/adicionarCupomDes">Cupom de desconto</a>
+            <a class="collapse-item" href="administrativo/cupomDesconto/adicionarCupomDes">Cupom de desconto</a>
             <a class="collapse-item" href="administrativo/permissaoFuncionario/adicionarPermFunc">Permissões Funcionario</a>
             <a class="collapse-item" href="administrativo/papel/adicionarPapeis">Papeis</a>
             
@@ -390,14 +390,14 @@
 																				<td th:text="${cupomDesconto.id}"></td>
 																				<td th:text="${cupomDesconto.nome}"></td>
 																				<td th:text="${cupomDesconto.porcentagem}"></td>
-																				<td th:text="${papel.funcionario.nome}"></td>
+																				<!-- <td th:text="${cupomDesconto.funcionario.nome}"></td>-->
 
 																				<td>
 																					<div class="btn-group pull-right">
 																						<a class="btn btn-sm btn-primary"
-																							th:href="@{/editarCupomDes/{id}(id=${cupomDesconto.id})}">Editar</a>
+																							th:href="@{/administrativo/cupomDesconto/editarCupomDes/{id}(id=${cupomDesconto.id})}">Editar</a>
 																						<a class="delete btn btn-sm btn-danger"
-																							th:href="@{/removerCupomDes/{id}(id=${cupomDesconto.id})}">Excluir</a>
+																							th:href="@{/administrativo/cupomDesconto/removerCupomDes/{id}(id=${cupomDesconto.id})}">Excluir</a>
 																					</div>
 																				</td>
 																			</tr>
@@ -408,7 +408,8 @@
 															</div>
 															<div class="panel-footer">
 																<a class="btn btn-sm btn-success"
-																	th:href="@{/adicionarCupomDes/}">Adicionar</a>
+																	th:href="@{/administrativo/cupomDesconto/adicionarCupomDes/}">Adicionar</a>
+																	<a class="btn btn-danger" th:href="@{/administrativo}">sair</a>
 															</div>
 														</div>
 

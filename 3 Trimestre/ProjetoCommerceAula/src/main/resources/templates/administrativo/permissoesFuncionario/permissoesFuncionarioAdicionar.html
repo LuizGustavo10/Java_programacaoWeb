@@ -60,7 +60,7 @@
             <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
             <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
-            <a class="collapse-item" href="administrativo/cumpomDesconto/adicionarCupomDes">Cupom de desconto</a>
+            <a class="collapse-item" href="administrativo/cupomDesconto/adicionarCupomDes">Cupom de desconto</a>
             <a class="collapse-item" href="administrativo/permissaoFuncionario/adicionarPermFunc">Permissões Funcionario</a>
             <a class="collapse-item" href="administrativo/papel/adicionarPapeis">Papeis</a>
 
@@ -352,7 +352,7 @@
 								<h2 class="form-title">Cadastro de Permissão Funionário</h2>
 
 								<form class="signup-form" th:object="${permissoesFuncionario}"
-								  th:action="@{/salvarPermissoesFuncionario}" method="POST"
+								  th:action="@{/administrativo/permissoesFuncionario/salvarPermissoesFuncionario}" method="POST"
 								  style="margin: 10px">
 
 								    <fieldset>

@@ -25,16 +25,16 @@ public class CupomDescontoController {
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 	
-	@GetMapping("/cuponsDes")
+	@GetMapping("administrativo/cupomDesconto/cuponsDes")
 	public ModelAndView buscarTodos() {
-		ModelAndView mv = new ModelAndView("/cupomDescontoLista");
+		ModelAndView mv = new ModelAndView("/administrativo/cupomDesconto/cupomDescontoLista");
 		mv.addObject("cuponsDesconto", repository.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/adicionarCupomDes")
+	@GetMapping("/administrativo/cupomDesconto/adicionarCupomDes")
 	public ModelAndView add(CupomDesconto cupomDesconto) {
-		ModelAndView mv = new ModelAndView("/cupomDescontoAdicionar");
+		ModelAndView mv = new ModelAndView("/administrativo/cupomDesconto/cupomDescontoAdicionar");
 		mv.addObject("cupomDesconto", cupomDesconto);
 		
 		List<Funcionario> listaFuncionarios = funcionarioRepository.findAll();
@@ -42,20 +42,20 @@ public class CupomDescontoController {
 		return mv;
 	}
 	
-	@GetMapping("/editarCupomDes/{id}")
+	@GetMapping("/administrativo/cupomDesconto/editarCupomDes/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
 		Optional<CupomDesconto> cupomDesconto = repository.findById(id);
 		CupomDesconto c = cupomDesconto.get();
 		return add(c);
 	}
-	@GetMapping("/removerCupomDes/{id}")
+	@GetMapping("/administrativo/cupomDesconto/removerCupomDes/{id}")
 	public ModelAndView delete(@PathVariable("id") Long id) {
 		Optional<CupomDesconto> cupomDesconto = repository.findById(id);
 		CupomDesconto c = cupomDesconto.get();
 		repository.delete(c);
 		return buscarTodos();
 	}
-	@PostMapping("/salvarCupomDes")
+	@PostMapping("/administrativo/cupomDesconto/salvarCupomDes")
 	public ModelAndView save(@Valid CupomDesconto cupomDesconto, BindingResult result){
 		if(result.hasErrors()) {
 			return add(cupomDesconto);

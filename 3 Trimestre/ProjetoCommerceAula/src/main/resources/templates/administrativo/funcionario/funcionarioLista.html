@@ -61,7 +61,7 @@
             <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
             <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
-            <a class="collapse-item" href="administrativo/cumpomDesconto/adicionarCupomDes">Cupom de desconto</a>
+            <a class="collapse-item" href="administrativo/cupomDesconto/adicionarCupomDes">Cupom de desconto</a>
             <a class="collapse-item" href="administrativo/permissaoFuncionario/adicionarPermFunc">Permissões Funcionario</a>
             <a class="collapse-item" href="administrativo/papel/adicionarPapeis">Papeis</a>
             
@@ -387,9 +387,9 @@
 													<td>
 														<div class="btn-group pull-right">
 															<a class="btn btn-sm btn-primary"
-																th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}">Editar</a>
+																th:href="@{/administrativo/funcionario/editarFuncionario/{id}(id=${funcionario.id})}">Editar</a>
 															<a class="delete btn btn-sm btn-danger"
-																th:href="@{/removerFuncionario/{id}(id=${funcionario.id})}">Excluir</a>
+																th:href="@{/administrativo/funcionario/removerFuncionario/{id}(id=${funcionario.id})}">Excluir</a>
 														</div>
 													</td>
 												</tr>
@@ -401,7 +401,8 @@
 								</div>
 								<div class="panel-footer">
 									<a class="btn btn-sm btn-success"
-										th:href="@{/adicionarFuncionario/}">Adicionar</a>
+										th:href="@{/administrativo/funcionario/adicionarFuncionario/}">Adicionar</a>
+										<a class="btn btn-danger" th:href="@{/}">sair</a>
 								</div>
 							</div>
 

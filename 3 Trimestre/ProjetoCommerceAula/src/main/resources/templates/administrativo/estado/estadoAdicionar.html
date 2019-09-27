@@ -61,7 +61,7 @@
             <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
             <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
-            <a class="collapse-item" href="administrativo/cumpomDesconto/adicionarCupomDes">Cupom de desconto</a>
+            <a class="collapse-item" href="administrativo/cupomDesconto/adicionarCupomDes">Cupom de desconto</a>
             <a class="collapse-item" href="administrativo/permissaoFuncionario/adicionarPermFunc">Permissões Funcionario</a>
             <a class="collapse-item" href="administrativo/papel/adicionarPapeis">Papeis</a>
             
@@ -353,7 +353,7 @@
 								<h2 class="form-title">Cadastro de Estado</h2>
 
 								<form class="signup-form" th:object="${estado}"
-									th:action="@{/salvarEstado}" method="POST" style="margin: 10px">
+									th:action="@{/administrativo/estado/salvarEstado}" method="POST" style="margin: 10px">
 									
 										<fieldset>
 											<div class="form-input">

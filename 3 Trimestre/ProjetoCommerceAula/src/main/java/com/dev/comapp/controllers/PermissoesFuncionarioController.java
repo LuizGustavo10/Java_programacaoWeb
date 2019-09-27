@@ -39,10 +39,10 @@ public class PermissoesFuncionarioController {
 	
 
 	
-	@GetMapping("/permissoesFuncionarios")
+	@GetMapping("administrativo/permissoesFuncionario/permissoesFuncionarios")
 	public ModelAndView buscarTodos() {
 		
-		ModelAndView mv = new ModelAndView("/permissoesFuncionarioLista");
+		ModelAndView mv = new ModelAndView("/administrativo/permissoesFuncionario/permissoesFuncionarioLista");
 		java.util.List<PermissoesFuncionario> listaPermissoesFuncionarios =  repository.findAll();
 		mv.addObject("permissoesFuncionarios", listaPermissoesFuncionarios);
 		mv.addObject("quantidadePermissoesFuncionarios", listaPermissoesFuncionarios.size());
@@ -63,11 +63,11 @@ public class PermissoesFuncionarioController {
 	
 	
 	
-	@GetMapping("/adicionarPermFunc")
+	@GetMapping("/administrativo/permissoesFuncionario/adicionarPermFunc")
 	public ModelAndView add(PermissoesFuncionario permissoesFuncionario) {
 		
 		
-		ModelAndView mv = new ModelAndView("/permissoesFuncionarioAdicionar");
+		ModelAndView mv = new ModelAndView("/administrativo/permissoesFuncionario/permissoesFuncionarioAdicionar");
 		mv.addObject("permissoesFuncionario", permissoesFuncionario);
 	
 		List<Funcionario> listaFuncionario = funcionarioRepository.findAll();
@@ -79,7 +79,7 @@ public class PermissoesFuncionarioController {
 		return mv;
 	}
 	
-	@GetMapping("/editarPermissoesFuncionario/{id}")
+	@GetMapping("/administrativo/permissoesFuncionario/editarPermissoesFuncionario/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
 		
 		Optional<PermissoesFuncionario> permissoesFuncionario = repository.findById(id);
@@ -88,7 +88,7 @@ public class PermissoesFuncionarioController {
 		return add(e);
 	}
 	
-	@GetMapping("/removerPermissoesFuncionario/{id}")
+	@GetMapping("/administrativo/permissoesFuncionario/removerPermissoesFuncionario/{id}")
 	public ModelAndView delete(@PathVariable("id") Long id) {
 		
 		Optional<PermissoesFuncionario> permissoesFuncionario = repository.findById(id);
@@ -98,7 +98,7 @@ public class PermissoesFuncionarioController {
 		return buscarTodos();
 	}
 
-	@PostMapping("/salvarPermissoesFuncionario")
+	@PostMapping("/administrativo/permissoesFuncionario/salvarPermissoesFuncionario")
 	public ModelAndView save(@Valid PermissoesFuncionario permissoesFuncionario, BindingResult result) {
 		
 //		if(result.hasErrors()  || !permissoesFuncionario.getCpf().equals(11)) {

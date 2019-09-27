@@ -24,10 +24,10 @@ public class PapelController {
 	@Autowired
 	private PapelRepository repository;
 	
-	@GetMapping("/papeis")
+	@GetMapping("administrativo/papel/papeis")
 	public ModelAndView buscarTodos() {
 		
-		ModelAndView mv = new ModelAndView("/papelLista");
+		ModelAndView mv = new ModelAndView("/administrativo/papel/papelLista");
 		mv.addObject("papeis", repository.findAll());
 		
 		return mv;
@@ -42,17 +42,17 @@ public class PapelController {
 //		return mv;
 //	}
 	
-	@GetMapping("/adicionarPapeis")
+	@GetMapping("/administrativo/papel/adicionarPapeis")
 	public ModelAndView add(Papel papel) {
 		
-		ModelAndView mv = new ModelAndView("/papelAdicionar");
+		ModelAndView mv = new ModelAndView("/administrativo/papel/papelAdicionar");
 		mv.addObject("papel", papel);
 		
 		
 		return mv;
 	}
 	
-	@GetMapping("/editarPapeis/{id}")
+	@GetMapping("/administrativo/papel/editarPapeis/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
 		
 		Optional<Papel> papel = repository.findById(id);
@@ -61,7 +61,7 @@ public class PapelController {
 		return add(e);
 	}
 	
-	@GetMapping("/removerPapeis/{id}")
+	@GetMapping("/administrativo/papel/removerPapeis/{id}")
 	public ModelAndView delete(@PathVariable("id") Long id) {
 		
 		Optional<Papel> papel = repository.findById(id);
@@ -71,7 +71,7 @@ public class PapelController {
 		return buscarTodos();
 	}
 
-	@PostMapping("/salvarPapeis")
+	@PostMapping("/administrativo/papel/salvarPapeis")
 	public ModelAndView save(@Valid Papel papel, BindingResult result) {
 		
 		if(result.hasErrors()) {

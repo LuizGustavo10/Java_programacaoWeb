@@ -35,10 +35,10 @@ public class FuncionarioController {
 	@Autowired
 	private CupomDescontoRepository cupomDescontoRepository;
 	
-	@GetMapping("/funcionarios")
+	@GetMapping("administrativo/funcionario/funcionarios")
 	public ModelAndView buscarTodos() {
 		
-		ModelAndView mv = new ModelAndView("/funcionarioLista");
+		ModelAndView mv = new ModelAndView("/administrativo/funcionario/funcionarioLista");
 		java.util.List<Funcionario> listaFuncionarios =  repository.findAll();
 		mv.addObject("funcionarios", listaFuncionarios);
 		mv.addObject("quantidadeFuncionarios", listaFuncionarios.size());
@@ -59,11 +59,11 @@ public class FuncionarioController {
 	
 	
 	
-	@GetMapping("/adicionarFuncionario")
+	@GetMapping("/administrativo/funcionario/adicionarFuncionario")
 	public ModelAndView add(Funcionario categoria) {
 		
 		
-		ModelAndView mv = new ModelAndView("/funcionarioAdicionar");
+		ModelAndView mv = new ModelAndView("/administrativo/funcionario/funcionarioAdicionar");
 		mv.addObject("funcionario", categoria);
 		List<Cidade> listaCidade = cidadeRepository.findAll();
 		mv.addObject("cidades",listaCidade);
@@ -73,7 +73,7 @@ public class FuncionarioController {
 		return mv;
 	}
 	
-	@GetMapping("/editarFuncionario/{id}")
+	@GetMapping("/administrativo/funcionario/editarFuncionario/{id}")
 	public ModelAndView edit(@PathVariable("id") Long id) {
 		
 		Optional<Funcionario> categoria = repository.findById(id);
@@ -82,7 +82,7 @@ public class FuncionarioController {
 		return add(e);
 	}
 	
-	@GetMapping("/removerFuncionario/{id}")
+	@GetMapping("/administrativo/funcionario/removerFuncionario/{id}")
 	public ModelAndView delete(@PathVariable("id") Long id) {
 		
 		Optional<Funcionario> categoria = repository.findById(id);
@@ -92,7 +92,7 @@ public class FuncionarioController {
 		return buscarTodos();
 	}
 
-	@PostMapping("/salvarFuncionario")
+	@PostMapping("/administrativo/funcionario/salvarFuncionario")
 	public ModelAndView save(@Valid Funcionario funcionario, BindingResult result) {
 		
 //		if(result.hasErrors()  || !funcionario.getCpf().equals(11)) {
