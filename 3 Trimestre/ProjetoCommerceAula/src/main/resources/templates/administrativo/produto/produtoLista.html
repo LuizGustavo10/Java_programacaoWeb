@@ -376,15 +376,16 @@
 																		</thead>
 																		<tbody>
 																			<tr th:each="estado : ${estados}">
-																				<td th:text="${estado.id}"></td>
-																				<td th:text="${estado.nome}"></td>
-																				<td th:text="${estado.sigla}"></td>
+																				<td th:text="${produto.id}"></td>
+																				<td th:text="${produto.nome}"></td>
+																				<td th:text="${produto.preco}"></td>
+																				<td th:text="${produto.qtdeEstoque}"></td>
 																				<td>
 																					<div class="btn-group pull-right">
 																						<a class="btn btn-sm btn-primary"
-																							th:href="@{/administrativo/estado/editarEstado/{id}(id=${estado.id})}">Editar</a>
+																							th:href="@{/administrativo/produto/editarProduto/{id}(id=${produto.id})}">Editar</a>
 																						<a class="delete btn btn-sm btn-danger"
-																							th:href="@{/administrativo/estado/removerEstado/{id}(id=${estado.id})}">Excluir</a>
+																							th:href="@{/administrativo/produto/removerProduto/{id}(id=${produto.id})}">Excluir</a>
 																					</div>
 																				</td>
 																			</tr>
@@ -394,7 +395,7 @@
 															</div>
 															<div class="panel-footer">
 																<a class="btn btn btn-success"
-																	th:href="@{/administrativo/estado/adicionarEstado/}">Adicionar</a>
+																	th:href="@{/administrativo/produto/adicionarProduto/}">Adicionar</a>
 
 																<a class="btn btn-danger"
 																	th:href="@{/administrativo}">sair</a>

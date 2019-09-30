@@ -32,23 +32,17 @@ public class CidadeController {
 	
 	@GetMapping("administrativo/cidade/cidades")
 	public ModelAndView buscarTodos() {
-		
 		ModelAndView mv = new ModelAndView("/administrativo/cidade/cidadeLista");
 		mv.addObject("cidades", repository.findAll());
-				
-		
 		return mv;
 	}
 	
 	@GetMapping("/administrativo/cidade/adicionarCidade")
 	public ModelAndView add(Cidade cidade) {
-		
 		ModelAndView mv = new ModelAndView("/administrativo/cidade/cidadeAdicionar");
 		mv.addObject("cidade", cidade);
-		
 		List<Estado> listaEstado = repositoryEstado.findAll();
 		mv.addObject("estados",listaEstado);
-		
 		return mv;
 	}
 	

@@ -346,73 +346,90 @@
 				<!-- Begin Page Content------------------------------------------------------------------------------->
 				<div class="container-fluid">
 
-					<div class="main">
+					          <div class="row justify-content-center">
 
-						<div class="container">
-							<div class="signup-content">
-								<h2 class="form-title">Cadastro de Estado</h2>
+								<div class="container">
 
-								<form class="signup-form" th:object="${produto}"
-									th:action="@{/administrativo/produto/salvarProduto}" method="POST" style="margin: 10px">
-									
-										<fieldset>
-											<div class="form-input">
-												<div class="" th:if="${#fields.hasAnyErrors()}">
-													<div th:each="detailedError : ${#fields.detailedErrors()}">
-														<span th:text="${detailedError.message}"></span>
+									<div class="card o-hidden border-0 shadow-lg my-5">
+										<div class="card-body p-0">
+											<!-- Nested Row within Card Body -->
+											<div class="row">
+
+												<div class="container">
+													<div class="">
+														
+	
+															<div class="">
+																<strong>Lista de Estados</strong>
+															</div>
+															<div class="">
+																<div class="table-responsive">
+																	<table
+																		class="table table-sm table-striped table-hover table-bordered">
+																		<thead>
+																			<tr>
+																				<th>ID</th>
+																				<th>Estado</th>
+																				<th>Sigla</th>
+																				<th></th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr th:each="estado : ${estados}">
+																				<td th:text="${estado.id}"></td>
+																				<td th:text="${estado.nome}"></td>
+																				<td th:text="${estado.sigla}"></td>
+																				<td>
+																					<div class="btn-group pull-right">
+																						<a class="btn btn-sm btn-primary"
+																							th:href="@{/administrativo/estado/editarEstado/{id}(id=${estado.id})}">Editar</a>
+																						<a class="delete btn btn-sm btn-danger"
+																							th:href="@{/administrativo/estado/removerEstado/{id}(id=${estado.id})}">Excluir</a>
+																					</div>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+															<div class="panel-footer">
+																<a class="btn btn btn-success"
+																	th:href="@{/administrativo/estado/adicionarEstado/}">Adicionar</a>
+
+																<a class="btn btn-danger"
+																	th:href="@{/administrativo}">sair</a>
+
+
+															</div>
+													
+
+
+
+
+
+
+
+														<hr>
+
 													</div>
 												</div>
 											</div>
-
-											<div class="form-group">
-												<input type="text" class="form-input" id="id"
-													th:field="*{id}" readOnly="readonly" />
-											</div>
-
-											<div class="form-group">
-												<div class=""
-													th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
-													<label>Nome</label> <input type="text" class="form-input"
-														th:field="*{nome}" autofocus="autofocus"
-														placeholder="Informe o nome do produto" maxlength="50" />
-												</div>
-											</div>
-
-											<div class="form-group">
-												<div class=""
-													th:classappend="${#fields.hasErrors('preco')}? 'has-error'">
-													<label>preço</label> <input type="text" class="form-input"
-														th:field="*{preco}" autofocus="autofocus"
-														placeholder="Informe o preço" maxlength="50" />
-												</div>
-											</div>
-											
-											<div class="form-group">
-												<div class=""
-													th:classappend="${#fields.hasErrors('qtdeEstoque')}? 'has-error'">
-													<label>Estoque</label> <input type="text" class="form-input"
-														th:field="*{qtdeEstoque}" autofocus="autofocus"
-														placeholder="Informe a quantidade em estoque" maxlength="50" />
-												</div>
-											</div>
-
-										</fieldset>
-									
-
-									<div class="form-group">
-										<input type="submit" name="submit" id="submit"
-											class="form-submit" value="Salvar" />
-											
-										<a th:href="@{/administrativo}"><button type="button"  class="form-cancel"
-											id="submit">Cancelar</button></a>
+										</div>
 									</div>
 
-								</form>
+								</div>
 
 							</div>
-						</div>
-
-					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					<!-- /.container-fluid -->
 
 				</div>
