@@ -58,7 +58,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">fazer um novo cadastro:</h6>
 
-            <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
+            <a class="collapse-item" href="administrativo/produto/adicionarProduto">Produto</a>
             <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
             <a class="collapse-item" href="administrativo/cupomDesconto/adicionarCupomDes">Cupom de desconto</a>
@@ -80,7 +80,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Listagem de Cadastros:</h6>
-            <a class="collapse-item" href="administrativo/estado/estados">Estado</a>
+            <a class="collapse-item" href="administrativo/produto/produtos">Produto</a>
             <a class="collapse-item" href="administrativo/cidade/cidades">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/funcionarios">Funcionário</a> 
             <a class="collapse-item" href="administrativo/cupomDesconto/cuponsDes">Cupom de desconto</a>
@@ -350,7 +350,7 @@
 
 						<div class="container">
 							<div class="signup-content">
-								<h2 class="form-title">Cadastro de Estado</h2>
+								<h2 class="form-title">Cadastro de Produto</h2>
 
 								<form class="signup-form" th:object="${produto}"
 									th:action="@{/administrativo/produto/salvarProduto}" method="POST" style="margin: 10px">
@@ -380,19 +380,19 @@
 
 											<div class="form-group">
 												<div class=""
-													th:classappend="${#fields.hasErrors('preco')}? 'has-error'">
-													<label>preço</label> <input type="text" class="form-input"
-														th:field="*{preco}" autofocus="autofocus"
-														placeholder="Informe o preço" maxlength="50" />
+													th:classappend="${#fields.hasErrors('qtdeEstoque')}? 'has-error'">
+													<label>Quantidade de Estoque</label> <input type="text" class="form-input"
+														th:field="*{qtdeEstoque}" autofocus="autofocus"
+														placeholder="Informe a quantidade de estoque" maxlength="50" />
 												</div>
 											</div>
 											
 											<div class="form-group">
 												<div class=""
-													th:classappend="${#fields.hasErrors('qtdeEstoque')}? 'has-error'">
-													<label>Estoque</label> <input type="text" class="form-input"
-														th:field="*{qtdeEstoque}" autofocus="autofocus"
-														placeholder="Informe a quantidade em estoque" maxlength="50" />
+													th:classappend="${#fields.hasErrors('preco')}? 'has-error'">
+													<label>Preço</label> <input type="text" class="form-input"
+														th:field="*{preco}" autofocus="autofocus"
+														placeholder="Informe o preço do produto" maxlength="50" />
 												</div>
 											</div>
 
@@ -482,8 +482,8 @@
 
 
 		<!-- JS colocar mais isso no codigo antigo-->
-		<script src="@{/vendor/jquery/jquery.min.js}"></script>
-		<script src="@{/js/main.js}"></script>
+		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
 </body>
 
 </html>

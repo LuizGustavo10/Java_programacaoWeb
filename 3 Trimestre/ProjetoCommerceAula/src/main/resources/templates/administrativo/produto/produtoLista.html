@@ -58,7 +58,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">fazer um novo cadastro:</h6>
 
-            <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
+            <a class="collapse-item" href="administrativo/produto/adicionarProduto">Produto</a>
             <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
             <a class="collapse-item" href="administrativo/cupomDesconto/adicionarCupomDes">Cupom de desconto</a>
@@ -80,7 +80,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Listagem de Cadastros:</h6>
-            <a class="collapse-item" href="administrativo/estado/estados">Estado</a>
+            <a class="collapse-item" href="administrativo/produto/produtos">Produto</a>
             <a class="collapse-item" href="administrativo/cidade/cidades">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/funcionarios">Funcionário</a> 
             <a class="collapse-item" href="administrativo/cupomDesconto/cuponsDes">Cupom de desconto</a>
@@ -360,7 +360,7 @@
 														
 	
 															<div class="">
-																<strong>Lista de Estados</strong>
+																<strong>Lista de Produtos</strong>
 															</div>
 															<div class="">
 																<div class="table-responsive">
@@ -369,17 +369,18 @@
 																		<thead>
 																			<tr>
 																				<th>ID</th>
-																				<th>Estado</th>
-																				<th>Sigla</th>
+																				<th>Nome</th>
+																				<th>Quantidade</th>
+																				<th>Preço</th>
 																				<th></th>
 																			</tr>
 																		</thead>
 																		<tbody>
-																			<tr th:each="estado : ${estados}">
+																			<tr th:each="produto : ${produtos}">
 																				<td th:text="${produto.id}"></td>
 																				<td th:text="${produto.nome}"></td>
-																				<td th:text="${produto.preco}"></td>
 																				<td th:text="${produto.qtdeEstoque}"></td>
+																				<td th:text="${produto.preco}"></td>
 																				<td>
 																					<div class="btn-group pull-right">
 																						<a class="btn btn-sm btn-primary"
