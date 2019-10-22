@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 
@@ -31,6 +31,11 @@ public class Produto implements Serializable {
 	@Column(nullable = false, length = 50)
 	//@NotEmpty(message = "O preço é obrigatório")
 	private Double preco;
+	
+	@ManyToOne
+	private Marca marca;
+	@ManyToOne
+	private Categoria categoria;
 
 	public Long getId() {
 		return id;
@@ -66,6 +71,22 @@ public class Produto implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Marca getMarca() {
+		return marca;
+	}
+
+	public void setMarca(Marca marca) {
+		this.marca = marca;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	
 	

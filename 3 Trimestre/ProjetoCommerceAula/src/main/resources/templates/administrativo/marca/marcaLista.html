@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <title>PhoenixCommerce 1.0</title>
@@ -44,9 +45,9 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-
-
-
+			
+			
+			
 				 <!-- Nav Item - Pages Collapse Menu CADASTRAR-->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -57,7 +58,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">fazer um novo cadastro:</h6>
 
-            <a class="collapse-item" href="administrativo/estado/adicionarEstado">Estado</a>
+            <a class="collapse-item" href="administrativo/marca/adicionarProduto">Produto</a>
             <a class="collapse-item" href="administrativo/cidade/adicionarCidade">Cidade</a>
             <a class="collapse-item" href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
             <a class="collapse-item" href="administrativo/cupomDesconto/adicionarCupomDes">Cupom de desconto</a>
@@ -66,8 +67,8 @@
 			<a class="collapse-item" href="administrativo/marca/adicionarMarca">Marca</a>
 			<a class="collapse-item" href="administrativo/categoria/adicionarCategoria">Categoria</a>
 			<a class="collapse-item" href="administrativo/produto/adicionarProduto">Produtos</a>
-
-
+            
+            
           </div>
         </div>
       </li>
@@ -82,16 +83,17 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Listagem de Cadastros:</h6>
-            <a class="collapse-item" href="administrativo/estado/estados">Estado</a>
+            <a class="collapse-item" href="administrativo/marca/marcas">Produto</a>
             <a class="collapse-item" href="administrativo/cidade/cidades">Cidade</a>
-            <a class="collapse-item" href="funcionarios">Funcionário</a>
+            <a class="collapse-item" href="administrativo/funcionario/funcionarios">Funcionário</a> 
             <a class="collapse-item" href="administrativo/cupomDesconto/cuponsDes">Cupom de desconto</a>
             <a class="collapse-item" href="administrativo/permissaoFuncionario/permissoesFuncionarios">Permissões Funcionário</a>
             <a class="collapse-item" href="administrativo/papel/papeis">Papéis</a>
 			<a class="collapse-item" href="administrativo/marca/marcas">Marcas</a> 
 			<a class="collapse-item" href="administrativo/categoria/categorias">Categorias</a> 
-			<a class="collapse-item" href="administrativo/produto/produtos">Produtos</a>  
-
+			<a class="collapse-item" href="administrativo/produto/produtos">Produtos</a> 
+            
+            
           </div>
         </div>
       </li>
@@ -350,72 +352,90 @@
 				<!-- Begin Page Content------------------------------------------------------------------------------->
 				<div class="container-fluid">
 
-					<div class="main">
+					          <div class="row justify-content-center">
 
-						<div class="container">
-							<div class="signup-content">
-								<h2 class="form-title">Cadastro de Permissão Funionário</h2>
+								<div class="container">
 
-								<form class="signup-form" th:object="${permissoesFuncionario}"
-								  th:action="@{/administrativo/permissoesFuncionario/salvarPermissoesFuncionario}" method="POST"
-								  style="margin: 10px">
+									<div class="card o-hidden border-0 shadow-lg my-5">
+										<div class="card-body p-0">
+											<!-- Nested Row within Card Body -->
+											<div class="row">
 
-								    <fieldset>
+												<div class="container">
+													<div class="">
+														
+	
+															<div class="">
+																<strong>Lista de Marcas</strong>
+															</div>
+															<div class="">
+																<div class="table-responsive">
+																	<table
+																		class="table table-sm table-striped table-hover table-bordered">
+																		<thead>
+																			<tr>
+																				<th>ID</th>
+																				<th>Nome</th>
+														
+																				<th></th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr th:each="marca : ${marcas}">
+																				<td th:text="${marca.id}"></td>
+																				<td th:text="${marca.nome}"></td>
+																				
+																				<td>
+																					<div class="btn-group pull-right">
+																						<a class="btn btn-sm btn-primary"
+																							th:href="@{/administrativo/marca/editarMarca/{id}(id=${marca.id})}">Editar</a>
+																						<a class="delete btn btn-sm btn-danger"
+																							th:href="@{/administrativo/marca/removerMarca/{id}(id=${marca.id})}">Excluir</a>
+																					</div>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+															<div class="panel-footer">
+																<a class="btn btn btn-success"
+																	th:href="@{/administrativo/marca/adicionarMarca/}">Adicionar</a>
 
-								      <div class="form-input">
-												<div class="" th:if="${#fields.hasAnyErrors()}">
-													<div th:each="detailedError : ${#fields.detailedErrors()}">
-														<span th:text="${detailedError.message}"></span>
+																<a class="btn btn-danger"
+																	th:href="@{/administrativo}">sair</a>
+
+
+															</div>
+													
+
+
+
+
+
+
+
+														<hr>
+
 													</div>
 												</div>
 											</div>
-											
-								      <div class="form-group">
-								        <input type="text"
-								          class="form-input" id="id"
-								          th:field="*{id}" readOnly="readonly" />
-								      </div>
-			
-
-								      <div class="form-group">
-								        <label>Funcionario</label> <select th:field="*{funcionario}"
-								          class="form-input">
-								          <option th:each="fun: ${funcionarios}"
-								            th:value="${fun.id}" th:text="${fun.nome}"></option>
-								        </select>
-								      </div>
-								      
-								      <div class="form-group">
-
-								        <label>Papel</label> <select th:field="*{papel}"
-								          class="form-input">
-								          <option th:each="pap: ${papeis}"
-								            th:value="${pap.id}" th:text="${pap.cargo}"></option>
-								        </select>
-								      </div>
-								      
-								  </div>
-
-								  </fieldset>
-
-
-
-
-									<div class="form-group">
-										<input type="submit" name="submit" id="submit"
-											class="form-submit" value="Salvar" />
-
-										<a th:href="@{/administrativo}">
-										<button type="button" class="form-cancel"
-											id="submit">Cancelar</button></a>
+										</div>
 									</div>
 
-								</form>
+								</div>
 
 							</div>
-						</div>
-
-					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					<!-- /.container-fluid -->
 
 				</div>
@@ -485,8 +505,8 @@
 
 
 		<!-- JS colocar mais isso no codigo antigo-->
-		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-		<script th:src="@{/js/main.js}"></script>
+		<script src="@{/vendor/jquery/jquery.min.js}"></script>
+		<script src="@{/js/main.js}"></script>
 </body>
 
 </html>

@@ -507,17 +507,18 @@
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-2">
 
-										<!-- product meu produto-->
+										<!-- product meu produto----------------------------------
+										---------------------------------------------------------->
 										<div class="product" th:each="produto : ${produtos}">
 											<div class="product-img">
 												<img src="./img/product06.png" alt="">
 												<div class="product-label">
-													<span class="sale"><span th:text="${produto.preco}"> </span></span>
-													<span class="new">Quantidade</span>
+													<span class="sale">Marca:<span th:text="${produto.marca.nome}"> </span></span>
+													<span class="new">Quantidade: <span th:text="${produto.qtdeEstoque}"> </span> </span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
+												<p class="product-category">Categoria: <span th:text="${produto.categoria.nome}"> </span></p>
 												<h3 class="product-name"><a href="#"><span th:text="${produto.nome}"> </span></a></h3>
 												<h4 class="product-price">R$<span th:text="${produto.preco}"> </span></a></h3>
 												<div class="product-rating">

@@ -64,6 +64,9 @@
             <a class="collapse-item" href="administrativo/cupomDesconto/adicionarCupomDes">Cupom de desconto</a>
             <a class="collapse-item" href="administrativo/permissaoFuncionario/adicionarPermFunc">Permissões Funcionario</a>
             <a class="collapse-item" href="administrativo/papel/adicionarPapeis">Papeis</a>
+			<a class="collapse-item" href="administrativo/marca/adicionarMarca">Marca</a>
+			<a class="collapse-item" href="administrativo/categoria/adicionarCategoria">Categoria</a>
+			<a class="collapse-item" href="administrativo/produto/adicionarProduto">Produtos</a>
             
             
           </div>
@@ -85,7 +88,10 @@
             <a class="collapse-item" href="administrativo/funcionario/funcionarios">Funcionário</a> 
             <a class="collapse-item" href="administrativo/cupomDesconto/cuponsDes">Cupom de desconto</a>
             <a class="collapse-item" href="administrativo/permissaoFuncionario/permissoesFuncionarios">Permissões Funcionário</a>
-            <a class="collapse-item" href="administrativo/papel/papeis">Papéis</a> Funcionário</a>
+            <a class="collapse-item" href="administrativo/papel/papeis">Papéis</a>
+			<a class="collapse-item" href="administrativo/marca/marcas">Marcas</a> 
+			<a class="collapse-item" href="administrativo/categoria/categorias">Categorias</a> 
+			<a class="collapse-item" href="administrativo/produto/produtos">Produtos</a> 
             
             
           </div>
@@ -395,6 +401,22 @@
 														placeholder="Informe o preço do produto" maxlength="50" />
 												</div>
 											</div>
+											
+										 <div class="form-group">
+									        <label>Marca</label> <select th:field="*{marca}"
+									          class="form-input">
+									          <option th:each="mar: ${marcas}"
+									            th:value="${mar.id}" th:text="${mar.nome}"></option>
+									        </select>
+									      </div>
+											
+										  <div class="form-group">
+									        <label>Categoria</label> <select th:field="*{categoria}"
+									          class="form-input">
+									          <option th:each="cat: ${categorias}"
+									            th:value="${cat.id}" th:text="${cat.nome}"></option>
+									        </select>
+									      </div>
 
 										</fieldset>
 									
