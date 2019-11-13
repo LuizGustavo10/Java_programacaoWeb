@@ -45,7 +45,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/administrativo").hasAnyAuthority("Administrador","funcionario").
+		http.authorizeRequests().antMatchers("/administrativo").hasAnyAuthority("Administrador","Funcionario").
 		antMatchers(
 				
 				"/administrativo/estado/adicionarEstado",
