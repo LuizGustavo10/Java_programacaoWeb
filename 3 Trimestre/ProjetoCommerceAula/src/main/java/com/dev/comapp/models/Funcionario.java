@@ -24,10 +24,11 @@ public class Funcionario implements Serializable {
 	
 
 	private String nome;
-	private String endereco;
-	private String cpf;
-	@ManyToOne
-	private Cidade cidade;
+	private String email;
+	private String senha;
+	
+//	@ManyToOne
+//	private Cidade cidade;
 
 	public Long getId() {
 		return id;
@@ -45,35 +46,35 @@ public class Funcionario implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getEndereco() {
-		return endereco;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public Cidade getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
-	}
-
+//	public Cidade getCidade() {
+//		return cidade;
+//	}
+//
+//	public void setCidade(Cidade cidade) {
+//		this.cidade = cidade;
+//	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+
 
 
 	

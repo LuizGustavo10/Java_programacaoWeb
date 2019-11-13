@@ -49,6 +49,7 @@ public class VendaController {
 		ModelAndView mv = new ModelAndView("/vendaAdd");
 		mv.addObject("venda", this.venda);
 		mv.addObject("itensVenda", this.itensVenda);
+		mv.addObject("listVenda", this.listaItensVenda);
 
 		return mv;
 	}
@@ -87,17 +88,20 @@ public class VendaController {
 		} else if (acao.equals("salvar")) {
 			// SALVAR A VENDA NO BANCO DE DADOS....
 			this.venda.setDataVenda(new Date());
+			
 			vendaRepository.saveAndFlush(this.venda);
 			for (ItensVenda it : listaItensVenda) {
 				it.setVenda(this.venda);
 				itensVendaRepository.saveAndFlush(it);
 			}
+			
 			this.venda = new Venda();
 			this.listaItensVenda = new ArrayList<>();
 		}
 
 		System.out.println("Quantidade Itens: " + listaItensVenda.size());
 		System.out.println(this.venda.getObservacao());
+		System.out.println(itensVenda.getQuantidade());
 		System.out.println(itensVenda.getQuantidade());
 		return add();
 	}

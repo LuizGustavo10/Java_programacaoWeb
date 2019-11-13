@@ -383,30 +383,22 @@
 
 
 
-                  									<div class="form-group" th:classappend="${#fields.hasErrors('endereco')}? 'has-error'">
-                  									    <label>Endereço</label>
-                  									    <input type="text" class="form-input" th:field="*{endereco}" autofocus="autofocus" placeholder="Informe seu endereço" maxlength="50"/>
+                  									<div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+                  									    <label>Email</label>
+                  									    <input type="text" class="form-input" th:field="*{email}" autofocus="autofocus" placeholder="Informe seu email" maxlength="50"/>
                   									</div>
 
 
 
 
-                  									<div class="form-group" th:classappend="${#fields.hasErrors('cpf')}? 'has-error'">
-                  									    <label>CPF</label>
-                  									    <input type="text" class="form-input" th:field="*{cpf}" autofocus="autofocus" placeholder="Informe o CPF do funcionario"/>
+                  									<div class="form-group" th:classappend="${#fields.hasErrors('senha')}? 'has-error'">
+                  									    <label>Senha</label>
+                  									    <input type="password" class="form-input" th:field="*{senha}" autofocus="autofocus" placeholder="Informe sua senha"/>
                   									</div>
 
 
 
-                  								<div class="form-group">
-
-                  										<label>Cidade</label> <select th:field="*{cidade}"
-                  											class="form-input">
-                  											<option th:each="est: ${cidades}"
-                  												th:value="${est.id}" th:text="${est.nome}"></option>
-                  										</select>
-
-                  								</div>
+     
                   								
 
                   								

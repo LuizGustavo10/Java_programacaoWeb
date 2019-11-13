@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="cupom_desconto")
 public class CupomDesconto implements Serializable{
 	private static final long SerialVersionUID = 1L;
 	

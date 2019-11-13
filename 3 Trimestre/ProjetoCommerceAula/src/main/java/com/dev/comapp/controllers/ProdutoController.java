@@ -49,10 +49,10 @@ public class ProdutoController {
 		return mv;
 	}
 	
-	@GetMapping("/administrativo/produto/produtosNome")
+	@GetMapping("/comapp/administrativo/produto/pesquisar")
 	public ModelAndView buscarNome(String nome) {
 		
-		ModelAndView mv = new ModelAndView("administrativo/produto/produtoLista");
+		ModelAndView mv = new ModelAndView("/comapp/administrativo/produto/produtos");
 		mv.addObject("produtos", repository.buscarPorNome(nome));
 		
 		return mv;

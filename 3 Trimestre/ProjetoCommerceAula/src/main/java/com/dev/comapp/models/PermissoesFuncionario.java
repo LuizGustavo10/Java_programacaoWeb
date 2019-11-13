@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity(name = "permissoesFuncionario")
+@Entity(name = "permissoes_funcionario")
 public class PermissoesFuncionario implements Serializable {
 
 	private static final long serialVersionUID = 1L;

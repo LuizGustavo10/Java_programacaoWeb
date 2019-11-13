@@ -6,12 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 
 
-@Entity(name = "aluno")
+@Entity
+@Table(name="aluno")
 public class Aluno implements Serializable {
 
 	private static final long serialVersionUID = 1L;

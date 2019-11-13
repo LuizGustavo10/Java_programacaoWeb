@@ -373,11 +373,8 @@
 												<tr>
 													<th>ID</th>
 													<th>Nome</th>
-													<th>Endereço</th>
-													<th>Cpf</th>
-													<th>cidade</th>
-
-
+													<th>Email</th>
+													<th>senha</th>
 													<th>opções</th>
 												</tr>
 											</thead>
@@ -385,9 +382,8 @@
 												<tr th:each="funcionario : ${funcionarios}">
 													<td th:text="${funcionario.id}"></td>
 													<td th:text="${funcionario.nome}"></td>
-													<td th:text="${funcionario.endereco}"></td>
-													<td th:text="${funcionario.cpf}"></td>
-													<td th:text="${funcionario.cidade.nome}"></td>
+													<td th:text="${funcionario.email}"></td>
+													<td th:text="${funcionario.senha}"></td>
 
 
 													<td>

@@ -7,11 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 
 
 @Entity
+@Table(name="produto")
 public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,7 +32,10 @@ public class Produto implements Serializable {
 	
 	@Column(nullable = false, length = 50)
 	//@NotEmpty(message = "O preço é obrigatório")
+	
 	private Double preco;
+	private Double precoDesconto;
+	private Double PorcentagemDesconto;
 	
 	@ManyToOne
 	private Marca marca;
@@ -88,6 +93,23 @@ public class Produto implements Serializable {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
+	public Double getPrecoDesconto() {
+		return precoDesconto;
+	}
+
+	public void setPrecoDesconto(Double precoDesconto) {
+		this.precoDesconto = precoDesconto;
+	}
+
+	public Double getPorcentagemDesconto() {
+		return PorcentagemDesconto;
+	}
+
+	public void setPorcentagemDesconto(Double porcentagemDesconto) {
+		PorcentagemDesconto = porcentagemDesconto;
+	}
+	
 	
 	
 
