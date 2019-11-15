@@ -26,16 +26,15 @@ public class Produto implements Serializable {
 	@NotEmpty(message = "O nome do produto é obrigatório")
 	private String nome;
 	
-	@Column(nullable = false, length = 50)
-	//@NotEmpty(message = "a Quantidade é obrigatória")
-	private int qtdeEstoque;
+
+	private Double qtdeEstoque = 0.;
 	
 	@Column(nullable = false, length = 50)
 	//@NotEmpty(message = "O preço é obrigatório")
 	
 	private Double preco;
 	private Double precoDesconto;
-	private Double PorcentagemDesconto;
+	private Double porcentagemDesconto;
 	
 	@ManyToOne
 	private Marca marca;
@@ -58,13 +57,7 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
-	public int getQtdeEstoque() {
-		return qtdeEstoque;
-	}
-
-	public void setQtdeEstoque(int qtdeEstoque) {
-		this.qtdeEstoque = qtdeEstoque;
-	}
+	
 
 	public Double getPreco() {
 		return preco;
@@ -103,16 +96,13 @@ public class Produto implements Serializable {
 	}
 
 	public Double getPorcentagemDesconto() {
-		return PorcentagemDesconto;
+		return porcentagemDesconto;
 	}
 
 	public void setPorcentagemDesconto(Double porcentagemDesconto) {
-		PorcentagemDesconto = porcentagemDesconto;
+		this.porcentagemDesconto = porcentagemDesconto;
 	}
 	
-	
-	
-
 	
 	
 }

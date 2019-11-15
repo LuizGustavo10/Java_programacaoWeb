@@ -56,9 +56,38 @@
 																	<div class="btn-group pull-right">
 																		<a class="btn btn-sm btn-primary"
 																			th:href="@{/administrativo/cidade/editarCidade/{id}(id=${cidade.id})}">Editar</a>
-																		<a class="delete btn btn-sm btn-danger"
-																			th:href="@{/administrativo/cidade/removerCidade/{id}(id=${cidade.id})}">Excluir</a>
-																	</div>
+
+																		<a class="delete btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-warning" 
+																		th:attr="data-target='#modal-warning'+${cidade.id }">Excluir</a>
+																	</div> 
+																	
+																	<!-- código jquery para permissão de remover -->
+																	<div class="modal modal-warning fade in"
+																		th:id="modal-warning+${cidade.id }">
+																		<div class="modal-dialog">
+																			<div class="modal-content">
+																				<div class="modal-header">
+																					<button type="button" class="close"
+																						data-dismiss="modal" aria-label="Fechar">
+																						<span aria-hidden="true">×</span>
+																					</button>
+																					<h5 class="modal-title">Fechar</h5>
+																				</div>
+																				<div class="modal-body">
+																					<h3>Deseja realmente Remover?</h3>
+																				</div>
+																				<div class="modal-footer">
+																					<button type="button"
+																						class="btn btn-outline pull-left"
+																						data-dismiss="modal">Sair</button>
+																					<a type="button" class="btn btn-outline"
+																						th:href="@{/administrativo/cidade/removerCidade/{id}(id=${cidade.id})}"><i
+																						class="fa fa-check"></i>&nbsp;Sim</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div> <!-- FIM do código jquery para permissão de remover -->
+
 																</td>
 															</tr>
 														</tbody>

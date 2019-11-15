@@ -2,9 +2,13 @@
 <html xmlns:th="https://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
+
 <head>
 <title>PhoenixCommerce 1.0</title>
 <meta charset="utf-8">
+
+
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,6 +28,9 @@
 	rel="stylesheet">
 <!-- Custom styles for this template-->
 <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+<!-- Jquery, para aparecer permissão para excluir -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -41,7 +48,8 @@
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="index.html">
 				<div class="sidebar-brand-icon rotate-n-15">
-					<i></i> <img with="60" height="60" src="img/phoenix.png" alt="">
+					<i></i> <img with="60" height="60" th:src="@{/img/phoenix.png}"
+						alt="">
 				</div>
 				<div class="sidebar-brand-text mx-3">
 					Phoenix Commerce <sup>1.0</sup>
@@ -370,15 +378,8 @@
 
 				<!-- Begin Page Content------------------------------------------------------------------------------->
 
-				<section class="layout-content" layout:fragment="corpo">
-
-
-
-
-
-
-				</section>
-						<!-- /.container-fluid -->
+				<section class="layout-content" layout:fragment="corpo"></section>
+				<!-- /.container-fluid -->
 			</div>
 			<!-- End of Main Content -->
 
