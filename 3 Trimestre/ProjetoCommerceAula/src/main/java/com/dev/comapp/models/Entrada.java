@@ -26,7 +26,7 @@ public class Entrada {
 	@Temporal(TemporalType.DATE)
 	private Date dataEntrada = new Date();
 	private String observacao;
-	private String fornececedor;
+	private String fornecedor;
 
 	
 	public Long getId() {
@@ -53,11 +53,11 @@ public class Entrada {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-	public String getFornececedor() {
-		return fornececedor;
+	public String getFornecedor() {
+		return fornecedor;
 	}
-	public void setFornececedor(String fornececedor) {
-		this.fornececedor = fornececedor;
+	public void setFornecedor(String fornececedor) {
+		this.fornecedor = fornecedor;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;

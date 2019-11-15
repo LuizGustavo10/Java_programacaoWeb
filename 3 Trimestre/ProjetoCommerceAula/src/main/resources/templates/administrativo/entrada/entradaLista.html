@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{fragments/layout}">
+
+<head>
+<title>PhoenixCommerce 1.0</title>
+<meta charset="utf-8">
+
+</head>
+
+<body>
+
+
+
+	<section class="layout-content" layout:fragment="corpo">
+		<!-- Begin Page Content------------------------------------------------------------------------------->
+		<div class="container-fluid">
+
+			<div class="row justify-content-center">
+
+				<div class="container">
+
+					<div class="card o-hidden border-0 shadow-lg my-5">
+						<div class="card-body p-0">
+							<!-- Nested Row within Card Body -->
+							<div class="row">
+
+								<div class="col-lg-12">
+									<div class="p-5">
+
+
+
+
+
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<strong>Lista de Cidades</strong>
+											</div>
+											<div class="panel-body">
+												<div class="table-responsive">
+													<table
+														class="table table-sm table-striped table-hover table-bordered">
+														<thead>
+															<tr>
+																<th>ID</th>
+																<th>Nome</th>
+																<th>Estado</th>
+																<th></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr th:each="cidade : ${cidades}">
+																<td th:text="${cidade.id}"></td>
+																<td th:text="${cidade.nome}"></td>
+																<td th:text="${cidade.estado}"></td>
+																<td>
+																	<div class="btn-group pull-right">
+																		<a class="btn btn-sm btn-primary"
+																			th:href="@{/administrativo/cidade/editarCidade/{id}(id=${cidade.id})}">Editar</a>
+
+																		<a class="delete btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-warning" 
+																		th:attr="data-target='#modal-warning'+${cidade.id }">Excluir</a>
+																	</div> 
+																	
+																	<!-- código jquery para permissão de remover -->
+																	<div class="modal modal-warning fade in"
+																		th:id="modal-warning+${cidade.id }">
+																		<div class="modal-dialog">
+																			<div class="modal-content">
+																				<div class="modal-header">
+																					<button type="button" class="close"
+																						data-dismiss="modal" aria-label="Fechar">
+																						<span aria-hidden="true">×</span>
+																					</button>
+																					<h5 class="modal-title">Fechar</h5>
+																				</div>
+																				<div class="modal-body">
+																					<h3>Deseja realmente Remover?</h3>
+																				</div>
+																				<div class="modal-footer">
+																					<button type="button"
+																						class="btn btn-outline pull-left"
+																						data-dismiss="modal">Sair</button>
+																					<a type="button" class="btn btn-outline"
+																						th:href="@{/administrativo/cidade/removerCidade/{id}(id=${cidade.id})}"><i
+																						class="fa fa-check"></i>&nbsp;Sim</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div> <!-- FIM do código jquery para permissão de remover -->
+
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<div class="panel-footer">
+												<a class="btn btn btn-success"
+													th:href="@{/administrativo/cidade/adicionarCidade/}">Adicionar</a>
+
+
+												<a class="btn btn-danger" th:href="@{/administrativo}">sair</a>
+
+
+											</div>
+										</div>
+
+
+
+
+
+
+
+										<hr>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+			<!-- /.container-fluid -->
+
+		</div>
+	</section>
+
+</body>
+
+</html>

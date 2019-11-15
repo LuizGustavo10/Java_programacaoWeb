@@ -1,5 +1,6 @@
 package com.dev.comapp.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,15 +18,21 @@ import com.dev.comapp.models.Estado;
 import com.dev.comapp.models.ItensEntrada;
 import com.dev.comapp.repository.EntradaRepository;
 import com.dev.comapp.repository.EstadoRepository;
+import com.dev.comapp.repository.FuncionarioRepository;
 import com.dev.comapp.repository.ItensEntradaRepository;
+import com.dev.comapp.repository.ProdutoRepository;
 
 @Controller
 public class EntradaController {
-
+	private List<ItensEntrada> listaItensEntrada = new ArrayList<ItensEntrada>();
 	@Autowired
 	private EntradaRepository entradaRepository;
 	@Autowired
 	private ItensEntradaRepository itensEntradaRepository;
+	@Autowired
+	private FuncionarioRepository funcionarioRepository;
+	@Autowired
+	private ProdutoRepository produtoRepository;
 
 //	@GetMapping("administrativo/entrada/estados")
 //	public ModelAndView buscarTodos() {
@@ -46,13 +53,15 @@ public class EntradaController {
 //	}
 
 	@GetMapping("/administrativo/entrada/adicionarEntrada")
-	public ModelAndView add(Entrada entrada, List<ItensEntrada> listaItensEntrada, ItensEntrada itensEntrada) {
+	public ModelAndView add(Entrada entrada, ItensEntrada itensEntrada) {
 
 		ModelAndView mv = new ModelAndView("/administrativo/entrada/entradaAdicionar");
 		mv.addObject("entrada", entrada);
 		// lista - itens de Entrada vai para dentro da lista, que vai ser exibido na tela
-		mv.addObject("listaItensEntrada", listaItensEntrada);
+		mv.addObject("listaItensEntrada", this.listaItensEntrada);
 		mv.addObject("itensEntrada", itensEntrada);
+		mv.addObject("funcionarios", funcionarioRepository.findAll());
+		mv.addObject("produtos", produtoRepository.findAll());
 
 		return mv;
 	}
@@ -77,14 +86,14 @@ public class EntradaController {
 //	}
 
 	@PostMapping("/administrativo/entrada/salvarEntrada")
-	public ModelAndView save(String acao, Entrada entrada, List<ItensEntrada> listaItensEntrada, ItensEntrada itensEntrada) {
+	public ModelAndView save(String acao, Entrada entrada, ItensEntrada itensEntrada) {
 
 		if (acao.equals("itens")) {
-			listaItensEntrada.add(itensEntrada);
+			this.listaItensEntrada.add(itensEntrada);
 		}
-		System.out.println(listaItensEntrada.size());
+		System.out.println(this.listaItensEntrada.size());
 
-		return add(entrada, listaItensEntrada, new ItensEntrada());
+		return add(entrada, new ItensEntrada());
 	}
 
 }

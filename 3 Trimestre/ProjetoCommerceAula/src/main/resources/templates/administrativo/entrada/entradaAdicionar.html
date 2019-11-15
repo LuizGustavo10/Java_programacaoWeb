@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{fragments/layout}">
+
+<head>
+<title>PhoenixCommerce 1.0</title>
+<meta charset="utf-8">
+
+</head>
+
+<body>
+
+
+	<section class="layout-content" layout:fragment="corpo">
+		<!-- Begin Page Content------------------------------------------------------------------------------->
+		<div class="container-fluid">
+
+			<div class="main">
+
+				<div class="container">
+					<div class="signup-content">
+						<h2 class="form-title">Cadastro de Entrada de Produtos</h2>
+
+						<form class="signup-form" th:object="${entrada}"
+							th:action="@{/administrativo/entrada/salvarEntrada}"
+							method="POST" style="margin: 10px">
+
+							<fieldset>
+
+								<div class="form-input">
+									<div class="" th:if="${#fields.hasAnyErrors()}">
+										<div th:each="detailedError : ${#fields.detailedErrors()}">
+											<span th:text="${detailedError.message}"></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-input" id="id" th:field="*{id}"
+										readOnly="readonly" />
+								</div>
+
+								<div class="form-group">
+									<label>Funcionário</label> <select th:field="*{funcionario}"
+										class="form-input">
+										<option th:each="fun: ${funcionarios}" th:value="${fun.id}"
+											th:text="${fun.nome}"></option>
+									</select>
+								</div>
+
+								<div class="form-group">
+									<label>Fornecedor</label> <input type="text" class="form-input"
+										th:field="*{fornecedor}" autofocus="autofocus"
+										placeholder="Informe o fornecedor" maxlength="50" />
+								</div>
+
+								<div class="form-group">
+									<label>Observação</label> <input type="text" class="form-input"
+										th:field="*{observacao}" autofocus="autofocus"
+										placeholder="Informe a Observação" maxlength="50" />
+								</div>
+								<!-- itensEntrada abaixo -->
+								<hr />
+								<div th:object="${itensEntrada}">
+
+									<div class="form-group" >
+										<label>Produto</label> <select th:field="*{produto}"
+											class="form-input">
+											<option th:each="pro: ${produtos}" th:value="${pro.id}"
+												th:text="${pro.nome}"></option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label>Quantidade</label> <input type="number  "
+											class="form-input" th:field="*{quantidade}"
+											autofocus="autofocus" placeholder="Informe a Observação"
+											maxlength="50" />
+									</div>
+
+									<div class="form-group">
+										<label>Valor</label> <input type="number" class="form-input"
+											th:field="*{valorProduto}" autofocus="autofocus"
+											placeholder="Informe a Observação" maxlength="50" />
+									</div>
+									<div class="form-group">
+										<button type="submit" name="acao" th:value="itens" class="btn btn-primary btn-sm">ADD</button>
+									</div>
+
+
+								</div>
+					</div>
+
+					</fieldset>
+
+
+
+
+					<div class="form-group">
+						<input type="submit" name="submit" id="submit" class="form-submit"
+							value="Salvar" /> <a th:href="@{/administrativo}">
+							<button type="button" class="form-cancel" id="submit">Cancelar</button>
+						</a>
+					</div>
+					<a th:href="@{/administrativo/entrada/listarEntrada}">
+						<button type="button" class="btn btn-primary btn-lg">Listar
+							Entradas</button>
+					</a>
+
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+		<!-- /.container-fluid -->
+	</section>
+
+</body>
+
+</html>
