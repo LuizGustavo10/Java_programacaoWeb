@@ -27,7 +27,7 @@ public class Funcionario implements Serializable {
 	private String email;
 	private String senha;
 	
-	private Integer cpf;
+	private String cpf;
 	private String endereco;
 	private Double salario;
 	@ManyToOne
@@ -85,11 +85,11 @@ public class Funcionario implements Serializable {
 		this.endereco = endereco;
 	}
 
-	public Integer getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Integer cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
