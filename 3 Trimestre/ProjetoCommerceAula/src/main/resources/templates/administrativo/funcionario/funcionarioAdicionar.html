@@ -70,7 +70,35 @@
 										placeholder="Informe sua senha" />
 								</div>
 
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('cpf')}? 'has-error'">
+									<label>CPF</label> <input type="number" class="form-input"
+										th:field="*{cpf}" autofocus="autofocus"
+										placeholder="Informe seu CPF" maxlength="50" />
+								</div>
+								
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('salario')}? 'has-error'">
+									<label>Salario</label> <input type="number" class="form-input"
+										th:field="*{salario}" autofocus="autofocus"
+										placeholder="Informe seu salário" maxlength="50" />
+								</div>
+								
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('endereco')}? 'has-error'">
+									<label>Endereço</label> <input type="text" class="form-input"
+										th:field="*{endereco}" autofocus="autofocus"
+										placeholder="Informe seu endereço" maxlength="50" />
+								</div>
+								
+								<div class="form-group">
 
+									<label>Cidade</label> <select th:field="*{cidade}"
+										class="form-input">
+										<option th:each="cid: ${cidades}" th:value="${cid.id}"
+											th:text="${cid.nome}"></option>
+									</select>
+								</div>
 
 
 

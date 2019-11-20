@@ -14,10 +14,10 @@
 		<!-- Begin Page Content------------------------------------------------------------------------------->
 		<div class="container-fluid">
 
-			<div class="main">
+			<div>
 
 				<div class="container">
-					<div class="signup-content">
+					<div class="form-row">
 						<h2 class="form-title">Cadastro de Entrada de Produtos</h2>
 
 						<form class="signup-form" th:object="${entrada}"
@@ -26,19 +26,19 @@
 
 							<fieldset>
 
-								<div class="form-input">
+								<div class="form-group col-md-6">
 									<div class="" th:if="${#fields.hasAnyErrors()}">
 										<div th:each="detailedError : ${#fields.detailedErrors()}">
 											<span th:text="${detailedError.message}"></span>
 										</div>
 									</div>
 								</div>
-								<div class="form-group">
+								<div class="form-group col-md-6">
 									<input type="text" class="form-input" id="id" th:field="*{id}"
 										readOnly="readonly" />
 								</div>
 
-								<div class="form-group">
+								<div class="form-group col-md-6">
 									<label>Funcionário</label> <select th:field="*{funcionario}"
 										class="form-input">
 										<option th:each="fun: ${funcionarios}" th:value="${fun.id}"
@@ -46,22 +46,23 @@
 									</select>
 								</div>
 
-								<div class="form-group">
-									<label>Fornecedor</label> <input type="text" class="form-input"
+								<div class="form-group col-md-6">
+									<label>Fornecedor</label> 
+									<input type="text" class="form-input"
 										th:field="*{fornecedor}" autofocus="autofocus"
 										placeholder="Informe o fornecedor" maxlength="50" />
 								</div>
 
-								<div class="form-group">
+								<div class="form-group col-md-6">
 									<label>Observação</label> <input type="text" class="form-input"
 										th:field="*{observacao}" autofocus="autofocus"
 										placeholder="Informe a Observação" maxlength="50" />
 								</div>
 								<!-- itensEntrada abaixo -->
 								<hr />
-								<div th:object="${itensEntrada}">
+								<div th:object="${itensEntrada}" class="form-row">
 
-									<div class="form-group" >
+									<div class="form-group col-md-3" >
 										<label>Produto</label> <select th:field="*{produto}"
 											class="form-input">
 											<option th:each="pro: ${produtos}" th:value="${pro.id}"
@@ -69,23 +70,67 @@
 										</select>
 									</div>
 
-									<div class="form-group">
-										<label>Quantidade</label> <input type="number  "
+									<div class="form-group col-md-2">
+										<label>Quantidade</label> <input type="number"
 											class="form-input" th:field="*{quantidade}"
-											autofocus="autofocus" placeholder="Informe a Observação"
+											autofocus="autofocus" placeholder="Informe a quantidade"
 											maxlength="50" />
 									</div>
 
-									<div class="form-group">
-										<label>Valor</label> <input type="number" class="form-input"
+									<div class="form-group col-md-2">
+										<label>Valor Custo</label> <input type="number" class="form-input"
 											th:field="*{valorProduto}" autofocus="autofocus"
-											placeholder="Informe a Observação" maxlength="50" />
+											placeholder="Informe o Valor de custo" maxlength="50" />
 									</div>
-									<div class="form-group">
+									
+									<div class="form-group col-md-2">
+										<label>Valor Venda</label> <input type="number" class="form-input"
+											th:field="*{valorVenda}" autofocus="autofocus"
+											placeholder="Informe o valor de Venda" maxlength="50" />
+									</div>
+									
+									<div class="form-group col-md-3">
+									<br/><br/>
 										<button type="submit" name="acao" th:value="itens" class="btn btn-primary btn-sm">ADD</button>
 									</div>
+								</div>
+								
+								
+								<div class="form-row">
 
-
+									<div class="form-group col-md-12" >
+										<div class="panel panel-default">
+											
+											<div class="panel-body">
+												<div class="table-responsive">
+													<table
+														class="table table-sm table-striped table-hover table-bordered">
+														<thead>
+															<tr>
+																<th>Descrição</th>
+																<th>Quantidade</th>
+																<th>Valor Custo</th>
+																<th>Valor Venda</th>
+																
+																
+															</tr>
+														</thead>
+														<tbody>
+															<tr th:each="itens : ${listaItensEntrada}">
+																<td th:text="${itens.produto.nome}"></td>
+																<td th:text="${itens.quantidade}"></td>
+																<td th:text="${itens.valorProduto}"></td>
+																<td th:text="${itens.valorVenda}"></td>
+																
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											
+										</div>
+										
+									</div>
 								</div>
 					</div>
 
@@ -95,16 +140,17 @@
 
 
 					<div class="form-group">
-						<input type="submit" name="submit" id="submit" class="form-submit"
-							value="Salvar" /> <a th:href="@{/administrativo}">
-							<button type="button" class="form-cancel" id="submit">Cancelar</button>
+						<input type="submit" class="btn btn-primary btn-lg"
+							value="Salvar" name="acao" th:value="salvar"/> 
+							<a th:href="@{/administrativo}">
+							<button type="button"  class="btn btn-danger btn-lg" >Cancelar</button>
+						</a>
+					
+						<a th:href="@{/administrativo/entrada/entradas}">
+							<button type="button" class="btn btn-info btn-lg">Listar
+								Entradas</button>
 						</a>
 					</div>
-					<a th:href="@{/administrativo/entrada/listarEntrada}">
-						<button type="button" class="btn btn-primary btn-lg">Listar
-							Entradas</button>
-					</a>
-
 					</form>
 
 				</div>

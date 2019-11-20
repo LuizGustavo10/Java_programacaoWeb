@@ -511,7 +511,8 @@
 										---------------------------------------------------------->
 										<div class="product" th:each="produto : ${produtos}">
 											<div class="product-img">
-												<img src="./img/product06.png" alt="">
+												<img th:src="@{/administrativo/produto/mostrarImagem/{imagem}(imagem=${produto.nomeImagem})}" width="100">
+												
 												<div class="product-label">
 													<span class="sale">Marca:<span th:text="${produto.marca.nome}"> </span></span>
 													<span class="new">Quantidade: <span th:text="${produto.qtdeEstoque}"> </span> </span>

@@ -20,8 +20,9 @@ public class ItensEntrada {
 	private Entrada entrada;
 	@ManyToOne
 	private Produto produto;
-	private Double quantidade;
-	private Double valorProduto;
+	private Double quantidade = 0.;
+	private Double valorProduto = 0.;
+	private Double valorVenda = 0.;
 	
 	public Long getId() {
 		return id;
@@ -56,6 +57,13 @@ public class ItensEntrada {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	public Double getValorVenda() {
+		return valorVenda;
+	}
+	public void setValorVenda(Double valorVenda) {
+		this.valorVenda = valorVenda;
+	}
+	
 	
 	
 }

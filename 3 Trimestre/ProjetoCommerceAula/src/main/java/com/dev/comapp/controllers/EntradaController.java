@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dev.comapp.models.Entrada;
 import com.dev.comapp.models.Estado;
 import com.dev.comapp.models.ItensEntrada;
+import com.dev.comapp.models.Produto;
 import com.dev.comapp.repository.EntradaRepository;
 import com.dev.comapp.repository.EstadoRepository;
 import com.dev.comapp.repository.FuncionarioRepository;
@@ -34,14 +35,14 @@ public class EntradaController {
 	@Autowired
 	private ProdutoRepository produtoRepository;
 
-//	@GetMapping("administrativo/entrada/estados")
-//	public ModelAndView buscarTodos() {
-//		
-//		ModelAndView mv = new ModelAndView("/administrativo/estado/estadoLista");
-//		mv.addObject("estados", repository.findAll());
-//		
-//		return mv;
-//	}
+	@GetMapping("administrativo/entrada/entradas")
+	public ModelAndView buscarTodos() {
+		
+		ModelAndView mv = new ModelAndView("/administrativo/entrada/entradaLista");
+		mv.addObject("entradas", itensEntradaRepository.findAll());
+		
+		return mv;
+	}
 //	
 //	@GetMapping("/administrativo/estado/estadosNome")
 //	public ModelAndView buscarNome(String nome) {
@@ -90,6 +91,20 @@ public class EntradaController {
 
 		if (acao.equals("itens")) {
 			this.listaItensEntrada.add(itensEntrada);
+		}else if(acao.equals("salvar")){
+			entradaRepository.saveAndFlush(entrada);
+			for(ItensEntrada it : listaItensEntrada) {
+				it.setEntrada(entrada);
+				itensEntradaRepository.saveAndFlush(it);
+				
+				Optional<Produto> prod = produtoRepository.findById(it.getProduto().getId());
+				Produto produto = prod.get();
+				produto.setQtdeEstoque(produto.getQtdeEstoque() + it.getQuantidade());
+				produto.setPreco(it.getValorVenda());
+				produtoRepository.saveAndFlush(produto);
+				this.listaItensEntrada = new ArrayList<>();
+			}
+			return add(new Entrada(), new ItensEntrada());
 		}
 		System.out.println(this.listaItensEntrada.size());
 

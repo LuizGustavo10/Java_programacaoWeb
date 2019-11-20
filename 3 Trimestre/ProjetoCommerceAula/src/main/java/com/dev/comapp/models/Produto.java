@@ -33,6 +33,8 @@ public class Produto implements Serializable {
 	//@NotEmpty(message = "O preço é obrigatório")
 	
 	private Double preco;
+	private String nomeImagem;
+	//arrumar esses dois abaixo
 	private Double precoDesconto;
 	private Double porcentagemDesconto;
 	
@@ -102,6 +104,23 @@ public class Produto implements Serializable {
 	public void setPorcentagemDesconto(Double porcentagemDesconto) {
 		this.porcentagemDesconto = porcentagemDesconto;
 	}
+
+	public Double getQtdeEstoque() {
+		return qtdeEstoque;
+	}
+
+	public void setQtdeEstoque(Double qtdeEstoque) {
+		this.qtdeEstoque = qtdeEstoque;
+	}
+
+	public String getNomeImagem() {
+		return nomeImagem;
+	}
+
+	public void setNomeImagem(String nomeImagem) {
+		this.nomeImagem = nomeImagem;
+	}
+	
 	
 	
 	

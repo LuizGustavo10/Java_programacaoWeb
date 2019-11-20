@@ -34,8 +34,11 @@
 										<th>ID</th>
 										<th>Nome</th>
 										<th>Email</th>
-										<th>senha</th>
-										<th>opções</th>
+										<th>CPF</th>
+										<th>Endereço</th>
+										<th>Salário</th>
+										<th>Cidade</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -43,7 +46,10 @@
 										<td th:text="${funcionario.id}"></td>
 										<td th:text="${funcionario.nome}"></td>
 										<td th:text="${funcionario.email}"></td>
-										<td th:text="${funcionario.senha}"></td>
+										<td th:text="${funcionario.cpf}"></td>
+										<td th:text="${funcionario.endereco}"></td>
+										<td th:text="${funcionario.salario}"></td>
+										<!--  <td th:text="${funcionario.cidade.nome}"></td>-->
 
 
 										<td>

@@ -56,7 +56,7 @@ public class Entrada {
 	public String getFornecedor() {
 		return fornecedor;
 	}
-	public void setFornecedor(String fornececedor) {
+	public void setFornecedor(String fornecedor) {
 		this.fornecedor = fornecedor;
 	}
 	public static long getSerialversionuid() {

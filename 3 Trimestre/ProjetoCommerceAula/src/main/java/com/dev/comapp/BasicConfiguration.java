@@ -50,12 +50,23 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
 				
 				"/administrativo/estado/adicionarEstado",
 				"/administrativo/estado/estados",
-				"administrativo/permissoesFuncionario/**"
+				"/administrativo/cidade/adicionarCidade",
+				"/administrativo/cidade/cidades",
+				"/administrativo/funcionario/adicionarFuncionario",
+				"/administrativo/funcionario/funcionarios",
+				"/administrativo/permissoesFuncionario/adicionarPermFunc",
+				"/administrativo/permissoesFuncionario/permissoesFuncionarios",
+				"/administrativo/papel/adicionarPapeis",
+				"/administrativo/papel/papeis",
+				"/administrativo/cupomDesconto/AdicionarCupomDes",
+				"/administrativo/cupomDesconto/cuponsDes"
+				
+				
 				
 				
 				).hasAnyAuthority("Administrador").and().formLogin()
 				.loginPage("/login").permitAll().and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").and()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").and()
 				.exceptionHandling().accessDeniedPage("/negado");
 
 	}

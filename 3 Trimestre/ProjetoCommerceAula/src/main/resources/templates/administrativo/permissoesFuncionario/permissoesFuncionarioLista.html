@@ -54,7 +54,7 @@
 																<td th:text="${permissoesFuncionario.id}"></td>
 																<td th:text="${permissoesFuncionario.funcionario.nome}"></td>
 																<td th:text="${permissoesFuncionario.papel.cargo}"></td>
-																<td th:text="${permissoesFuncionario.dataAtribuicao}"></td>
+																<td th:text="${#dates.format(permissoesFuncionario.dataAtribuicao, 'dd-MMM-yyyy')}"></td>
 																<td>
 																	<div class="btn-group pull-right">
 																		<a class="btn btn-sm btn-primary"

@@ -27,8 +27,11 @@ public class Funcionario implements Serializable {
 	private String email;
 	private String senha;
 	
-//	@ManyToOne
-//	private Cidade cidade;
+	private Integer cpf;
+	private String endereco;
+	private Double salario;
+	@ManyToOne
+	private Cidade cidade;
 
 	public Long getId() {
 		return id;
@@ -54,13 +57,13 @@ public class Funcionario implements Serializable {
 		this.email = email;
 	}
 
-//	public Cidade getCidade() {
-//		return cidade;
-//	}
-//
-//	public void setCidade(Cidade cidade) {
-//		this.cidade = cidade;
-//	}
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -74,7 +77,29 @@ public class Funcionario implements Serializable {
 		this.senha = senha;
 	}
 
+	public String getEndereco() {
+		return endereco;
+	}
 
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public Integer getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Integer cpf) {
+		this.cpf = cpf;
+	}
+
+	public Double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
 
 
 	

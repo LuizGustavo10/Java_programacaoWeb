@@ -4,11 +4,8 @@
 
 
 <head>
-<title>PhoenixCommerce 1.0</title>
+<title>ElectroCommerce 1.0</title>
 <meta charset="utf-8">
-
-
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,7 +49,7 @@
 						alt="">
 				</div>
 				<div class="sidebar-brand-text mx-3">
-					Phoenix Commerce <sup>1.0</sup>
+					Electro Commerce <sup>1.0</sup>
 				</div>
 			</a>
 
@@ -83,7 +80,7 @@
 						<a class="collapse-item"
 							href="administrativo/cupomDesconto/adicionarCupomDes">Cupom
 							de desconto</a> <a class="collapse-item"
-							href="administrativo/permissaoFuncionario/adicionarPermFunc">Permissões
+							href="administrativo/permissoesFuncionario/adicionarPermFunc">Permissões
 							Funcionario</a> <a class="collapse-item"
 							href="administrativo/papel/adicionarPapeis">Papeis</a> <a
 							class="collapse-item" href="administrativo/marca/adicionarMarca">Marca</a>
@@ -91,6 +88,8 @@
 							href="administrativo/categoria/adicionarCategoria">Categoria</a>
 						<a class="collapse-item"
 							href="administrativo/produto/adicionarProduto">Produtos</a>
+						<a class="collapse-item"
+							href="administrativo/entrada/adicionarEntrada">Entrada de Produtos</a>
 
 
 					</div>
@@ -109,18 +108,18 @@
 						<h6 class="collapse-header">Listagem de Cadastros:</h6>
 						<a class="collapse-item" href="administrativo/estado/estados">Estado</a>
 						<a class="collapse-item" href="administrativo/cidade/cidades">Cidade</a>
-						<a class="collapse-item" href="funcionarios">Funcionário</a> <a
+						<a class="collapse-item" href="administrativo/funcionario/funcionarios">Funcionário</a> <a
 							class="collapse-item"
 							href="administrativo/cupomDesconto/cuponsDes">Cupom de
 							desconto</a> <a class="collapse-item"
-							href="administrativo/permissaoFuncionario/permissoesFuncionarios">Permissões
+							href="administrativo/permissoesFuncionario/permissoesFuncionarios">Permissões
 							Funcionário</a> <a class="collapse-item"
 							href="administrativo/papel/papeis">Papéis</a> <a
 							class="collapse-item" href="administrativo/marca/marcas">Marcas</a>
 						<a class="collapse-item"
 							href="administrativo/categoria/categorias">Categorias</a> <a
 							class="collapse-item" href="administrativo/produto/produtos">Produtos</a>
-
+						<a class="collapse-item" href="administrativo/entrada/entradas">Entrada de produtos</a>
 
 					</div>
 				</div></li>
@@ -364,8 +363,8 @@
 									Activity Log
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
+								
+								<a class="dropdown-item" th:href="@{/logout}" > <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 									Logout
 								</a>

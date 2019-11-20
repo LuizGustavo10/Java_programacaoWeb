@@ -19,49 +19,58 @@
 
 				<div class="container">
 
-					<div class="card o-hidden border-0 shadow-lg my-5">
-						<div class="card-body p-0">
+					<div>
+						<div>
 							<!-- Nested Row within Card Body -->
 							<div class="row">
 
 								<div class="col-lg-12">
 									<div class="p-5">
 
-
-
-
-
-										<div class="panel panel-default">
+										<div >
 											<div class="panel-heading">
-												<strong>Lista de Cidades</strong>
+												<strong>Lista de Entradas</strong>
 											</div>
-											<div class="panel-body">
+											<div>
 												<div class="table-responsive">
 													<table
-														class="table table-sm table-striped table-hover table-bordered">
+														class="table table-bordered">
 														<thead>
 															<tr>
-																<th>ID</th>
-																<th>Nome</th>
-																<th>Estado</th>
-																<th></th>
+																<th>ID_Venda</th>
+																<th>Funcionário</th>
+																<th>DataEntrada</th>
+																<th>Observação</th>
+																<th>Fornecedor</th>
+																<th>ID_Item</th>
+																<th>Produto</th>
+																<th>Quantidade</th>
+																<th>valorProduto</th>
+																<th>ValorVenda</th>
 															</tr>
 														</thead>
 														<tbody>
-															<tr th:each="cidade : ${cidades}">
-																<td th:text="${cidade.id}"></td>
-																<td th:text="${cidade.nome}"></td>
-																<td th:text="${cidade.estado}"></td>
-																<td>
+															<tr th:each="ie : ${entradas}">
+																<td th:text="${ie.entrada.id}"></td>
+																<td th:text="${ie.entrada.funcionario.nome}"></td>
+																<td th:text="${ie.entrada.dataEntrada}"></td>
+																<td th:text="${ie.entrada.observacao}"></td>
+																<td th:text="${ie.entrada.fornecedor}"></td>
+																<td th:text="${ie.id}"></td>
+																<td th:text="${ie.produto.nome}"></td>
+																<td th:text="${ie.quantidade}"></td>
+																<td th:text="${ie.valorProduto}"></td>
+																<td th:text="${ie.valorVenda}"></td>
+																<!--  <td>
 																	<div class="btn-group pull-right">
 																		<a class="btn btn-sm btn-primary"
-																			th:href="@{/administrativo/cidade/editarCidade/{id}(id=${cidade.id})}">Editar</a>
+																			th:href="@{/administrativo/entrada/editarEntrada/{id}(id=${entrada.id})}">Editar</a>
 
 																		<a class="delete btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-warning" 
 																		th:attr="data-target='#modal-warning'+${cidade.id }">Excluir</a>
 																	</div> 
 																	
-																	<!-- código jquery para permissão de remover -->
+																	
 																	<div class="modal modal-warning fade in"
 																		th:id="modal-warning+${cidade.id }">
 																		<div class="modal-dialog">
@@ -86,9 +95,10 @@
 																				</div>
 																			</div>
 																		</div>
-																	</div> <!-- FIM do código jquery para permissão de remover -->
+																	</div> 
 
 																</td>
+																-->
 															</tr>
 														</tbody>
 													</table>
@@ -96,7 +106,7 @@
 											</div>
 											<div class="panel-footer">
 												<a class="btn btn btn-success"
-													th:href="@{/administrativo/cidade/adicionarCidade/}">Adicionar</a>
+													th:href="@{/administrativo/entrada/adicionarEntrada/}">Adicionar</a>
 
 
 												<a class="btn btn-danger" th:href="@{/administrativo}">sair</a>

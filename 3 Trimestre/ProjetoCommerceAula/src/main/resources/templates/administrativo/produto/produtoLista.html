@@ -27,16 +27,16 @@
 								<div class="container">
 									<div class="">
 
-										<form action="/comapp/administrativo/produto/pesquisar"
-											method="get">
+										<form th:action="@{/pesquisar}" method="post">
 											<div class="form-group row">
-												<div class="col-md-1">
-													<input type="text" name="pesquisa">
+												<div class="" margin="5px">
+													<input type="text" name="pesquisa" placeholder="insira o nome do produto">
 
 													<button class="btn btn-sm btn-success" type="submit">Pesquisar</button>
 												</div>
 											</div>
 										</form>
+										
 										<div class="">
 											<strong>Lista de Produtos</strong>
 										</div>
@@ -52,6 +52,7 @@
 															<th>Preço</th>
 															<th>marca</th>
 															<th>categoria</th>
+															<th>Imagem</th>
 															<th></th>
 														</tr>
 													</thead>
@@ -63,10 +64,12 @@
 															<td th:text="${produto.preco}"></td>
 															<td th:text="${produto.marca.nome}"></td>
 															<td th:text="${produto.categoria.nome}"></td>
+															<td><img th:src="@{/administrativo/produto/mostrarImagem/{imagem}(imagem=${produto.nomeImagem})}" width="100"></td>
+															
 															<td>
 																<div class="btn-group pull-right">
 																	<a class="btn btn-sm btn-primary"
-																		th:href="@{/administrativo/produto/editarProduto/{id}(id=${produto.id})}">Editar</a>
+																		th:href="@{/administrativo/produto/editarProduto/{id}(id=${produto.id})}" >Editar</a>
 																	
 																	<a class="delete btn btn-sm btn-danger"
 																		data-toggle="modal" data-target="#modal-warning"
