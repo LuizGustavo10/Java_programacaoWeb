@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{cliente/fragments/layout}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<title>Electro - HTML Ecommerce Template</title>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Google font -->
+</head>
+</div>
+				
+				<div layout:fragment="corpo">
+				<div class="container" >
+					<div class="row">
+						<div class="container mb-4">
+							<div class="row">
+								<div class="col-12">
+									<div class="table-responsive">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th scope="col"></th>
+													<th scope="col">Produto</th>
+													<th scope="col">Estoque</th>
+													<th scope="col" class="text-center">Quantidade</th>
+													<th scope="col" class="text-right">Preço</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><img src="https://dummyimage.com/50x50/55595c/fff" />
+													</td>
+													<td>Product Name Dada</td>
+													<td>In stock</td>
+													<td> 10 &nbsp;&nbsp; 
+														<button class="btn btn-sm btn-danger"><i class="fa fa-plus"></i></button> &nbsp;&nbsp;
+														<button class="btn btn-sm btn-minus"><i class="fa fa-plus"></i></button>
+													</td>
+													<td class="text-right">124,90 €</td>
+													<td class="text-right"><button
+															class="btn btn-sm btn-danger">
+															<i class="fa fa-trash"></i>
+														</button></td>
+												</tr>
+												
+												<tr>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td>Sub-Total</td>
+													<td class="text-right">255,90 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td>Frete</td>
+													<td class="text-right">6,90 €</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td><strong>Total</strong></td>
+													<td class="text-right"><strong>346,90 €</strong></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="col mb-2">
+									<div class="row">
+										<div class="col-sm-12  col-md-6">
+											<button class="btn btn-block btn-light">Continue
+												Comprando</button>
+										</div>
+										<div class="col-sm-12 col-md-6 text-right">
+											<button
+												class="btn btn-lg btn-block btn-success text-uppercase">Finalizar Compra</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				</div>
+
+				
+
+</body>
+</html>
