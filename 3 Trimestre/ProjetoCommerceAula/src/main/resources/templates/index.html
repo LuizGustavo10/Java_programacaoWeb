@@ -511,7 +511,7 @@
 										---------------------------------------------------------->
 										<div class="product" th:each="produto : ${produtos}">
 											<div class="product-img">
-												<img th:src="@{/administrativo/produto/mostrarImagem/{imagem}(imagem=${produto.nomeImagem})}" width="100">
+												<img th:src="@{/mostrarImagem/{imagem}(imagem=${produto.nomeImagem})}" width="100">
 												
 												<div class="product-label">
 													<span class="sale">Marca:<span th:text="${produto.marca.nome}"> </span></span>
@@ -536,7 +536,7 @@
 												</div>
 											</div>
 											<div class="adicionar no Carrinho">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar no Carrinho</button>
 											</div>
 										</div>
 										<!-- /product -->
