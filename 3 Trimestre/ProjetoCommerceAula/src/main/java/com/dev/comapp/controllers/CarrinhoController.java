@@ -36,6 +36,13 @@ public class CarrinhoController {
 	public ModelAndView chamarCarrinho() {
 		ModelAndView mv = new ModelAndView("cliente/carrinho");
 		return mv;
+	}
+	@GetMapping("/adicionarCarrinho/{id}")
+	@ResponseBody
+	public ModelAndView adicionarCarrinho(@PathVariable Long id) {
+		System.out.println(id);
+		ModelAndView mv = new ModelAndView("cliente/carrinho");
+		return mv;
 		
 	}
 }

@@ -363,8 +363,9 @@
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
-											<div class="adicionar no Carrinho">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar no Carrinho</button>
+			
+											<div class="add-to-cart">
+												<a th:href="@{/adicionarCarrinho/{id}(id=${produto.id})}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Comprar</button></a>
 											</div>
 										</div>
 										<!-- /product -->
