@@ -34,16 +34,16 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
+												<tr th:each="item : ${listaItens}">
 													<td><img src="https://dummyimage.com/50x50/55595c/fff" />
 													</td>
-													<td>Product Name Dada</td>
-													<td>In stock</td>
-													<td> 10 &nbsp;&nbsp; 
+													<td th:text="${item.produto.nome}"></td>
+													<td>Em estoque</td>
+													<td> <span th:text="${item.quantidade}"> </span>&nbsp;&nbsp; 
 														<button class="btn btn-sm btn-danger"><i class="fa fa-plus"></i></button> &nbsp;&nbsp;
 														<button class="btn btn-sm btn-danger"><i class="fa fa-minus"></i></button>
 													</td>
-													<td class="text-right">124,90 €</td>
+													<td class="text-right" th:text="${item.valorTotal}"></td>
 													<td class="text-right"><button
 															class="btn btn-sm btn-danger">
 															<i class="fa fa-trash"></i>

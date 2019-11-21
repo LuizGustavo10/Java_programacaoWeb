@@ -21,8 +21,10 @@ public class ItensCompra {
 	@ManyToOne
 	private Produto produto;
 	
-	private Integer quantidade;
+	private Integer quantidade=0;
 	private Double valorUnitario;
+	private Double valorTotal;
+	
 	public Long getId() {
 		return id;
 	}
@@ -55,6 +57,12 @@ public class ItensCompra {
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public Double getValorTotal() {
+		return valorTotal;
+	}
+	public void setValorTotal(Double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 	
 	
