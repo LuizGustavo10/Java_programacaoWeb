@@ -43,22 +43,57 @@ public class CarrinhoController {
 		mv.addObject("listaItens", itensCompra);
 		return mv;
 	}
+	@GetMapping("/alterarQuantidade/{id}/{acao}")
+	public ModelAndView alterarQuantidade(@PathVariable Long id, @PathVariable Integer acao) {
+		ModelAndView mv = new ModelAndView("cliente/carrinho");
+		
+		for(ItensCompra it : itensCompra) {
+			if(it.getProduto().getId().equals(id)) {
+				if (acao.equals(1)) {
+					it.setQuantidade(it.getQuantidade()+1);
+				}else if (acao == 0) {
+					it.setQuantidade(it.getQuantidade()-1);
+				}
+				break;
+			}	
+		}
+		
+		mv.addObject("listaItens", itensCompra);
+		return mv;
+	}
+	
 	@GetMapping("/adicionarCarrinho/{id}")
 	@ResponseBody
-	public ModelAndView adicionarCarrinho(@PathVariable Long id) {
+	public ModelAndView adicionarCarrinho(@PathVariable Long id) { //1 incrementar, 0 diminuir qtde
 		System.out.println(id);
 		ModelAndView mv = new ModelAndView("cliente/carrinho");
 		Optional<Produto> prod = produtoRepository.findById(id);
 		Produto produto = prod.get();
-		ItensCompra item = new ItensCompra();
-		item.setProduto(produto);
-		item.setValorUnitario(produto.getPreco());
-		item.setQuantidade(item.getQuantidade() + 1);
-		item.setValorTotal(item.getQuantidade() * item.getValorUnitario());
-		itensCompra.add(item);
+		
+		//controlando quantidaed de um mesmo produto
+		int controle = 0;
+		for(ItensCompra it : itensCompra) {
+			if(it.getProduto().getId().equals(produto.getId())) {
+				controle = 1;
+				it.setQuantidade(it.getQuantidade() + 1);
+				break;
+			}
+		}
+		//se não foi adicionado ainda
+		if (controle == 0) {
+			ItensCompra item = new ItensCompra();
+			item.setProduto(produto);
+			item.setValorUnitario(produto.getPreco());
+			item.setQuantidade(item.getQuantidade() + 1);
+			item.setValorTotal(item.getQuantidade() * item.getValorUnitario());
+			itensCompra.add(item);
+		}
+		
+		
 		
 		mv.addObject("listaItens", itensCompra);
 		return mv;
+		
 		
 	}
 }
