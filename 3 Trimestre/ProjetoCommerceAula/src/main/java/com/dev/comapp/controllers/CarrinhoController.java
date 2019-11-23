@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.comapp.models.Categoria;
+import com.dev.comapp.models.Compra;
 import com.dev.comapp.models.Estado;
 import com.dev.comapp.models.ItensCompra;
 import com.dev.comapp.models.Marca;
@@ -33,38 +34,53 @@ import com.dev.comapp.repository.ProdutoRepository;
 @Controller
 public class CarrinhoController {
 	private List<ItensCompra> itensCompra = new ArrayList<ItensCompra>();
-	
-	public List getItensCompra() {
-		return itensCompra;
-	}
-	
+	private Compra compra = new Compra();
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	
+//	public List getItensCompra() {
+//		return itensCompra;
+//	}
+	private void calcularTotal() {
+		compra.setValorTotal(0.);
+		for(ItensCompra it : itensCompra) {
+			compra.setValorTotal(compra.getValorTotal() + it.getValorTotal());
+		}
+	}
+	
+
 	
 	@GetMapping("/carrinho")
 	@ResponseBody
 	public ModelAndView chamarCarrinho() {
 		ModelAndView mv = new ModelAndView("cliente/carrinho");
+		calcularTotal();
+		mv.addObject("compra", compra);
 		mv.addObject("listaItens", itensCompra);
 		return mv;
 	}
 	@GetMapping("/alterarQuantidade/{id}/{acao}")
-	public ModelAndView alterarQuantidade(@PathVariable Long id, @PathVariable Integer acao) {
+	public String alterarQuantidade(@PathVariable Long id, @PathVariable Integer acao) {
 		ModelAndView mv = new ModelAndView("cliente/carrinho");
 		
 		for(ItensCompra it : itensCompra) {
 			if(it.getProduto().getId().equals(id)) {
 				if (acao.equals(1)) {
 					it.setQuantidade(it.getQuantidade()+1);
+					it.setValorTotal(0.);
+					it.setValorTotal(it.getValorTotal()+(it.getQuantidade() * it.getValorUnitario()));
 				}else if (acao == 0) {
+					
 					it.setQuantidade(it.getQuantidade()-1);
+					it.setValorTotal(0.);
+					it.setValorTotal(it.getValorTotal()+(it.getQuantidade() * it.getValorUnitario()));
 				}
 				break;
 			}	
 		}
 		
 		mv.addObject("listaItens", itensCompra);
-		return mv;
+		return "redirect:/carrinho";
 	}
 	@GetMapping("/removerProduto/{id}")
 	public ModelAndView removerProdutoCarrinho(@PathVariable Long id) {
@@ -94,8 +110,11 @@ public class CarrinhoController {
 		int controle = 0;
 		for(ItensCompra it : itensCompra) {
 			if(it.getProduto().getId().equals(produto.getId())) {
-				controle = 1;
 				it.setQuantidade(it.getQuantidade() + 1);
+				it.setValorTotal(0.);
+				it.setValorTotal(it.getValorTotal()+(it.getQuantidade() * it.getValorUnitario()));
+				controle = 1;
+				
 				break;
 			}
 		}
@@ -105,7 +124,8 @@ public class CarrinhoController {
 			item.setProduto(produto);
 			item.setValorUnitario(produto.getPreco());
 			item.setQuantidade(item.getQuantidade() + 1);
-			item.setValorTotal(item.getQuantidade() * item.getValorUnitario());
+		
+			item.setValorTotal(item.getValorTotal()+(item.getQuantidade() * item.getValorUnitario()));
 			itensCompra.add(item);
 		}
 		

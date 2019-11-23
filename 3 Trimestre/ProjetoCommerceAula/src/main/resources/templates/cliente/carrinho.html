@@ -28,7 +28,8 @@
 													<th scope="col">Produto</th>
 													<th scope="col">Estoque</th>
 													<th scope="col" class="text-center">Quantidade</th>
-													<th scope="col" class="text-right">Preço</th>
+													<th scope="col" class="text-right">Valor Unitário</th>
+													<th scope="col" class="text-right">Valor Total</th>
 													<th></th>
 												</tr>
 											</thead>
@@ -43,6 +44,7 @@
 														<a th:href="@{/alterarQuantidade/{id}/{acao}(id=${item.produto.id}, acao=${0})}"><button class="btn btn-sm btn-danger"><i class="fa fa-minus"></i></button></a>&nbsp;&nbsp;
 														
 													</td>
+													<td class="text-right" th:text="${item.valorUnitario}"></td>
 													<td class="text-right" th:text="${item.valorTotal}"></td>
 													<td class="text-right">
 													<a th:href="@{/removerProduto/{id}(id=${item.produto.id})}"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>
@@ -54,24 +56,27 @@
 													<td></td>
 													<td></td>
 													<td></td>
+													<td></td>
 													<td>Sub-Total</td>
-													<td class="text-right">255,90 €</td>
+													<td class="text-right"> <span th:text="${compra.valorTotal}"></span> </td>
 												</tr>
 												<tr>
+													<td></td>
 													<td></td>
 													<td></td>
 													<td></td>
 													<td></td>
 													<td>Frete</td>
-													<td class="text-right">6,90 €</td>
+													<td class="text-right"><span>Grátis</span></td>
 												</tr>
 												<tr>
 													<td></td>
 													<td></td>
 													<td></td>
 													<td></td>
+													<td></td>
 													<td><strong>Total</strong></td>
-													<td class="text-right"><strong>346,90 €</strong></td>
+													<td class="text-right"><strong><span th:text="${compra.valorTotal}"></span></strong></td>
 												</tr>
 											</tbody>
 										</table>

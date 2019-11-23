@@ -26,7 +26,7 @@ public class IndexController {
 	@GetMapping("/loja")
 	public ModelAndView chamaLoja() {
 		ModelAndView mv = new ModelAndView("/index");
-		mv.addObject("listaItens", car.getItensCompra());
+//		mv.addObject("listaItens", car.getItensCompra());
 		mv.addObject("produtos", produtoRepository.findAll());
 		return mv;
 	}

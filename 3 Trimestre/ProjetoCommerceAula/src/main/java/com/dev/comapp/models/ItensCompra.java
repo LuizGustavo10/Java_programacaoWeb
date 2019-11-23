@@ -22,8 +22,8 @@ public class ItensCompra {
 	private Produto produto;
 	
 	private Integer quantidade=0;
-	private Double valorUnitario;
-	private Double valorTotal;
+	private Double valorUnitario=0.;
+	private Double valorTotal=0.;
 	
 	public Long getId() {
 		return id;

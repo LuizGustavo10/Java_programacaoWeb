@@ -27,9 +27,9 @@ public class Compra {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCompra = new Date();
 	
-	private String formaDePagamento;
-	private String formaDeEntrega;
-	private Double valorTotal;
+	private String formaPagamento;
+	private String formaEntrega;
+	private Double valorTotal=0.;
 	
 	public Long getId() {
 		return id;
@@ -49,17 +49,17 @@ public class Compra {
 	public void setDataCompra(Date dataCompra) {
 		this.dataCompra = dataCompra;
 	}
-	public String getFormaDePagamento() {
-		return formaDePagamento;
+	public String getFormaPagamento() {
+		return formaPagamento;
 	}
-	public void setFormaDePagamento(String formaDePagamento) {
-		this.formaDePagamento = formaDePagamento;
+	public void setFormaPagamento(String formaDePagamento) {
+		this.formaPagamento = formaDePagamento;
 	}
-	public String getFormaDeEntrega() {
-		return formaDeEntrega;
+	public String getFormaEntrega() {
+		return formaEntrega;
 	}
-	public void setFormaDeEntrega(String formaDeEntrega) {
-		this.formaDeEntrega = formaDeEntrega;
+	public void setFormaEntrega(String formaDeEntrega) {
+		this.formaEntrega = formaDeEntrega;
 	}
 	public Double getValorTotal() {
 		return valorTotal;
