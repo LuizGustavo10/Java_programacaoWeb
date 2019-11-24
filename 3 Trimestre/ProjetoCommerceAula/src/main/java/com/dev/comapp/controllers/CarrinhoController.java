@@ -25,7 +25,6 @@ import com.dev.comapp.models.Categoria;
 import com.dev.comapp.models.Compra;
 import com.dev.comapp.models.Estado;
 import com.dev.comapp.models.ItensCompra;
-import com.dev.comapp.models.ListaImport;
 import com.dev.comapp.models.Marca;
 import com.dev.comapp.models.Produto;
 import com.dev.comapp.repository.CategoriaRepository;
@@ -40,18 +39,21 @@ public class CarrinhoController {
 	private Compra compra = new Compra();
 	@Autowired
 	private ProdutoRepository produtoRepository;
-	ListaImport exp = new ListaImport();
+	
 	
 	@GetMapping("/loja")
 	@ResponseBody
 	public ModelAndView chamaLoja() {
 		ModelAndView mv = new ModelAndView("/index");
-		ListaImport exp = new ListaImport();
+		
 		if (itensCompra == null) {
 			mv.addObject("produtos", produtoRepository.findAll());
 			System.out.println("nulo");
 		} else {
+			calcularTotal();
+			mv.addObject("compra", compra);
 			mv.addObject("listaItens", itensCompra);
+			
 			System.out.println(itensCompra.size());
 			mv.addObject("produtos", produtoRepository.findAll());
 		}
@@ -77,7 +79,7 @@ public class CarrinhoController {
 		calcularTotal();
 		mv.addObject("compra", compra);
 		mv.addObject("listaItens", itensCompra);
-		exp.setListaItens(itensCompra);
+	
 		
 		return mv;
 	}
@@ -113,10 +115,11 @@ public class CarrinhoController {
 		return "redirect:/carrinho";
 	}
 	@GetMapping("/removerProduto/{id}")
-	public ModelAndView removerProdutoCarrinho(@PathVariable Long id) {
+	public String removerProdutoCarrinho(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("cliente/carrinho");
 		
 		for(ItensCompra it : itensCompra) {
+			
 			if(it.getProduto().getId().equals(id)) {
 				
 				itensCompra.remove(it);
@@ -124,8 +127,8 @@ public class CarrinhoController {
 			}	
 		}
 		
-		mv.addObject("listaItens", itensCompra);
-		return mv;
+//		mv.addObject("listaItens", itensCompra);
+		return "redirect:/carrinho";
 	}
 	
 	@GetMapping("/adicionarCarrinho/{id}")

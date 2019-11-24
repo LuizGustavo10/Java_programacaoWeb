@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.comapp.models.ItensCompra;
-import com.dev.comapp.models.ListaImport;
+
 import com.dev.comapp.controllers.CarrinhoController;
 import com.dev.comapp.repository.ProdutoRepository;
 
