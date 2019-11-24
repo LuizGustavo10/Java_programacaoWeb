@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<title>Electro - HTML Ecommerce Template</title>
+<title>Finalizar a Compra</title>
 
 
 <!-- Google font -->
@@ -19,6 +19,18 @@
 					<div class="row">
 						<div class="container mb-4">
 							<div class="row">
+							<div class="col-12">
+								<h3>Efetue seu cadastro na Loja Electro</h3>
+							</div>
+							<div class="col-6">
+								<select class="form-control">
+									<option value="Cartão de crédito">Cartão de crédito</option>
+									<option value="Cartão de Débito">Cartão de Débito</option>
+									<option value="Boleto">Boleto</option>
+									<option value="Transferência">Transferência</option>
+								</select>
+							</div>
+							
 								<div class="col-12">
 									<div class="table-responsive">
 										<table class="table table-striped">
@@ -39,16 +51,10 @@
 													</td>
 													<td th:text="${item.produto.nome}"></td>
 													<td>Em estoque</td>
-													<td> <span th:text="${item.quantidade}"> </span>&nbsp;&nbsp;
-														<a th:href="@{/alterarQuantidade/{id}/{acao}(id=${item.produto.id}, acao=${1})}"><button class="btn btn-sm btn-danger"><i class="fa fa-plus"></i></button></a>&nbsp;&nbsp; 
-														<a th:href="@{/alterarQuantidade/{id}/{acao}(id=${item.produto.id}, acao=${0})}"><button class="btn btn-sm btn-danger"><i class="fa fa-minus"></i></button></a>&nbsp;&nbsp;
-														
-													</td>
+													<td> <span th:text="${item.quantidade}"> </span>&nbsp;&nbsp;</td>
 													<td class="text-right" th:text="${item.valorUnitario}"></td>
 													<td class="text-right" th:text="${item.valorTotal}"></td>
-													<td class="text-right">
-													<a th:href="@{/removerProduto/{id}(id=${item.produto.id})}"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>
-													</td>
+													<td class="text-right"></td>
 												</tr>
 												
 												<tr>
@@ -85,14 +91,11 @@
 								<div class="col mb-2">
 									<div class="row">
 										<div class="col-sm-12  col-md-6">
-											<button class="btn btn-block btn-light">Continue
-												Comprando</button>
+											
 										</div>
 										<div class="col-sm-12 col-md-6 text-right">
-											
-												<a th:href="finalizar"><button
-												class="btn btn-lg btn-block btn-danger text-uppercase">Finalizar Compra</button></a>
-										
+											<button
+												class="btn btn-lg btn-block btn-danger text-uppercase">Confirmar Compra</button>
 										</div>
 										
 									</div>
