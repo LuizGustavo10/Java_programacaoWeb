@@ -25,6 +25,7 @@ import com.dev.comapp.models.Categoria;
 import com.dev.comapp.models.Compra;
 import com.dev.comapp.models.Estado;
 import com.dev.comapp.models.ItensCompra;
+import com.dev.comapp.models.ListaImport;
 import com.dev.comapp.models.Marca;
 import com.dev.comapp.models.Produto;
 import com.dev.comapp.repository.CategoriaRepository;
@@ -34,13 +35,31 @@ import com.dev.comapp.repository.ProdutoRepository;
 @Controller
 public class CarrinhoController {
 	private List<ItensCompra> itensCompra = new ArrayList<ItensCompra>();
+	
+	
 	private Compra compra = new Compra();
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	ListaImport exp = new ListaImport();
 	
-//	public List getItensCompra() {
-//		return itensCompra;
-//	}
+	@GetMapping("/loja")
+	@ResponseBody
+	public ModelAndView chamaLoja() {
+		ModelAndView mv = new ModelAndView("/index");
+		ListaImport exp = new ListaImport();
+		if (itensCompra == null) {
+			mv.addObject("produtos", produtoRepository.findAll());
+			System.out.println("nulo");
+		} else {
+			mv.addObject("listaItens", itensCompra);
+			System.out.println(itensCompra.size());
+			mv.addObject("produtos", produtoRepository.findAll());
+		}
+		
+		return mv;
+		
+	}
+	
 	private void calcularTotal() {
 		compra.setValorTotal(0.);
 		for(ItensCompra it : itensCompra) {
@@ -54,9 +73,12 @@ public class CarrinhoController {
 	@ResponseBody
 	public ModelAndView chamarCarrinho() {
 		ModelAndView mv = new ModelAndView("cliente/carrinho");
+		
 		calcularTotal();
 		mv.addObject("compra", compra);
 		mv.addObject("listaItens", itensCompra);
+		exp.setListaItens(itensCompra);
+		
 		return mv;
 	}
 	@GetMapping("/finalizar")
@@ -140,6 +162,7 @@ public class CarrinhoController {
 		
 		
 		mv.addObject("listaItens", itensCompra);
+		
 		return "redirect:/carrinho";
 		
 		

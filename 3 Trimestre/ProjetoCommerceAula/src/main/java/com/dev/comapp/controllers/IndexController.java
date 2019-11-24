@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.comapp.models.ItensCompra;
+import com.dev.comapp.models.ListaImport;
 import com.dev.comapp.controllers.CarrinhoController;
 import com.dev.comapp.repository.ProdutoRepository;
 
@@ -20,16 +21,11 @@ public class IndexController {
 	private ProdutoRepository produtoRepository;
 	
 	List<ItensCompra> itensCompra = new ArrayList<ItensCompra>();//pegar lista de outra classe
-	CarrinhoController car = new CarrinhoController();
+	
 //	 car.getItensCompra();
 	
-	@GetMapping("/loja")
-	public ModelAndView chamaLoja() {
-		ModelAndView mv = new ModelAndView("/index");
-//		mv.addObject("listaItens", car.getItensCompra());
-		mv.addObject("produtos", produtoRepository.findAll());
-		return mv;
-	}
+	
+	
 	@GetMapping("/")
 	public String index() {
 		return "administrativo/index";
