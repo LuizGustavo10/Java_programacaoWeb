@@ -4,7 +4,14 @@
 <head>
 <title>PhoenixCommerce 1.0</title>
 <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+<script src="path-para-seu-script"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
+<script type="text/javascript" src="/comapp/js/papelJS.js"></script>
+		
 </head>
 
 <body>
@@ -20,30 +27,23 @@
 				<div class="container">
 					<div class="signup-content">
 						<h2 class="form-title">Cadastro de Estado</h2>
-
+						<div id="mensagem"></div>
 						<form class="signup-form" th:object="${papel}" id="papelJS"
 							th:action="@{/administrativo/papel/salvarPapeis}" method="POST"
 							style="margin: 10px">
 
 							<fieldset>
-								<div class="form-input">
-									<div class="" th:if="${#fields.hasAnyErrors()}">
-										<div th:each="detailedError : ${#fields.detailedErrors()}">
-											<span th:text="${detailedError.message}"></span>
-										</div>
-									</div>
-								</div>
-
+								
+								
 								<div class="form-group">
 									<input type="text" class="form-input" id="id" th:field="*{id}"
 										readOnly="readonly" />
 								</div>
 
 								<div class="form-group">
-									<div class=""
-										th:classappend="${#fields.hasErrors('cargo')}? 'has-error'">
+									<div class="">
 										<label>Cargo</label> <input type="text" class="form-input"
-											th:field="*{cargo}" autofocus="autofocus" id="nomeCargo"
+											th:field="*{cargo}" autofocus="autofocus" requirided = "requirided" id="nomeCargo"
 											placeholder="Informe o papel" maxlength="50" />
 									</div>
 								</div>

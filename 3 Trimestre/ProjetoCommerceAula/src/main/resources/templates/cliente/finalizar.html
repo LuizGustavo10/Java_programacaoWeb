@@ -26,8 +26,9 @@
 								<h3><span th:text="${cliente.cpf}"></span></h3>
 							</div>
 							<div class="col-6">
-								<form th:action="@{/finalizar/confirmar}" method="post" name="formaPagamento">
-								<select class="form-control">
+								<form th:action="@{/finalizar/confirmar}" method="post" >
+								
+								<select class="form-control" name="formaPagamento">
 									<option value="Cartão de crédito">Cartão de crédito</option>
 									<option value="Cartão de Débito">Cartão de Débito</option>
 									<option value="Boleto">Boleto</option>

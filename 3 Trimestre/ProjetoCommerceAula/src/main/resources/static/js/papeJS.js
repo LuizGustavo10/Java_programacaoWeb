@@ -5,19 +5,18 @@ $(document)
 
 					$("#papelJS").submit(function(event) {
 						event.preventDefault();
-						submeterEstado();
+						submeterPapel();
 					});
 
-					function submeterEstado() {
+					function submeterPapel() {
 						var campo = {
-							nome : $("#nomeEstado").val(),
-							sigla : $("#siglaEstado").val()
+							cargo : $("#nomeCargo").val()
+
 						}
-						$
-								.ajax({
+						$.ajax({
 									type : "POST",
 									contentType : "application/json",
-									url : "/administrativo/papel/papelAdicionar",
+									url : "/comapp/administrativo/papel/papelAdicionar",
 									dataType : "json",
 									data : JSON.stringify(campo),
 									success : function(result) {
@@ -44,8 +43,8 @@ $(document)
 					}
 
 					function campoNovo() {
-						$("#nomeEstado").val("");
-						$("#siglaEstado").val("");
+						$("#nomeCargo").val("");
+
 					}
 
 				}

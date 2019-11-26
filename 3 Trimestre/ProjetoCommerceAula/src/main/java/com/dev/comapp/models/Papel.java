@@ -18,7 +18,9 @@ public class Papel implements Serializable{
 	private Long id;	
 	private String cargo;
 	
-	
+	public Papel() {
+		
+	}
 	public Long getId() {
 		return id;
 	}
