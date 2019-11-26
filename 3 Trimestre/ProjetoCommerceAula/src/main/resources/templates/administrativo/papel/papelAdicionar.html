@@ -21,7 +21,7 @@
 					<div class="signup-content">
 						<h2 class="form-title">Cadastro de Estado</h2>
 
-						<form class="signup-form" th:object="${papel}"
+						<form class="signup-form" th:object="${papel}" id="papelJS"
 							th:action="@{/administrativo/papel/salvarPapeis}" method="POST"
 							style="margin: 10px">
 
@@ -43,7 +43,7 @@
 									<div class=""
 										th:classappend="${#fields.hasErrors('cargo')}? 'has-error'">
 										<label>Cargo</label> <input type="text" class="form-input"
-											th:field="*{cargo}" autofocus="autofocus"
+											th:field="*{cargo}" autofocus="autofocus" id="nomeCargo"
 											placeholder="Informe o papel" maxlength="50" />
 									</div>
 								</div>

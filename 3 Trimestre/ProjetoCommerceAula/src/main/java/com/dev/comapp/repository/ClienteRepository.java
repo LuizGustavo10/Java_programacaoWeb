@@ -17,4 +17,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
 //	@Query("select e from funcionario e where e.nome like %?1%")
 //	List<Funcionario> buscarPorNome(String nome);
+	@Query("from Cliente where email=?1")
+	public List<Cliente> buscarClienteEmail(String email);
 }

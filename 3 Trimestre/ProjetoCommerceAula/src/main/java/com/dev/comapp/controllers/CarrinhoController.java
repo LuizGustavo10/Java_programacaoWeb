@@ -10,7 +10,12 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +27,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.comapp.models.Categoria;
+import com.dev.comapp.models.Cliente;
 import com.dev.comapp.models.Compra;
 import com.dev.comapp.models.Estado;
 import com.dev.comapp.models.ItensCompra;
 import com.dev.comapp.models.Marca;
 import com.dev.comapp.models.Produto;
 import com.dev.comapp.repository.CategoriaRepository;
+import com.dev.comapp.repository.ClienteRepository;
+import com.dev.comapp.repository.CompraRepository;
+import com.dev.comapp.repository.ItensCompraRepository;
 import com.dev.comapp.repository.MarcaRepository;
 import com.dev.comapp.repository.ProdutoRepository;
 
@@ -37,9 +46,15 @@ public class CarrinhoController {
 	
 	
 	private Compra compra = new Compra();
+	private Cliente cliente = new Cliente();
 	@Autowired
 	private ProdutoRepository produtoRepository;
-	
+	@Autowired
+	private ClienteRepository clienteRepository;
+	@Autowired
+	private CompraRepository compraRepository;
+	@Autowired
+	private ItensCompraRepository itensCompraRepository;
 	
 	@GetMapping("/loja")
 	@ResponseBody
@@ -48,9 +63,11 @@ public class CarrinhoController {
 		
 		if (itensCompra == null) {
 			mv.addObject("produtos", produtoRepository.findAll());
+			mv.addObject("mouses", produtoRepository.findByMouse(32));
 			System.out.println("nulo");
 		} else {
 			calcularTotal();
+			mv.addObject("mouses", produtoRepository.findByMouse(32));
 			mv.addObject("compra", compra);
 			mv.addObject("listaItens", itensCompra);
 			
@@ -79,18 +96,44 @@ public class CarrinhoController {
 		calcularTotal();
 		mv.addObject("compra", compra);
 		mv.addObject("listaItens", itensCompra);
-	
-		
 		return mv;
 	}
+	
+	private void buscarUsuarioLogada() {
+		Authentication autenticado = SecurityContextHolder.getContext().getAuthentication();
+		if (!(autenticado instanceof AnonymousAuthenticationToken)) { 
+			String email = autenticado.getName();
+			cliente = clienteRepository.buscarClienteEmail(email).get(0);
+		}
+	}
+	
+	
 	@GetMapping("/finalizar")
 	public ModelAndView finalizarCompra() {
+		buscarUsuarioLogada();
 		ModelAndView mv = new ModelAndView("cliente/finalizar");
 		calcularTotal();
 		mv.addObject("compra", compra);
 		mv.addObject("listaItens", itensCompra);
+		mv.addObject("cliente",cliente);
 		return mv;
 	}
+	@PostMapping("/finalizar/confirmar")
+	public ModelAndView confirmarCompra(String formaPagamento) {
+		ModelAndView mv = new ModelAndView("cliente/mensagemFinalizou");
+		compra.setCliente(cliente);
+		compra.setFormaPagamento(formaPagamento);
+		compraRepository.saveAndFlush(compra);
+		
+		for(ItensCompra c:itensCompra) {
+			c.setCompra(compra);
+			itensCompraRepository.saveAndFlush(c);
+		}
+		itensCompra = new ArrayList<>();
+		compra= new Compra();
+		return mv;
+	}
+	
 	@GetMapping("/alterarQuantidade/{id}/{acao}")
 	public String alterarQuantidade(@PathVariable Long id, @PathVariable Integer acao) {
 		ModelAndView mv = new ModelAndView("cliente/carrinho");

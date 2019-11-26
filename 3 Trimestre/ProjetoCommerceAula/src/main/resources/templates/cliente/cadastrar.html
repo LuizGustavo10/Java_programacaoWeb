@@ -28,21 +28,21 @@
 			<br/>
 			
 			<form class="signup-form"
-					action="/cliente/salvarCliente" method="POST"
+					th:action="@{/finalizar/login}" method="POST"
 					style="margin: 10px">
 
 					<fieldset>
 
 						<div class="form-group col-md-12">
 							<label>Email</label> <input type="text" class="form-control"
-								 autofocus="autofocus"
+								 autofocus="autofocus" name="username"
 								placeholder="Informe o email" maxlength="50" />
 						</div>
 
 
 						<div class="form-group col-md-12">
 							<label>Senha</label> <input type="password" class="form-control"
-								 autofocus="autofocus"
+								 autofocus="autofocus" name="password"
 								placeholder="Informe a senha" maxlength="50" />
 						</div>
 			

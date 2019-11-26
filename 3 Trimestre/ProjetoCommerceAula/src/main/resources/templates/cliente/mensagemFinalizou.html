@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Custom fonts for this template-->
+<link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+  
+<title>Compra</title>
+
+</head>
+
+<body class="bg-gradient-primary">
+	
+	<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-12">
+                <div class="p-5">
+                
+                 <div class="text-center">
+                  	<img src="data:image/png;base64,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" width="200"/>
+                    <h1 class="h4 text-gray-900 mb-4">Compra efetuada com sucesso!</h1>
+                  </div>
+                  <div class="text-center">
+                    <h3 class="h4 text-gray-900 mb-4">Obrigado pela preferência!</h3>
+                  </div>
+ 
+				 <div class="form-group">
+				 	<a th:href="@{/loja}" class="btn btn-primary btn-user btn-block"> Voltar</a>
+	             </div>
+                  
+       
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+	
+	
+	
+	<!-- Bootstrap core JavaScript-->
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script th:src="@{/js/sb-admin-2.min.js}"></script>
+  
+</body>
+</html>
+
+

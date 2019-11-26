@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.dev.comapp.models.Cliente;
+import com.dev.comapp.models.Compra;
 import com.dev.comapp.models.Estado;
 import com.dev.comapp.repository.CidadeRepository;
 import com.dev.comapp.repository.ClienteRepository;
@@ -30,11 +31,12 @@ public class ClienteController {
 	
 	@Autowired
 	private CidadeRepository cidadeRepository;
-	
+	private Compra compra = new Compra();
 	
 	@GetMapping("/cliente/cadastrar")
 	public ModelAndView cadastrar(Cliente cliente) {
 		ModelAndView mv = new ModelAndView("cliente/cadastrar");
+		mv.addObject("compra", compra);
 		mv.addObject("cliente", cliente);
 		mv.addObject("cidades", cidadeRepository.findAll());
 		return mv;
