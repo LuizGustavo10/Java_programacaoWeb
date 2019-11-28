@@ -64,10 +64,12 @@ public class CarrinhoController {
 		if (itensCompra == null) {
 			mv.addObject("produtos", produtoRepository.findAll());
 			mv.addObject("mouses", produtoRepository.findByMouse(32));
-			System.out.println("nulo");
+			mv.addObject("cameras", produtoRepository.findByCamera(80));
+			
 		} else {
 			calcularTotal();
 			mv.addObject("mouses", produtoRepository.findByMouse(32));
+			mv.addObject("cameras", produtoRepository.findByCamera(80));
 			mv.addObject("compra", compra);
 			mv.addObject("listaItens", itensCompra);
 			

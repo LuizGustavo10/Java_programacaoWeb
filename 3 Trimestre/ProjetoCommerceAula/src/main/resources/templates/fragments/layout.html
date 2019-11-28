@@ -72,24 +72,36 @@
 						<h6 class="collapse-header">fazer um novo cadastro:</h6>
 
 						<a class="collapse-item"
-							href="administrativo/estado/adicionarEstado">Estado</a> <a
+							th:href="@{/administrativo/estado/adicionarEstado}">Estado</a> 
+							
+							<a
 							class="collapse-item"
-							href="administrativo/cidade/adicionarCidade">Cidade</a> <a
+							th:href="@{/administrativo/cidade/adicionarCidade}">Cidade</a> 
+							
+							<a
 							class="collapse-item"
-							href="administrativo/funcionario/adicionarFuncionario">Funcionário</a>
-						<a class="collapse-item"
-							href="administrativo/cupomDesconto/adicionarCupomDes">Cupom
-							de desconto</a> <a class="collapse-item"
-							href="administrativo/permissoesFuncionario/adicionarPermFunc">Permissões
+							th:href="@{/administrativo/funcionario/adicionarFuncionario}">Funcionário</a>
+						
+							<a class="collapse-item"
+							th:href="@{/administrativo/cupomDesconto/adicionarCupomDes}">Cupom
+							de desconto</a> 
+							
+							<a class="collapse-item"
+							th:href="@{/administrativo/permissoesFuncionario/adicionarPermFunc}">Permissões
 							Funcionario</a> <a class="collapse-item"
-							href="administrativo/papel/adicionarPapeis">Papeis</a> <a
-							class="collapse-item" href="administrativo/marca/adicionarMarca">Marca</a>
+							
+							th:href="@{/administrativo/papel/adicionarPapeis}">Papeis</a> 
+							<a
+							class="collapse-item" th:href="@{/administrativo/marca/adicionarMarca}">Marca</a>
+						
 						<a class="collapse-item"
-							href="administrativo/categoria/adicionarCategoria">Categoria</a>
+							th:href="@{/administrativo/categoria/adicionarCategoria}">Categoria</a>
+							
 						<a class="collapse-item"
-							href="administrativo/produto/adicionarProduto">Produtos</a>
+							th:href="@{/administrativo/produto/adicionarProduto}">Produtos</a>
+							
 						<a class="collapse-item"
-							href="administrativo/entrada/adicionarEntrada">Entrada de Produtos</a>
+							th:href="@{/administrativo/entrada/adicionarEntrada}">Entrada de Produtos</a>
 
 
 					</div>
@@ -106,20 +118,34 @@
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Listagem de Cadastros:</h6>
-						<a class="collapse-item" href="administrativo/estado/estados">Estado</a>
-						<a class="collapse-item" href="administrativo/cidade/cidades">Cidade</a>
-						<a class="collapse-item" href="administrativo/funcionario/funcionarios">Funcionário</a> <a
+						<a class="collapse-item" th:href="@{/administrativo/estado/estados}">Estado</a>
+						
+						<a class="collapse-item" th:href="@{/administrativo/cidade/cidades}">Cidade</a>
+						<a class="collapse-item" th:href="@{/administrativo/funcionario/funcionarios}">Funcionário</a> 
+						
+						<a
 							class="collapse-item"
-							href="administrativo/cupomDesconto/cuponsDes">Cupom de
-							desconto</a> <a class="collapse-item"
-							href="administrativo/permissoesFuncionario/permissoesFuncionarios">Permissões
-							Funcionário</a> <a class="collapse-item"
-							href="administrativo/papel/papeis">Papéis</a> <a
-							class="collapse-item" href="administrativo/marca/marcas">Marcas</a>
+							th:href="@{/administrativo/cupomDesconto/cuponsDes}">Cupom de
+							desconto</a> 
+							
+							
+							<a class="collapse-item"
+							th:href="@{/administrativo/permissoesFuncionario/permissoesFuncionarios}">Permissões
+							Funcionário</a> 
+							
+							<a class="collapse-item"
+							th:href="@{/administrativo/papel/papeis}">Papéis</a> 
+							
+							<a
+							class="collapse-item" th:href="@{/administrativo/marca/marcas}">Marcas</a>
+						
 						<a class="collapse-item"
-							href="administrativo/categoria/categorias">Categorias</a> <a
-							class="collapse-item" href="administrativo/produto/produtos">Produtos</a>
-						<a class="collapse-item" href="administrativo/entrada/entradas">Entrada de produtos</a>
+							th:href="@{/administrativo/categoria/categorias}">Categorias</a>
+							
+							 <a
+							class="collapse-item" th:href="@{/administrativo/produto/produtos}">Produtos</a>
+							
+						<a class="collapse-item" th:href="@{/administrativo/entrada/entradas}">Entrada de produtos</a>
 
 					</div>
 				</div></li>
@@ -447,6 +473,11 @@
 	<!-- JS colocar mais isso no codigo antigo-->
 	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 	<script th:src="@{/js/main.js}"></script>
+	
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script type="text/javascript" th:src="@{/js/papelJS.js}"></script>
 </body>
 
 </html>

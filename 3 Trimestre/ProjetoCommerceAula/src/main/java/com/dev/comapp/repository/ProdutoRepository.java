@@ -20,5 +20,8 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 //	@Query("select e from Produto e where e.categoria like 33")
 	@Query("select e from Produto e where e.categoria.id = ?1")
 	List<Produto>findByMouse(long id);
+	
+	@Query("select e from Produto e where e.categoria.id = ?1")
+	List<Produto>findByCamera(long id);
 
 }
